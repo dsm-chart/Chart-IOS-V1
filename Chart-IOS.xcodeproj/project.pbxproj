@@ -101,7 +101,6 @@
 				79DA26988996054D57F95C23 /* Pods-Chart-IOSTests.debug.xcconfig */,
 				0E7D6B0A142CBFC7ED35DED9 /* Pods-Chart-IOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -590,6 +589,7 @@
 				DEVELOPMENT_TEAM = Z25H7B85Z8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Chart-IOS/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Chart;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -619,6 +619,7 @@
 				DEVELOPMENT_TEAM = Z25H7B85Z8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Chart-IOS/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Chart;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
