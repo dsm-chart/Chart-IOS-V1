@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		27A6411572C1BEEC39E55DCB /* Pods_Chart_IOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E9E2A2A9BDBF98BEE1C788B /* Pods_Chart_IOSTests.framework */; };
+		5757925928070B0D0040C721 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5757925828070B0D0040C721 /* Assets.swift */; };
 		57AA2A5827FE70E4006CDA2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AA2A5727FE70E4006CDA2E /* AppDelegate.swift */; };
 		57AA2A5A27FE70E4006CDA2E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AA2A5927FE70E4006CDA2E /* SceneDelegate.swift */; };
 		57AA2A5C27FE70E4006CDA2E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AA2A5B27FE70E4006CDA2E /* ViewController.swift */; };
@@ -41,6 +42,7 @@
 		0E7D6B0A142CBFC7ED35DED9 /* Pods-Chart-IOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chart-IOSTests.release.xcconfig"; path = "Target Support Files/Pods-Chart-IOSTests/Pods-Chart-IOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		10D22EBBB84EA5600C3A00A9 /* Pods-Chart-IOS-Chart-IOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chart-IOS-Chart-IOSUITests.release.xcconfig"; path = "Target Support Files/Pods-Chart-IOS-Chart-IOSUITests/Pods-Chart-IOS-Chart-IOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 		29A81F62EFE885E27803014F /* Pods_Chart_IOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chart_IOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5757925828070B0D0040C721 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		57AA2A5427FE70E4006CDA2E /* Chart-IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chart-IOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57AA2A5727FE70E4006CDA2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57AA2A5927FE70E4006CDA2E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 		5798BE2B28046B7C00D3AD29 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5757925828070B0D0040C721 /* Assets.swift */,
 				57AA2A6227FE70E5006CDA2E /* LaunchScreen.storyboard */,
 				57AA2A6527FE70E5006CDA2E /* Info.plist */,
 				57AA2A6027FE70E5006CDA2E /* Assets.xcassets */,
@@ -192,6 +195,7 @@
 				57AA2A5127FE70E4006CDA2E /* Frameworks */,
 				57AA2A5227FE70E4006CDA2E /* Resources */,
 				EDA08206F6847EC273066A15 /* [CP] Embed Pods Frameworks */,
+				57C9C5A32806FD7A0090F60C /* SwiftGen */,
 			);
 			buildRules = (
 			);
@@ -333,6 +337,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		57C9C5A32806FD7A0090F60C /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\n\n출처: https://hyesunzzang.tistory.com/230 [dev.ssun]\n";
+		};
 		75FEB44BF9CB576EAA87E980 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -420,6 +442,7 @@
 			files = (
 				57AA2A5C27FE70E4006CDA2E /* ViewController.swift in Sources */,
 				57AA2A5827FE70E4006CDA2E /* AppDelegate.swift in Sources */,
+				5757925928070B0D0040C721 /* Assets.swift in Sources */,
 				57AA2A5A27FE70E4006CDA2E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
