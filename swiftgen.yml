@@ -1,0 +1,10 @@
+
+xcassets:
+  inputs:
+    - Chart-IOS/Resources/Assets.xcassets
+  outputs:
+    - templateName: swift4
+      output: Chart-IOS/Resources/Assets.swift
+      params:
+        forceProvidesNamespaces: true
+
