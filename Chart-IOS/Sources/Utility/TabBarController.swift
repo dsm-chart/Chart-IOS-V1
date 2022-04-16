@@ -6,3 +6,15 @@
 //
 
 import UIKit
+
+
+class TabBarController: UITabBarController {
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.tabBar.tintColor = Asset.mainColor.color
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: Asset.mainColor.color], for: .normal)
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: Asset.mainColor.color], for:.selected)
+    }
+}
