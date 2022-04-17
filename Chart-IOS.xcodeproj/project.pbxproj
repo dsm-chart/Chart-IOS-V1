@@ -12,6 +12,8 @@
 		57368631280C5BA5003120D3 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57368630280C5BA5003120D3 /* BaseTableViewCell.swift */; };
 		57368633280C5C33003120D3 /* SchoolMealVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57368632280C5C33003120D3 /* SchoolMealVC.swift */; };
 		57368635280C5C85003120D3 /* TimeTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57368634280C5C85003120D3 /* TimeTableVC.swift */; };
+		57368637280C5CCE003120D3 /* MainPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57368636280C5CCE003120D3 /* MainPostVC.swift */; };
+		57368639280C5CD9003120D3 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57368638280C5CD9003120D3 /* SettingVC.swift */; };
 		5757925928070B0D0040C721 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5757925828070B0D0040C721 /* Assets.swift */; };
 		57610D29280B056800818D27 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57610D28280B056800818D27 /* TabBarController.swift */; };
 		57AA2A5827FE70E4006CDA2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AA2A5727FE70E4006CDA2E /* AppDelegate.swift */; };
@@ -50,6 +52,8 @@
 		57368630280C5BA5003120D3 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		57368632280C5C33003120D3 /* SchoolMealVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolMealVC.swift; sourceTree = "<group>"; };
 		57368634280C5C85003120D3 /* TimeTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableVC.swift; sourceTree = "<group>"; };
+		57368636280C5CCE003120D3 /* MainPostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPostVC.swift; sourceTree = "<group>"; };
+		57368638280C5CD9003120D3 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		5757925828070B0D0040C721 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		57610D28280B056800818D27 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		57AA2A5427FE70E4006CDA2E /* Chart-IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chart-IOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +131,8 @@
 			children = (
 				57368632280C5C33003120D3 /* SchoolMealVC.swift */,
 				57368634280C5C85003120D3 /* TimeTableVC.swift */,
+				57368636280C5CCE003120D3 /* MainPostVC.swift */,
+				57368638280C5CD9003120D3 /* SettingVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -458,11 +464,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				5736862F280C5945003120D3 /* BaseViewController.swift in Sources */,
+				57368637280C5CCE003120D3 /* MainPostVC.swift in Sources */,
 				57AA2A5827FE70E4006CDA2E /* AppDelegate.swift in Sources */,
 				5757925928070B0D0040C721 /* Assets.swift in Sources */,
 				57610D29280B056800818D27 /* TabBarController.swift in Sources */,
 				57368635280C5C85003120D3 /* TimeTableVC.swift in Sources */,
 				57368633280C5C33003120D3 /* SchoolMealVC.swift in Sources */,
+				57368639280C5CD9003120D3 /* SettingVC.swift in Sources */,
 				57368631280C5BA5003120D3 /* BaseTableViewCell.swift in Sources */,
 				57AA2A5A27FE70E4006CDA2E /* SceneDelegate.swift in Sources */,
 			);
