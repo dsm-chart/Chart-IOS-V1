@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		27A6411572C1BEEC39E55DCB /* Pods_Chart_IOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E9E2A2A9BDBF98BEE1C788B /* Pods_Chart_IOSTests.framework */; };
 		5736862F280C5945003120D3 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5736862E280C5945003120D3 /* BaseViewController.swift */; };
+		57368631280C5BA5003120D3 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57368630280C5BA5003120D3 /* BaseTableViewCell.swift */; };
 		5757925928070B0D0040C721 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5757925828070B0D0040C721 /* Assets.swift */; };
 		57610D29280B056800818D27 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57610D28280B056800818D27 /* TabBarController.swift */; };
 		57AA2A5827FE70E4006CDA2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AA2A5727FE70E4006CDA2E /* AppDelegate.swift */; };
@@ -44,6 +45,7 @@
 		10D22EBBB84EA5600C3A00A9 /* Pods-Chart-IOS-Chart-IOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chart-IOS-Chart-IOSUITests.release.xcconfig"; path = "Target Support Files/Pods-Chart-IOS-Chart-IOSUITests/Pods-Chart-IOS-Chart-IOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 		29A81F62EFE885E27803014F /* Pods_Chart_IOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chart_IOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5736862E280C5945003120D3 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		57368630280C5BA5003120D3 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		5757925828070B0D0040C721 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		57610D28280B056800818D27 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		57AA2A5427FE70E4006CDA2E /* Chart-IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chart-IOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				5736862E280C5945003120D3 /* BaseViewController.swift */,
+				57368630280C5BA5003120D3 /* BaseTableViewCell.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 				57AA2A5827FE70E4006CDA2E /* AppDelegate.swift in Sources */,
 				5757925928070B0D0040C721 /* Assets.swift in Sources */,
 				57610D29280B056800818D27 /* TabBarController.swift in Sources */,
+				57368631280C5BA5003120D3 /* BaseTableViewCell.swift in Sources */,
 				57AA2A5A27FE70E4006CDA2E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
