@@ -33,6 +33,10 @@ class SchoolMealVC: BaseViewController {
     private let lunchNameLabel = UILabel()
     private let dinnerNameLabel = UILabel()
     
+    private let breakfastTextView = UITextView()
+    private let lunchTextView = UITextView()
+    private let dinnerTextView = UITextView()
+    
     
     func makeMealView() {
         [breakfastView, lunchView, dinnerView].forEach {
@@ -43,6 +47,13 @@ class SchoolMealVC: BaseViewController {
         [breakfastNameLabel, lunchNameLabel, dinnerNameLabel].forEach {
             $0.textColor = Asset.mainColor.color
             $0.font = .roundedFont(ofSize: 15, weight: .semibold)
+        }
+        
+        [breakfastTextView, lunchTextView, dinnerTextView].forEach {
+            $0.textColor = Asset.labelColor.color
+            $0.isEditable = false
+            $0.font = .roundedFont(ofSize: 15, weight: .regular)
+            $0.isSelectable = false
         }
         
     }
@@ -56,12 +67,16 @@ class SchoolMealVC: BaseViewController {
         
         let mealViewArray = [breakfastView, lunchView, dinnerView]
         let mealNameLabelArray = [breakfastNameLabel, lunchNameLabel, dinnerNameLabel]
+        let mealTextViewArray = [breakfastTextView, lunchTextView, dinnerTextView]
         
         for count in 0..<3 {
             mealNameLabelArray[count].text = mealName[count]
             view.addSubview(mealViewArray[count])
             mealViewArray[count].addSubview(mealNameLabelArray[count])
+            mealViewArray[count].addSubview(mealTextViewArray[count])
         }
+        
+        //TODO: Dummy Data, 추후 추가 예정
         
         dateLabel.text = "0000-00-00"
         mealTabelNameLabel.text = "무요일 식단표"
@@ -98,19 +113,25 @@ class SchoolMealVC: BaseViewController {
                 $0.left.right.equalTo(self.view).inset(35)
             }
         }
+        
         lunchView.snp.makeConstraints { $0.centerY.centerX.equalTo(view) }
-        breakfastView.snp.makeConstraints {
-            $0.bottom.equalTo(self.lunchView.snp.top).offset(-25)
-        }
-        dinnerView.snp.makeConstraints {
-            $0.top.equalTo(self.lunchView.snp.bottom).offset(25)
-        }
+        breakfastView.snp.makeConstraints { $0.bottom.equalTo(self.lunchView.snp.top).offset(-25) }
+        dinnerView.snp.makeConstraints { $0.top.equalTo(self.lunchView.snp.bottom).offset(25) }
         
         [breakfastNameLabel, lunchNameLabel, dinnerNameLabel].forEach { label in
             label.snp.makeConstraints {
                 $0.top.left.equalTo(15)
                 $0.height.equalTo(20)
             }
+        }
+        
+        [breakfastTextView, lunchTextView, dinnerTextView].forEach { textView in
+            textView.snp.makeConstraints {
+                $0.right.bottom.equalTo(-15)
+                $0.left.equalTo(15)
+                $0.top.equalTo(40)
+            }
+            
         }
         
     }
