@@ -9,6 +9,22 @@ import UIKit
 
 class SchoolMealVC: BaseViewController {
     
+    private let dateBackView = UILabel().then {
+        $0.backgroundColor = .clear
+    }
+    
+    private let dateLabel = UILabel().then {
+        $0.textColor = Asset.mainColor.color
+        $0.font = .roundedFont(ofSize: 15, weight: .semibold)
+        $0.textAlignment = .center
+    }
+    
+    private let mealTabelNameLabel = UILabel().then {
+        $0.textColor = Asset.labelColor.color
+        $0.font = .roundedFont(ofSize: 20, weight: .semibold)
+        $0.textAlignment = .center
+    }
+    
     private let breakfastView = UIView()
     private let lunchView = UIView()
     private let dinnerView = UIView()
@@ -16,7 +32,7 @@ class SchoolMealVC: BaseViewController {
     private let breakfastNameLabel = UILabel()
     private let lunchNameLabel = UILabel()
     private let dinnerNameLabel = UILabel()
-
+    
     
     func makeMealView() {
         [breakfastView, lunchView, dinnerView].forEach {
@@ -28,12 +44,15 @@ class SchoolMealVC: BaseViewController {
             $0.textColor = Asset.mainColor.color
             $0.font = .roundedFont(ofSize: 15, weight: .semibold)
         }
-
+        
     }
     
     func addSubView() {
         
         let mealName =  ["아침", "점심", "저녁"]
+        
+        view.addSubview(dateBackView)
+        [dateLabel, mealTabelNameLabel].forEach { dateBackView.addSubview($0) }
         
         let mealViewArray = [breakfastView, lunchView, dinnerView]
         let mealNameLabelArray = [breakfastNameLabel, lunchNameLabel, dinnerNameLabel]
@@ -42,8 +61,11 @@ class SchoolMealVC: BaseViewController {
             mealNameLabelArray[count].text = mealName[count]
             view.addSubview(mealViewArray[count])
             mealViewArray[count].addSubview(mealNameLabelArray[count])
-            
         }
+        
+        dateLabel.text = "0000-00-00"
+        mealTabelNameLabel.text = "무요일 식단표"
+        
     }
     
     override func configureUI() {
@@ -52,6 +74,23 @@ class SchoolMealVC: BaseViewController {
     }
     
     override func setupConstraints() {
+        dateBackView.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide)
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(breakfastView.snp.top)
+        }
+        
+        dateLabel.snp.makeConstraints {
+            $0.height.equalTo(35)
+            $0.centerX.equalTo(view)
+            $0.bottom.equalTo(mealTabelNameLabel.snp.top)
+        }
+        
+        mealTabelNameLabel.snp.makeConstraints {
+            $0.height.equalTo(35)
+            $0.centerX.equalTo(view)
+            $0.centerY.equalTo(dateBackView).offset(20)
+        }
         
         [breakfastView, lunchView, dinnerView].forEach { view in
             view.snp.makeConstraints {
