@@ -23,6 +23,7 @@
 		57AA2A6F27FE70E5006CDA2E /* Chart_IOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AA2A6E27FE70E5006CDA2E /* Chart_IOSTests.swift */; };
 		57AA2A7927FE70E5006CDA2E /* Chart_IOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AA2A7827FE70E5006CDA2E /* Chart_IOSUITests.swift */; };
 		57AA2A7B27FE70E5006CDA2E /* Chart_IOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AA2A7A27FE70E5006CDA2E /* Chart_IOSUITestsLaunchTests.swift */; };
+		57B29D38280D56B600EB9AB0 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B29D37280D56B600EB9AB0 /* Font.swift */; };
 		94BD830BAA49D94F6E02693A /* Pods_Chart_IOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29A81F62EFE885E27803014F /* Pods_Chart_IOS.framework */; };
 		9CDAAD33A5CC04CAAADA9BE1 /* Pods_Chart_IOS_Chart_IOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B437AC0BDC07E5D47699567A /* Pods_Chart_IOS_Chart_IOSUITests.framework */; };
 /* End PBXBuildFile section */
@@ -67,6 +68,7 @@
 		57AA2A7427FE70E5006CDA2E /* Chart-IOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Chart-IOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57AA2A7827FE70E5006CDA2E /* Chart_IOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chart_IOSUITests.swift; sourceTree = "<group>"; };
 		57AA2A7A27FE70E5006CDA2E /* Chart_IOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chart_IOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		57B29D37280D56B600EB9AB0 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		79DA26988996054D57F95C23 /* Pods-Chart-IOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chart-IOSTests.debug.xcconfig"; path = "Target Support Files/Pods-Chart-IOSTests/Pods-Chart-IOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8E9E2A2A9BDBF98BEE1C788B /* Pods_Chart_IOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chart_IOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B437AC0BDC07E5D47699567A /* Pods_Chart_IOS_Chart_IOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chart_IOS_Chart_IOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,6 +171,7 @@
 		5798BE2B28046B7C00D3AD29 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				57B29D36280D569A00EB9AB0 /* Extension */,
 				5757925828070B0D0040C721 /* Assets.swift */,
 				57AA2A6027FE70E5006CDA2E /* Assets.xcassets */,
 				57AA2A6227FE70E5006CDA2E /* LaunchScreen.storyboard */,
@@ -223,6 +226,14 @@
 				57AA2A7A27FE70E5006CDA2E /* Chart_IOSUITestsLaunchTests.swift */,
 			);
 			path = "Chart-IOSUITests";
+			sourceTree = "<group>";
+		};
+		57B29D36280D569A00EB9AB0 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				57B29D37280D56B600EB9AB0 /* Font.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -464,6 +475,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5736862F280C5945003120D3 /* BaseViewController.swift in Sources */,
+				57B29D38280D56B600EB9AB0 /* Font.swift in Sources */,
 				57368637280C5CCE003120D3 /* MainPostVC.swift in Sources */,
 				57AA2A5827FE70E4006CDA2E /* AppDelegate.swift in Sources */,
 				5757925928070B0D0040C721 /* Assets.swift in Sources */,
