@@ -13,12 +13,12 @@ class TabBarController: UITabBarController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let tabOne = UINavigationController(rootViewController: SchoolMealVC())
+        let tabOne = SchoolMealVC()
         let tabOneBarItem = UITabBarItem(title: "급식", image: UIImage(systemName: "fork.knife"), tag: 1)
         
         tabOne.tabBarItem = tabOneBarItem
         
-        let tabTwo = UINavigationController(rootViewController: TimeTableVC())
+        let tabTwo = TimeTableVC()
         let tabTwoBarItem2 = UITabBarItem(title: "시간표", image: UIImage(systemName: "timer"), tag: 2)
         
         tabTwo.tabBarItem = tabTwoBarItem2
