@@ -7,6 +7,8 @@ target 'Chart-IOS' do
 
   # Pods for Chart-IOS
 
+inhibit_all_warnings!
+
   target 'Chart-IOSTests' do
     inherit! :search_paths
     # Pods for testing
