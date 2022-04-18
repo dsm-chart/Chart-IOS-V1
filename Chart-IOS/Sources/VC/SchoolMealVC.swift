@@ -51,6 +51,7 @@ class SchoolMealVC: BaseViewController {
         
         [breakfastTextView, lunchTextView, dinnerTextView].forEach {
             $0.textColor = Asset.labelColor.color
+            $0.backgroundColor = Asset.viewColor.color
             $0.isEditable = false
             $0.font = .roundedFont(ofSize: 15, weight: .regular)
             $0.isSelectable = false
