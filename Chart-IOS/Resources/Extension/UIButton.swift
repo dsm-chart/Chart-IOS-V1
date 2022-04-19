@@ -11,9 +11,11 @@ extension UIButton {
     func makeMyDesign(
         color : UIColor,
         title : String,
-        titleColor : UIColor) {
+        titleColor : UIColor,
+        image : UIImage? = nil) {
             self.setTitleColor(titleColor, for: .normal)
             self.setTitle(title, for: .normal)
+            self.setImage(image, for: .normal)
             self.backgroundColor = color
             self.layer.cornerRadius = 10
         }
