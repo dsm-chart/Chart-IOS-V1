@@ -22,9 +22,19 @@ class SignInVC: BaseViewController {
     private let textFieldBackView3 = UIView()
     
     func addSubView() {
+        let textFieldArraay = [schoolNameTextField, schoolGradeTextField, schoolClassNumberTextField]
+        let backViewArray = [textFieldBackView1, textFieldBackView2, textFieldBackView3]
+        
+        [signInNameLabbel, signInDoneButton].forEach {
+            view.addSubview($0)
+        }
+        for count in 0..<3 {
+            view.addSubview(backViewArray[count])
+            backViewArray[count].addSubview(textFieldArraay[count])
+        }
         
     }
-        
+    
     override func configureUI() {
         signInDoneButton.makeMyDesign(color: Asset.mainColor.color, title: "완료", titleColor: .white)
         addSubView()
