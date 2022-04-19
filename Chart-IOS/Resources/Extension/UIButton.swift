@@ -17,6 +17,7 @@ extension UIButton {
             self.setTitle(title, for: .normal)
             self.setImage(image, for: .normal)
             self.backgroundColor = color
-            self.layer.cornerRadius = 10
+            self.layer.cornerRadius = 15
+            
         }
 }
