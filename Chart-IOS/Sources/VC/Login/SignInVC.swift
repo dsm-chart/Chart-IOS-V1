@@ -10,7 +10,12 @@ import UIKit
 
 class SignInVC: BaseViewController {
     
-    private let signInNameLabbel = UILabel()
+    private let signInNameLabbel = UILabel().then {
+        $0.textColor = Asset.labelColor.color
+        $0.font = .roundedFont(ofSize: 35, weight: .semibold)
+        $0.textAlignment = .center
+    }
+    
     private let signInDoneButton = UIButton()
     
     private let schoolNameTextField = UILabel().then {
