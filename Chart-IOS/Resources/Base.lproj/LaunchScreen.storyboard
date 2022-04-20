@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lunchAppIcon" translatesAutoresizingMaskIntoConstraints="NO" id="GCm-Hm-Ikx">
-                                <rect key="frame" x="82" y="264" width="250" height="250"/>
+                                <rect key="frame" x="82" y="223" width="250" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="T3w-Up-mV4"/>
                                     <constraint firstAttribute="width" constant="250" id="gJg-i2-hMD"/>
@@ -33,9 +33,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="GCm-Hm-Ikx" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="5VF-sZ-XgW"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lXX-Ls-Bzf" secondAttribute="trailing" constant="50" id="7ud-7M-ap9"/>
-                            <constraint firstItem="GCm-Hm-Ikx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="220" id="9Kx-O7-FeI"/>
                             <constraint firstItem="lXX-Ls-Bzf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="B1e-l2-nId"/>
+                            <constraint firstItem="GCm-Hm-Ikx" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-100" id="KUB-jk-NFn"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="lXX-Ls-Bzf" secondAttribute="bottom" constant="20" id="xCn-xZ-myx"/>
                             <constraint firstItem="GCm-Hm-Ikx" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="yXf-gp-Ymx"/>
                         </constraints>
