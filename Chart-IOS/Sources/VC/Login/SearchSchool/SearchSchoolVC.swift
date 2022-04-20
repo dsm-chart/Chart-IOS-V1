@@ -16,7 +16,6 @@ class SearchSchoolVC: BaseViewController, UITableViewDelegate, UITableViewDataSo
         $0.layer.cornerRadius = 10
     }
     
-    
     private let schoolSearchTextField = UITextField().then {
         $0.borderStyle = .none
         $0.font = .roundedFont(ofSize: 18, weight: .medium)
@@ -29,17 +28,20 @@ class SearchSchoolVC: BaseViewController, UITableViewDelegate, UITableViewDataSo
     
     let tableView = UITableView().then {
         $0.register(SearchSchoolTableViewCell.self, forCellReuseIdentifier: "searchSchoolTableViewCell")
-
         $0.backgroundColor = .clear
         $0.separatorStyle = .none
     }
+    
+    private let searchButton = UIButton()
     
     override func configureUI() {
         
         tableView.delegate = self
         tableView.dataSource = self
         
-        [textFieldBackView, tableView].forEach {
+        searchButton.makeMyDesign(color: Asset.mainColor.color, title: " 검색", titleColor: .white, image: Asset.github.image)
+        
+        [textFieldBackView, tableView, searchButton].forEach {
             view.addSubview($0)
         }
         textFieldBackView.addSubview(schoolSearchTextField)
@@ -52,7 +54,7 @@ class SearchSchoolVC: BaseViewController, UITableViewDelegate, UITableViewDataSo
             $0.height.equalTo(50)
             $0.leading.trailing.equalTo(view).inset(25)
         }
-
+        
         schoolSearchTextField.snp.makeConstraints {
             $0.leading.trailing.equalTo(textFieldBackView).inset(10)
             $0.top.bottom.equalTo(textFieldBackView).inset(15)
@@ -62,6 +64,12 @@ class SearchSchoolVC: BaseViewController, UITableViewDelegate, UITableViewDataSo
             $0.leading.trailing.equalToSuperview()
             $0.top.equalTo(textFieldBackView.snp.bottom).offset(10)
             $0.bottom.equalToSuperview()
+        }
+        
+        searchButton.snp.makeConstraints {
+            $0.leading.trailing.equalTo(view).inset(15)
+            $0.height.equalTo(50)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide).offset(-5)
         }
         
     }
@@ -75,5 +83,5 @@ class SearchSchoolVC: BaseViewController, UITableViewDelegate, UITableViewDataSo
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return SearchSchoolTableViewCell()
     }
-
+    
 }
