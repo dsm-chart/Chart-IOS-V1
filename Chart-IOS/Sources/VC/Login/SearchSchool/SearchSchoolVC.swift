@@ -16,11 +16,6 @@ class SearchSchoolVC: BaseViewController {
         $0.layer.cornerRadius = 10
     }
     
-    private let textFieldBackShadowView = UIView()
-    
-    private let gradintLayer = CAGradientLayer().then {
-        $0.colors = [Asset.mainColor.color.cgColor, UIColor.clear.cgColor]
-    }
     
     private let schoolSearchTextField = UITextField().then {
         $0.borderStyle = .none
@@ -39,14 +34,12 @@ class SearchSchoolVC: BaseViewController {
     
     override func configureUI() {
         
-        gradintLayer.frame = self.view.bounds
-        
-        [textFieldBackShadowView, textFieldBackView, tableView].forEach {
+        [textFieldBackView, tableView].forEach {
             view.addSubview($0)
         }
         
         textFieldBackView.addSubview(schoolSearchTextField)
-//        textFieldBackShadowView.layer.addSublayer(gradintLayer)
+        
     }
     
     override func setupConstraints() {
@@ -55,6 +48,7 @@ class SearchSchoolVC: BaseViewController {
             $0.height.equalTo(50)
             $0.leading.trailing.equalTo(view).inset(25)
         }
+
         schoolSearchTextField.snp.makeConstraints {
             $0.leading.trailing.equalTo(textFieldBackView).inset(10)
             $0.top.bottom.equalTo(textFieldBackView).inset(15)
