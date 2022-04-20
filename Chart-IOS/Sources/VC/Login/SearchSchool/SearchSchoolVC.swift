@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SearchSchoolVC: BaseViewController {
+class SearchSchoolVC: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     
     private let textFieldBackView = UIView().then {
         $0.backgroundColor = .clear
@@ -28,16 +28,20 @@ class SearchSchoolVC: BaseViewController {
     }
     
     let tableView = UITableView().then {
+        $0.register(SearchSchoolTableViewCell.self, forCellReuseIdentifier: "searchSchoolTableViewCell")
+
         $0.backgroundColor = .clear
         $0.separatorStyle = .none
     }
     
     override func configureUI() {
         
+        tableView.delegate = self
+        tableView.dataSource = self
+        
         [textFieldBackView, tableView].forEach {
             view.addSubview($0)
         }
-        
         textFieldBackView.addSubview(schoolSearchTextField)
         
     }
@@ -54,6 +58,22 @@ class SearchSchoolVC: BaseViewController {
             $0.top.bottom.equalTo(textFieldBackView).inset(15)
         }
         
+        tableView.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview()
+            $0.top.equalTo(textFieldBackView.snp.bottom).offset(10)
+            $0.bottom.equalToSuperview()
+        }
+        
+    }
+    
+    // dunny & Test Code
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return SearchSchoolTableViewCell()
     }
 
 }
