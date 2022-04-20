@@ -53,7 +53,7 @@ class SignInVC: BaseViewController {
         }
         
         schoolGradeTextField.attributedPlaceholder = NSAttributedString(string: "학년을 입력하세요 (ex : 1", attributes:attributes)
-        schoolClassNumberTextField.attributedPlaceholder = NSAttributedString(string: "학변을 입력하세요 (ex : 01", attributes:attributes)
+        schoolClassNumberTextField.attributedPlaceholder = NSAttributedString(string: "번호를 입력하세요 (ex : 01", attributes:attributes)
         
     }
     
@@ -87,11 +87,10 @@ class SignInVC: BaseViewController {
         }
         
         [schoolNameTextField, schoolGradeTextField, schoolClassNumberTextField].forEach { textField in
-            
             textField.snp.makeConstraints {
-                $0.leading.equalTo(10)
-                $0.trailing.equalTo(-10)
-                $0.top.bottom.equalTo(15)
+                $0.leading.trailing.equalTo(textFieldBackView1).inset(10)
+                
+                $0.top.equalTo(15)
                 $0.bottom.equalTo(-15)
             }
             
