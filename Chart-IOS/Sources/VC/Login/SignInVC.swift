@@ -13,13 +13,43 @@ class SignInVC: BaseViewController {
     private let signInNameLabbel = UILabel()
     private let signInDoneButton = UIButton()
     
-    private let schoolNameTextField = UITextField()
+    private let schoolNameTextField = UILabel().then {
+        $0.text = "학교를 검색하세요"
+        $0.font = .roundedFont(ofSize: 18, weight: .medium)
+        $0.textColor = .separator
+    }
+    
     private let schoolGradeTextField = UITextField()
     private let schoolClassNumberTextField = UITextField()
     
     private let textFieldBackView1 = UIView()
     private let textFieldBackView2 = UIView()
     private let textFieldBackView3 = UIView()
+    
+    func makeTextField() {
+        
+        let attributes = [
+            NSAttributedString.Key.foregroundColor: UIColor.separator,
+            NSAttributedString.Key.font : UIFont.roundedFont(ofSize: 18, weight: .medium)
+        ]
+        
+        [schoolGradeTextField, schoolClassNumberTextField].forEach {
+            $0.borderStyle = .none
+            $0.font = .roundedFont(ofSize: 18, weight: .medium)
+            $0.tintColor = Asset.mainColor.color
+         }
+        
+        [textFieldBackView1, textFieldBackView2, textFieldBackView3].forEach {
+            $0.backgroundColor = .clear
+            $0.layer.borderColor = Asset.mainColor.color.cgColor
+            $0.layer.borderWidth = 2
+            $0.layer.cornerRadius = 10
+        }
+        
+        schoolGradeTextField.attributedPlaceholder = NSAttributedString(string: "학년을 입력하세요 (ex : 1", attributes:attributes)
+        schoolClassNumberTextField.attributedPlaceholder = NSAttributedString(string: "학변을 입력하세요 (ex : 01", attributes:attributes)
+        
+    }
     
     func addSubView() {
         let textFieldArraay = [schoolNameTextField, schoolGradeTextField, schoolClassNumberTextField]
