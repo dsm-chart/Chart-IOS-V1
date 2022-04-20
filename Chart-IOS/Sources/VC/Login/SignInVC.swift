@@ -11,6 +11,7 @@ import UIKit
 class SignInVC: BaseViewController {
     
     private let signInNameLabbel = UILabel().then {
+        $0.text = "Sign in"
         $0.textColor = Asset.labelColor.color
         $0.font = .roundedFont(ofSize: 35, weight: .semibold)
         $0.textAlignment = .center
@@ -42,7 +43,7 @@ class SignInVC: BaseViewController {
             $0.borderStyle = .none
             $0.font = .roundedFont(ofSize: 18, weight: .medium)
             $0.tintColor = Asset.mainColor.color
-         }
+        }
         
         [textFieldBackView1, textFieldBackView2, textFieldBackView3].forEach {
             $0.backgroundColor = .clear
@@ -72,7 +73,53 @@ class SignInVC: BaseViewController {
     
     override func configureUI() {
         signInDoneButton.makeMyDesign(color: Asset.mainColor.color, title: "완료", titleColor: .white)
+        makeTextField()
         addSubView()
+    }
+    
+    override func setupConstraints() {
+        
+        [textFieldBackView1, textFieldBackView2, textFieldBackView3].forEach { textField in
+            textField.snp.makeConstraints {
+                $0.height.equalTo(50)
+                $0.leading.trailing.equalTo(view).inset(25)
+            }
+        }
+        
+        [schoolNameTextField, schoolGradeTextField, schoolClassNumberTextField].forEach { textField in
+            
+            textField.snp.makeConstraints {
+                $0.leading.equalTo(10)
+                $0.trailing.equalTo(-10)
+                $0.top.bottom.equalTo(15)
+                $0.bottom.equalTo(-15)
+            }
+            
+        }
+        
+        textFieldBackView1.snp.makeConstraints {
+            $0.top.equalTo(signInNameLabbel.snp.bottom).offset(50)
+        }
+        textFieldBackView2.snp.makeConstraints {
+            $0.top.equalTo(textFieldBackView1.snp.bottom).offset(25)
+        }
+        textFieldBackView3.snp.makeConstraints {
+            $0.top.equalTo(textFieldBackView2.snp.bottom).offset(25)
+        }
+        
+        
+        signInNameLabbel.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(20)
+            $0.height.equalTo(90)
+            $0.leading.trailing.equalTo(view).inset(100)
+        }
+        
+        signInDoneButton.snp.makeConstraints {
+            $0.leading.trailing.equalTo(view).inset(15)
+            $0.height.equalTo(50)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide).offset(-5)
+        }
+        
     }
     
 }
