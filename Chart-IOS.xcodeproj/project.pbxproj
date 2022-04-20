@@ -15,6 +15,7 @@
 		57368637280C5CCE003120D3 /* MainPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57368636280C5CCE003120D3 /* MainPostVC.swift */; };
 		57368639280C5CD9003120D3 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57368638280C5CD9003120D3 /* SettingVC.swift */; };
 		5757925928070B0D0040C721 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5757925828070B0D0040C721 /* Assets.swift */; };
+		575B9774280E7CBD00186359 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575B9773280E7CBD00186359 /* UIButton.swift */; };
 		57610D29280B056800818D27 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57610D28280B056800818D27 /* TabBarController.swift */; };
 		57AA2A5827FE70E4006CDA2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AA2A5727FE70E4006CDA2E /* AppDelegate.swift */; };
 		57AA2A5A27FE70E4006CDA2E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AA2A5927FE70E4006CDA2E /* SceneDelegate.swift */; };
@@ -24,6 +25,9 @@
 		57AA2A7927FE70E5006CDA2E /* Chart_IOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AA2A7827FE70E5006CDA2E /* Chart_IOSUITests.swift */; };
 		57AA2A7B27FE70E5006CDA2E /* Chart_IOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AA2A7A27FE70E5006CDA2E /* Chart_IOSUITestsLaunchTests.swift */; };
 		57B29D38280D56B600EB9AB0 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B29D37280D56B600EB9AB0 /* Font.swift */; };
+		57B29D3B280E575E00EB9AB0 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B29D3A280E575E00EB9AB0 /* LoginVC.swift */; };
+		57B29D3D280E5B0D00EB9AB0 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B29D3C280E5B0D00EB9AB0 /* SignInVC.swift */; };
+		57B29D3F280E5B5B00EB9AB0 /* SearchSchoolVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B29D3E280E5B5B00EB9AB0 /* SearchSchoolVC.swift */; };
 		94BD830BAA49D94F6E02693A /* Pods_Chart_IOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29A81F62EFE885E27803014F /* Pods_Chart_IOS.framework */; };
 		9CDAAD33A5CC04CAAADA9BE1 /* Pods_Chart_IOS_Chart_IOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B437AC0BDC07E5D47699567A /* Pods_Chart_IOS_Chart_IOSUITests.framework */; };
 /* End PBXBuildFile section */
@@ -56,6 +60,7 @@
 		57368636280C5CCE003120D3 /* MainPostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPostVC.swift; sourceTree = "<group>"; };
 		57368638280C5CD9003120D3 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		5757925828070B0D0040C721 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		575B9773280E7CBD00186359 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		57610D28280B056800818D27 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		57AA2A5427FE70E4006CDA2E /* Chart-IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chart-IOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57AA2A5727FE70E4006CDA2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +74,9 @@
 		57AA2A7827FE70E5006CDA2E /* Chart_IOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chart_IOSUITests.swift; sourceTree = "<group>"; };
 		57AA2A7A27FE70E5006CDA2E /* Chart_IOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chart_IOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		57B29D37280D56B600EB9AB0 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		57B29D3A280E575E00EB9AB0 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		57B29D3C280E5B0D00EB9AB0 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
+		57B29D3E280E5B5B00EB9AB0 /* SearchSchoolVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSchoolVC.swift; sourceTree = "<group>"; };
 		79DA26988996054D57F95C23 /* Pods-Chart-IOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chart-IOSTests.debug.xcconfig"; path = "Target Support Files/Pods-Chart-IOSTests/Pods-Chart-IOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8E9E2A2A9BDBF98BEE1C788B /* Pods_Chart_IOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chart_IOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B437AC0BDC07E5D47699567A /* Pods_Chart_IOS_Chart_IOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chart_IOS_Chart_IOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +139,7 @@
 		5736862C280C58BF003120D3 /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				57B29D39280E574E00EB9AB0 /* Login */,
 				57368632280C5C33003120D3 /* SchoolMealVC.swift */,
 				57368634280C5C85003120D3 /* TimeTableVC.swift */,
 				57368636280C5CCE003120D3 /* MainPostVC.swift */,
@@ -232,8 +241,19 @@
 			isa = PBXGroup;
 			children = (
 				57B29D37280D56B600EB9AB0 /* Font.swift */,
+				575B9773280E7CBD00186359 /* UIButton.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		57B29D39280E574E00EB9AB0 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				57B29D3A280E575E00EB9AB0 /* LoginVC.swift */,
+				57B29D3C280E5B0D00EB9AB0 /* SignInVC.swift */,
+				57B29D3E280E5B5B00EB9AB0 /* SearchSchoolVC.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -476,10 +496,14 @@
 			files = (
 				5736862F280C5945003120D3 /* BaseViewController.swift in Sources */,
 				57B29D38280D56B600EB9AB0 /* Font.swift in Sources */,
+				57B29D3B280E575E00EB9AB0 /* LoginVC.swift in Sources */,
 				57368637280C5CCE003120D3 /* MainPostVC.swift in Sources */,
 				57AA2A5827FE70E4006CDA2E /* AppDelegate.swift in Sources */,
+				575B9774280E7CBD00186359 /* UIButton.swift in Sources */,
+				57B29D3D280E5B0D00EB9AB0 /* SignInVC.swift in Sources */,
 				5757925928070B0D0040C721 /* Assets.swift in Sources */,
 				57610D29280B056800818D27 /* TabBarController.swift in Sources */,
+				57B29D3F280E5B5B00EB9AB0 /* SearchSchoolVC.swift in Sources */,
 				57368635280C5C85003120D3 /* TimeTableVC.swift in Sources */,
 				57368633280C5C33003120D3 /* SchoolMealVC.swift in Sources */,
 				57368639280C5CD9003120D3 /* SettingVC.swift in Sources */,
