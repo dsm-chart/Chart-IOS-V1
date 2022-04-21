@@ -9,6 +9,10 @@ import UIKit
 
 class SearchSchoolVC: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     
+    private let headFooterView = UIView().then {
+        $0.backgroundColor = .clear
+    }
+    
     private let textFieldBackView = UIView().then {
         $0.backgroundColor = .clear
         $0.layer.borderColor = Asset.mainColor.color.cgColor
@@ -63,11 +67,11 @@ class SearchSchoolVC: BaseViewController, UITableViewDelegate, UITableViewDataSo
         tableView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
             $0.top.equalTo(textFieldBackView.snp.bottom).offset(10)
-            $0.bottom.equalToSuperview()
+            $0.bottom.equalTo(searchButton.snp.top).offset(25)
         }
         
         searchButton.snp.makeConstraints {
-            $0.leading.trailing.equalTo(view).inset(15)
+            $0.leading.trailing.equalTo(view).inset(25)
             $0.height.equalTo(50)
             $0.bottom.equalTo(view.safeAreaLayoutGuide).offset(-5)
         }
@@ -82,6 +86,16 @@ class SearchSchoolVC: BaseViewController, UITableViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return SearchSchoolTableViewCell()
+    }
+    
+    /// Header & Footer View
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return headFooterView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 30
     }
     
 }
