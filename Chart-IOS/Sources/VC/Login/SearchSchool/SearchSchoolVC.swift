@@ -43,7 +43,7 @@ class SearchSchoolVC: BaseViewController, UITableViewDelegate, UITableViewDataSo
         tableView.delegate = self
         tableView.dataSource = self
         
-        searchButton.makeMyDesign(color: Asset.mainColor.color, title: " 검색", titleColor: .white, image: Asset.github.image)
+        searchButton.makeMyDesign(color: Asset.mainColor.color, title: " 검색", titleColor: .white)
         
         [textFieldBackView, tableView, searchButton].forEach {
             view.addSubview($0)
