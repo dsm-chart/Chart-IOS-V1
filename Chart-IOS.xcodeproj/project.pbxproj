@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		27A6411572C1BEEC39E55DCB /* Pods_Chart_IOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E9E2A2A9BDBF98BEE1C788B /* Pods_Chart_IOSTests.framework */; };
+		572D56912810130100F5D457 /* SearchSchoolTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572D56902810130100F5D457 /* SearchSchoolTableViewCell.swift */; };
 		5736862F280C5945003120D3 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5736862E280C5945003120D3 /* BaseViewController.swift */; };
 		57368631280C5BA5003120D3 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57368630280C5BA5003120D3 /* BaseTableViewCell.swift */; };
 		57368633280C5C33003120D3 /* SchoolMealVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57368632280C5C33003120D3 /* SchoolMealVC.swift */; };
@@ -53,6 +54,7 @@
 		0E7D6B0A142CBFC7ED35DED9 /* Pods-Chart-IOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chart-IOSTests.release.xcconfig"; path = "Target Support Files/Pods-Chart-IOSTests/Pods-Chart-IOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		10D22EBBB84EA5600C3A00A9 /* Pods-Chart-IOS-Chart-IOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chart-IOS-Chart-IOSUITests.release.xcconfig"; path = "Target Support Files/Pods-Chart-IOS-Chart-IOSUITests/Pods-Chart-IOS-Chart-IOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 		29A81F62EFE885E27803014F /* Pods_Chart_IOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chart_IOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		572D56902810130100F5D457 /* SearchSchoolTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSchoolTableViewCell.swift; sourceTree = "<group>"; };
 		5736862E280C5945003120D3 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		57368630280C5BA5003120D3 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		57368632280C5C33003120D3 /* SchoolMealVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolMealVC.swift; sourceTree = "<group>"; };
@@ -134,6 +136,15 @@
 				8E9E2A2A9BDBF98BEE1C788B /* Pods_Chart_IOSTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		572D568F281012EE00F5D457 /* SearchSchool */ = {
+			isa = PBXGroup;
+			children = (
+				572D56902810130100F5D457 /* SearchSchoolTableViewCell.swift */,
+				57B29D3E280E5B5B00EB9AB0 /* SearchSchoolVC.swift */,
+			);
+			path = SearchSchool;
 			sourceTree = "<group>";
 		};
 		5736862C280C58BF003120D3 /* VC */ = {
@@ -249,9 +260,9 @@
 		57B29D39280E574E00EB9AB0 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				572D568F281012EE00F5D457 /* SearchSchool */,
 				57B29D3A280E575E00EB9AB0 /* LoginVC.swift */,
 				57B29D3C280E5B0D00EB9AB0 /* SignInVC.swift */,
-				57B29D3E280E5B5B00EB9AB0 /* SearchSchoolVC.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -505,6 +516,7 @@
 				57610D29280B056800818D27 /* TabBarController.swift in Sources */,
 				57B29D3F280E5B5B00EB9AB0 /* SearchSchoolVC.swift in Sources */,
 				57368635280C5C85003120D3 /* TimeTableVC.swift in Sources */,
+				572D56912810130100F5D457 /* SearchSchoolTableViewCell.swift in Sources */,
 				57368633280C5C33003120D3 /* SchoolMealVC.swift in Sources */,
 				57368639280C5CD9003120D3 /* SettingVC.swift in Sources */,
 				57368631280C5BA5003120D3 /* BaseTableViewCell.swift in Sources */,
