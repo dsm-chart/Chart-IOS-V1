@@ -150,11 +150,11 @@
 		5736862C280C58BF003120D3 /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				57491CD828125F3B0021D28E /* Setting */,
+				57491CD7281250ED0021D28E /* Post */,
+				57491CD6281250D60021D28E /* TimeTable */,
+				57491CD528124EA00021D28E /* SchoolMeal */,
 				57B29D39280E574E00EB9AB0 /* Login */,
-				57368632280C5C33003120D3 /* SchoolMealVC.swift */,
-				57368634280C5C85003120D3 /* TimeTableVC.swift */,
-				57368636280C5CCE003120D3 /* MainPostVC.swift */,
-				57368638280C5CD9003120D3 /* SettingVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -166,6 +166,38 @@
 				57368630280C5BA5003120D3 /* BaseTableViewCell.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		57491CD528124EA00021D28E /* SchoolMeal */ = {
+			isa = PBXGroup;
+			children = (
+				57368632280C5C33003120D3 /* SchoolMealVC.swift */,
+			);
+			path = SchoolMeal;
+			sourceTree = "<group>";
+		};
+		57491CD6281250D60021D28E /* TimeTable */ = {
+			isa = PBXGroup;
+			children = (
+				57368634280C5C85003120D3 /* TimeTableVC.swift */,
+			);
+			path = TimeTable;
+			sourceTree = "<group>";
+		};
+		57491CD7281250ED0021D28E /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				57368636280C5CCE003120D3 /* MainPostVC.swift */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
+		57491CD828125F3B0021D28E /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				57368638280C5CD9003120D3 /* SettingVC.swift */,
+			);
+			path = Setting;
 			sourceTree = "<group>";
 		};
 		57610D27280B01CD00818D27 /* Utility */ = {
