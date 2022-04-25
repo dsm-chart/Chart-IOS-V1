@@ -5,8 +5,8 @@
 //  Created by 김대희 on 2022/04/19.
 //
 
-import Foundation
 import UIKit
+import RxKeyboard
 
 class SignInVC: BaseViewController {
     
@@ -75,6 +75,7 @@ class SignInVC: BaseViewController {
         signInDoneButton.makeMyDesign(color: Asset.mainColor.color, title: "완료", titleColor: .white)
         makeTextField()
         addSubView()
+        bind()
     }
     
     override func setupConstraints() {
@@ -116,9 +117,27 @@ class SignInVC: BaseViewController {
         signInDoneButton.snp.makeConstraints {
             $0.leading.trailing.equalTo(view).inset(15)
             $0.height.equalTo(50)
-            $0.bottom.equalTo(view.safeAreaLayoutGuide).offset(-5)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(5)
         }
-        
     }
     
+    func bind() {
+        
+        let scenes = UIApplication.shared.connectedScenes
+        let windowScenes = scenes.first as? UIWindowScene
+        let window = windowScenes?.windows.first
+        let extra = window!.safeAreaInsets.bottom
+        
+        RxKeyboard.instance.visibleHeight
+            .skip(1)
+            .drive(onNext : { keyboardVisibleHeight in
+                UIView.animate(withDuration: 0) {
+                    self.signInDoneButton.snp.updateConstraints {
+                        $0.bottom.equalTo(self.view.safeAreaLayoutGuide).inset(keyboardVisibleHeight - extra + 15)
+                    }
+                }
+                self.view.layoutIfNeeded()
+            })
+            .disposed(by: disposeBag)
+    }
 }
