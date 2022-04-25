@@ -4,12 +4,14 @@ PODS:
     - Charts/Core (= 4.0.2)
   - Charts/Core (4.0.2):
     - SwiftAlgorithms (~> 1.0)
+  - FlexLayout (1.3.24)
   - Kingfisher (7.2.0)
   - Moya/Core (15.0.0):
     - Alamofire (~> 5.0)
   - Moya/RxSwift (15.0.0):
     - Moya/Core
     - RxSwift (~> 6.0)
+  - PinLayout (1.10.2)
   - RxAlamofire (6.1.1):
     - RxAlamofire/Core (= 6.1.1)
   - RxAlamofire/Core (6.1.1):
@@ -35,8 +37,10 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 5.5)
   - Charts
+  - FlexLayout
   - Kingfisher (~> 7.0)
   - Moya/RxSwift (~> 15.0)
+  - PinLayout
   - RxAlamofire
   - RxCocoa (= 6.5.0)
   - RxGesture
@@ -50,8 +54,10 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - Charts
+    - FlexLayout
     - Kingfisher
     - Moya
+    - PinLayout
     - RxAlamofire
     - RxCocoa
     - RxGesture
@@ -66,8 +72,10 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
   Charts: cfa4e911e6dc289582c2fe011a0e87c03d96727f
+  FlexLayout: 4c4dec5e4aafab84908dd864bb097baebef0d44e
   Kingfisher: 3ac0b75b155cabc0e544877d1a4deea29feece92
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
+  PinLayout: d6b1960e4b182b4da1481b9aa6728f621e20708d
   RxAlamofire: beb75a1c452d0de225651db4903f5d29d034a620
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxGesture: abadd243fc36db74df43dfc893829ddde94f1a3d
@@ -79,6 +87,6 @@ SPEC CHECKSUMS:
   SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
   Then: acfe0be7e98221c6204e12f8161459606d5d822d
 
-PODFILE CHECKSUM: 6ce5d5984cb21b01dc397854d5b89d8d89ccb693
+PODFILE CHECKSUM: 82617b18c9e926c1d7952fb49d09657a81cf9571
 
 COCOAPODS: 1.11.2

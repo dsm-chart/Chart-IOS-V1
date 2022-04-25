@@ -33,6 +33,9 @@ pod 'Charts'
 pod 'Then', '~> 2.7.0'
 pod 'SnapKit', '~> 5.0.0'
 
+pod 'FlexLayout'
+pod 'PinLayout'
+
 end
 
 post_install do |installer|
