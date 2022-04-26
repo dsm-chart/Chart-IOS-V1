@@ -25,8 +25,8 @@ class SignInVC: BaseViewController {
         $0.textColor = .separator
     }
     
-    private let schoolGradeTextField = UITextField()
-    private let schoolClassNumberTextField = UITextField()
+    let schoolGradeTextField = UITextField()
+    let schoolClassNumberTextField = UITextField()
     
     private let textFieldBackView1 = UIView()
     private let textFieldBackView2 = UIView()
@@ -72,7 +72,17 @@ class SignInVC: BaseViewController {
     }
     
     override func configureUI() {
-        signInDoneButton.makeMyDesign(color: Asset.mainColor.color, title: "완료", titleColor: .white)
+        
+        [schoolGradeTextField, schoolClassNumberTextField].forEach {
+            $0.delegate = self
+        }
+        
+        signInDoneButton.makeMyDesign(
+            color: Asset.mainColor.color,
+            title: "완료",
+            titleColor: .white
+        )
+        
         makeTextField()
         addSubView()
         bind()
@@ -121,6 +131,20 @@ class SignInVC: BaseViewController {
         }
     }
     
+}
+
+extension SignInVC: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == schoolGradeTextField {
+            schoolClassNumberTextField.becomeFirstResponder()
+        }
+        if textField == schoolClassNumberTextField {
+            schoolClassNumberTextField.resignFirstResponder()
+        }
+        return true
+    }
+    
     func bind() {
         
         let scenes = UIApplication.shared.connectedScenes
@@ -140,4 +164,5 @@ class SignInVC: BaseViewController {
             })
             .disposed(by: disposeBag)
     }
+
 }
