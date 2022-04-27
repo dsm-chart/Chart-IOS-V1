@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxKeyboard
 
 class SearchSchoolVC: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -34,6 +35,7 @@ class SearchSchoolVC: BaseViewController, UITableViewDelegate, UITableViewDataSo
         $0.register(SearchSchoolTableViewCell.self, forCellReuseIdentifier: "searchSchoolTableViewCell")
         $0.backgroundColor = .clear
         $0.separatorStyle = .none
+        $0.keyboardDismissMode = .onDrag
     }
     
     private let searchButton = UIButton()
@@ -49,6 +51,8 @@ class SearchSchoolVC: BaseViewController, UITableViewDelegate, UITableViewDataSo
             view.addSubview($0)
         }
         textFieldBackView.addSubview(schoolSearchTextField)
+        
+        bind()
         
     }
     
@@ -98,4 +102,27 @@ class SearchSchoolVC: BaseViewController, UITableViewDelegate, UITableViewDataSo
         return 30
     }
     
+}
+
+extension SearchSchoolVC {
+    func bind() {
+        
+        let scenes = UIApplication.shared.connectedScenes
+        let windowScenes = scenes.first as? UIWindowScene
+        let window = windowScenes?.windows.first
+        let extra = window!.safeAreaInsets.bottom
+        
+        RxKeyboard.instance.visibleHeight
+            .skip(1)
+            .drive(onNext : { keyboardVisibleHeight in
+                UIView.animate(withDuration: 0) {
+                    self.searchButton.snp.updateConstraints {
+                        $0.bottom.equalTo(self.view.safeAreaLayoutGuide).inset(keyboardVisibleHeight - extra + 15)
+                    }
+                }
+                self.view.layoutIfNeeded()
+            })
+            .disposed(by: disposeBag)
+    }
+
 }
