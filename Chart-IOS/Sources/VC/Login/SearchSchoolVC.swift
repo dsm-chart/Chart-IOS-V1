@@ -9,7 +9,9 @@ import UIKit
 import RxKeyboard
 import PanModal
 
-class SearchSchoolVC: BaseViewController, UITableViewDelegate, UITableViewDataSource {
+class SearchSchoolVC: BaseViewController, UITableViewDelegate, UITableViewDataSource, PanModalPresentable {
+    
+    var hasLoaded = true
     
     private let headFooterView = UIView().then {
         $0.backgroundColor = .clear
@@ -49,6 +51,9 @@ class SearchSchoolVC: BaseViewController, UITableViewDelegate, UITableViewDataSo
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        panModalSetNeedsLayoutUpdate()
+
                 
         [textFieldBackView, tableView].forEach {
             view.addSubview($0)
@@ -96,6 +101,8 @@ class SearchSchoolVC: BaseViewController, UITableViewDelegate, UITableViewDataSo
         return SearchSchoolTableViewCell()
     }
     
-    
-}
+    var panScrollable: UIScrollView? {
+        return nil
+    }
 
+}

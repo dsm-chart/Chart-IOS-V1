@@ -8,6 +8,8 @@
 import UIKit
 import RxKeyboard
 import RxGesture
+import PanModal
+
 
 class SignInVC: BaseViewController {
     
@@ -152,7 +154,8 @@ extension SignInVC: UITextFieldDelegate {
             .when(.recognized)
             .bind {_ in
                 let searchSchoolVC = SearchSchoolVC()
-                self.present(searchSchoolVC, animated: true)
+                self.presentPanModal(searchSchoolVC)
+                
             }.disposed(by: disposeBag)
         
         let scenes = UIApplication.shared.connectedScenes
