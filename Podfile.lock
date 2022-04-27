@@ -11,6 +11,7 @@ PODS:
   - Moya/RxSwift (15.0.0):
     - Moya/Core
     - RxSwift (~> 6.0)
+  - PanModal (1.2.7)
   - PinLayout (1.10.2)
   - RxAlamofire (6.1.1):
     - RxAlamofire/Core (= 6.1.1)
@@ -40,6 +41,7 @@ DEPENDENCIES:
   - FlexLayout
   - Kingfisher (~> 7.0)
   - Moya/RxSwift (~> 15.0)
+  - PanModal
   - PinLayout
   - RxAlamofire
   - RxCocoa (= 6.5.0)
@@ -57,6 +59,7 @@ SPEC REPOS:
     - FlexLayout
     - Kingfisher
     - Moya
+    - PanModal
     - PinLayout
     - RxAlamofire
     - RxCocoa
@@ -75,6 +78,7 @@ SPEC CHECKSUMS:
   FlexLayout: 4c4dec5e4aafab84908dd864bb097baebef0d44e
   Kingfisher: 3ac0b75b155cabc0e544877d1a4deea29feece92
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
+  PanModal: 3e16ead1a907fb06f4df3f13492fd00149fa4974
   PinLayout: d6b1960e4b182b4da1481b9aa6728f621e20708d
   RxAlamofire: beb75a1c452d0de225651db4903f5d29d034a620
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
@@ -87,6 +91,6 @@ SPEC CHECKSUMS:
   SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
   Then: acfe0be7e98221c6204e12f8161459606d5d822d
 
-PODFILE CHECKSUM: 82617b18c9e926c1d7952fb49d09657a81cf9571
+PODFILE CHECKSUM: a4e0a27808fe98b0ddce60cd14285cb76974f2d6
 
 COCOAPODS: 1.11.2

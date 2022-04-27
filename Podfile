@@ -36,6 +36,8 @@ pod 'SnapKit', '~> 5.0.0'
 pod 'FlexLayout'
 pod 'PinLayout'
 
+pod 'PanModal'
+
 end
 
 post_install do |installer|
