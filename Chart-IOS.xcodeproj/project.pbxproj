@@ -138,13 +138,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		572D568F281012EE00F5D457 /* SearchSchool */ = {
+		572D568F281012EE00F5D457 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
 				572D56902810130100F5D457 /* SearchSchoolTableViewCell.swift */,
-				57B29D3E280E5B5B00EB9AB0 /* SearchSchoolVC.swift */,
 			);
-			path = SearchSchool;
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		5736862C280C58BF003120D3 /* VC */ = {
@@ -292,9 +291,10 @@
 		57B29D39280E574E00EB9AB0 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				572D568F281012EE00F5D457 /* SearchSchool */,
+				572D568F281012EE00F5D457 /* Cell */,
 				57B29D3A280E575E00EB9AB0 /* LoginVC.swift */,
 				57B29D3C280E5B0D00EB9AB0 /* SignInVC.swift */,
+				57B29D3E280E5B5B00EB9AB0 /* SearchSchoolVC.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
