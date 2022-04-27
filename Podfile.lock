@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.5.0)
+  - BEMCheckBox (1.4.1)
   - Charts (4.0.2):
     - Charts/Core (= 4.0.2)
   - Charts/Core (4.0.2):
@@ -37,6 +38,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 5.5)
+  - BEMCheckBox
   - Charts
   - FlexLayout
   - Kingfisher (~> 7.0)
@@ -55,6 +57,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - BEMCheckBox
     - Charts
     - FlexLayout
     - Kingfisher
@@ -74,6 +77,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
+  BEMCheckBox: 5ba6e37ade3d3657b36caecc35c8b75c6c2b1a4e
   Charts: cfa4e911e6dc289582c2fe011a0e87c03d96727f
   FlexLayout: 4c4dec5e4aafab84908dd864bb097baebef0d44e
   Kingfisher: 3ac0b75b155cabc0e544877d1a4deea29feece92
@@ -91,6 +95,6 @@ SPEC CHECKSUMS:
   SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
   Then: acfe0be7e98221c6204e12f8161459606d5d822d
 
-PODFILE CHECKSUM: a4e0a27808fe98b0ddce60cd14285cb76974f2d6
+PODFILE CHECKSUM: f7c72cd44f5a0c7a073a8f864c9787ddb5deed35
 
 COCOAPODS: 1.11.2

@@ -37,6 +37,7 @@ pod 'FlexLayout'
 pod 'PinLayout'
 
 pod 'PanModal'
+pod 'BEMCheckBox'
 
 end
 
