@@ -7,6 +7,7 @@
 
 import UIKit
 import RxKeyboard
+import PanModal
 
 class SearchSchoolVC: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -23,6 +24,7 @@ class SearchSchoolVC: BaseViewController, UITableViewDelegate, UITableViewDataSo
     
     private let schoolSearchTextField = UITextField().then {
         $0.borderStyle = .none
+        $0.returnKeyType = .search
         $0.font = .roundedFont(ofSize: 18, weight: .medium)
         $0.tintColor = Asset.mainColor.color
         $0.attributedPlaceholder = NSAttributedString(string: "학교를 검색하세요", attributes: [
@@ -38,22 +40,24 @@ class SearchSchoolVC: BaseViewController, UITableViewDelegate, UITableViewDataSo
         $0.keyboardDismissMode = .onDrag
     }
     
-    private let searchButton = UIButton()
+    private let searchButton = UIButton().then {
+        $0.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
+        $0.tintColor = Asset.mainColor.color
+    }
     
     override func configureUI() {
         
         tableView.delegate = self
         tableView.dataSource = self
-        
-        searchButton.makeMyDesign(color: Asset.mainColor.color, title: " 검색", titleColor: .white)
-        
-        [textFieldBackView, tableView, searchButton].forEach {
+                
+        [textFieldBackView, tableView].forEach {
             view.addSubview($0)
         }
-        textFieldBackView.addSubview(schoolSearchTextField)
         
-        bind()
-        
+        [schoolSearchTextField, searchButton].forEach {
+            textFieldBackView.addSubview($0)
+        }
+                
     }
     
     override func setupConstraints() {
@@ -64,22 +68,22 @@ class SearchSchoolVC: BaseViewController, UITableViewDelegate, UITableViewDataSo
         }
         
         schoolSearchTextField.snp.makeConstraints {
-            $0.leading.trailing.equalTo(textFieldBackView).inset(10)
+            $0.trailing.equalTo(-45)
+            $0.leading.equalTo(textFieldBackView).inset(10)
             $0.top.bottom.equalTo(textFieldBackView).inset(15)
         }
         
         tableView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
             $0.top.equalTo(textFieldBackView.snp.bottom).offset(10)
-            $0.bottom.equalTo(searchButton.snp.top).offset(25)
+            $0.bottom.equalTo(0)
         }
         
         searchButton.snp.makeConstraints {
-            $0.leading.trailing.equalTo(view).inset(25)
-            $0.height.equalTo(50)
-            $0.bottom.equalTo(view.safeAreaLayoutGuide).offset(-5)
+            $0.trailing.equalTo(textFieldBackView).offset(-10)
+            $0.width.equalTo(30)
+            $0.top.bottom.equalTo(textFieldBackView).inset(10)
         }
-        
     }
     
     // dunny & Test Code
@@ -92,37 +96,6 @@ class SearchSchoolVC: BaseViewController, UITableViewDelegate, UITableViewDataSo
         return SearchSchoolTableViewCell()
     }
     
-    /// Header & Footer View
-    
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return headFooterView
-    }
-    
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 30
-    }
     
 }
 
-extension SearchSchoolVC {
-    func bind() {
-        
-        let scenes = UIApplication.shared.connectedScenes
-        let windowScenes = scenes.first as? UIWindowScene
-        let window = windowScenes?.windows.first
-        let extra = window!.safeAreaInsets.bottom
-        
-        RxKeyboard.instance.visibleHeight
-            .skip(1)
-            .drive(onNext : { keyboardVisibleHeight in
-                UIView.animate(withDuration: 0) {
-                    self.searchButton.snp.updateConstraints {
-                        $0.bottom.equalTo(self.view.safeAreaLayoutGuide).inset(keyboardVisibleHeight - extra + 15)
-                    }
-                }
-                self.view.layoutIfNeeded()
-            })
-            .disposed(by: disposeBag)
-    }
-
-}
