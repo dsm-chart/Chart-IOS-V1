@@ -7,6 +7,7 @@
 
 import UIKit
 import RxKeyboard
+import RxGesture
 
 class SignInVC: BaseViewController {
     
@@ -146,6 +147,13 @@ extension SignInVC: UITextFieldDelegate {
     }
     
     func bind() {
+        
+        textFieldBackView1.rx.tapGesture()
+            .when(.recognized)
+            .bind {_ in
+                let searchSchoolVC = SearchSchoolVC()
+                self.present(searchSchoolVC, animated: true)
+            }.disposed(by: disposeBag)
         
         let scenes = UIApplication.shared.connectedScenes
         let windowScenes = scenes.first as? UIWindowScene
