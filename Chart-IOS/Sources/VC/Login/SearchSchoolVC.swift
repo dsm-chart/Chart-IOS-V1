@@ -9,7 +9,7 @@ import UIKit
 import RxKeyboard
 import PanModal
 
-class SearchSchoolVC: BaseViewController, UITableViewDelegate, UITableViewDataSource, PanModalPresentable {
+class SearchSchoolVC: BaseViewController, PanModalPresentable, UITableViewDelegate, UITableViewDataSource {
     
     var hasLoaded = true
     
@@ -52,9 +52,6 @@ class SearchSchoolVC: BaseViewController, UITableViewDelegate, UITableViewDataSo
         tableView.delegate = self
         tableView.dataSource = self
         
-        panModalSetNeedsLayoutUpdate()
-
-                
         [textFieldBackView, tableView].forEach {
             view.addSubview($0)
         }
@@ -62,7 +59,18 @@ class SearchSchoolVC: BaseViewController, UITableViewDelegate, UITableViewDataSo
         [schoolSearchTextField, searchButton].forEach {
             textFieldBackView.addSubview($0)
         }
-                
+        
+        schoolSearchTextField.rx.text.bind { text in
+            
+            if text == "" {
+                UIView.animate(withDuration: 0.2) { self.searchButton.tintColor = .clear }
+            }
+            else {
+                UIView.animate(withDuration: 0.2) { self.searchButton.tintColor = Asset.mainColor.color }
+            }
+            
+        }.disposed(by: disposeBag)
+        
     }
     
     override func setupConstraints() {
@@ -104,5 +112,5 @@ class SearchSchoolVC: BaseViewController, UITableViewDelegate, UITableViewDataSo
     var panScrollable: UIScrollView? {
         return nil
     }
-
+    
 }
