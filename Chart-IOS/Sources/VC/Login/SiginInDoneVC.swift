@@ -10,6 +10,8 @@ import BEMCheckBox
 
 class SiginInDoneVC: BaseViewController {
     
+    var feedbackGenerator: UINotificationFeedbackGenerator?
+    
     private let doneBox = BEMCheckBox().then {
         $0.tintColor = .clear
         $0.onFillColor = .clear
@@ -33,6 +35,9 @@ class SiginInDoneVC: BaseViewController {
     private let goHomeButton = UIButton()
     
     override func configureUI() {
+        
+        self.feedbackGenerator = UINotificationFeedbackGenerator()
+        self.feedbackGenerator?.prepare()
         
         maskView.backgroundColor = .clear
         goHomeButton.makeMyDesign(color: Asset.mainColor.color, title: "첫 화면으로 돌아가기", titleColor: .white)
@@ -74,7 +79,7 @@ class SiginInDoneVC: BaseViewController {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.doneBox.setOn(true, animated: true)
-            
+            self.feedbackGenerator?.notificationOccurred(.success)
             UIView.transition(with: self.doneTextLabel,
                               duration: 0.5,
                               options: .transitionCrossDissolve,
