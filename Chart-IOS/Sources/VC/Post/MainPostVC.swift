@@ -7,9 +7,31 @@
 
 import UIKit
 import MaterialComponents.MaterialButtons
-import MaterialComponents.MaterialButtons_Theming
+
 
 class MainPostVC: BaseViewController {
+    
+    private let labelBackView = UIView().then {
+        $0.backgroundColor = .clear
+    }
+        
+    private let tableView = UITableView().then {
+        $0.backgroundColor = .clear
+        $0.separatorStyle = .none
+        $0.keyboardDismissMode = .onDrag
+    }
+
+    private let dateLabel = UILabel().then {
+        $0.textColor = Asset.mainColor.color
+        $0.font = .roundedFont(ofSize: 15, weight: .semibold)
+        $0.textAlignment = .center
+    }
+
+    private let postNameLabel = UILabel().then {
+        $0.textColor = Asset.labelColor.color
+        $0.font = .roundedFont(ofSize: 20, weight: .semibold)
+        $0.textAlignment = .center
+    }
 
     private let createPostFloatingButton = MDCFloatingButton(shape: .default).then {
         $0.setBackgroundColor(Asset.mainColor.color)
