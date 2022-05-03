@@ -9,21 +9,39 @@ import UIKit
 
 class BaseNavigationController: UINavigationController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    private var backButtonImage: UIImage? {
+        return UIImage(systemName: "chevron.backward")?.withAlignmentRectInsets(UIEdgeInsets(top: 0.0, left: -12.0, bottom: 0.0, right: 0.0))
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private var backButtonAppearance: UIBarButtonItemAppearance {
+        let backButtonAppearance = UIBarButtonItemAppearance()
+        backButtonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.clear]
+        return backButtonAppearance
     }
-    */
+    
+    static func makeNavigationController(rootViewController: UIViewController) -> BaseNavigationController {
+        let navigationController = BaseNavigationController(rootViewController: rootViewController)
+        navigationController.modalPresentationStyle = .fullScreen
+        return navigationController
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setNavigationBarAppearance()
+    }
+    
+    func setNavigationBarAppearance() {
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.shadowColor = .clear
+        self.navigationController?.navigationBar.standardAppearance = appearance
+        appearance.setBackIndicatorImage(backButtonImage, transitionMaskImage: backButtonImage)
+        appearance.configureWithTransparentBackground()
+        appearance.backButtonAppearance = backButtonAppearance
+        navigationBar.standardAppearance = appearance
+        navigationBar.scrollEdgeAppearance = appearance
+        navigationBar.tintColor = Asset.mainColor.color
+        
+    }
 
 }
