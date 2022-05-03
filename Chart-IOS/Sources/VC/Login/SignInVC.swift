@@ -9,6 +9,7 @@ import UIKit
 import RxKeyboard
 import RxGesture
 import PanModal
+import BEMCheckBox
 
 
 class SignInVC: BaseViewController {
@@ -74,17 +75,17 @@ class SignInVC: BaseViewController {
         attributtedString.addAttribute(.foregroundColor,
                                        value: Asset.mainColor.color,
                                        range: (agreeLabel.text! as NSString).range(of:"개인정보 처리방침"))
-
+        
         attributtedString.addAttribute(.underlineStyle,
-                                      value: NSUnderlineStyle.single.rawValue,
-                                      range: (agreeLabel.text! as NSString).range(of:"개인정보 처리방침"))
+                                       value: NSUnderlineStyle.single.rawValue,
+                                       range: (agreeLabel.text! as NSString).range(of:"개인정보 처리방침"))
         
         attributtedString.addAttribute(.underlineColor,
                                        value: Asset.mainColor.color,
-                                      range: (agreeLabel.text! as NSString).range(of:"개인정보 처리방침"))
+                                       range: (agreeLabel.text! as NSString).range(of:"개인정보 처리방침"))
         
         agreeLabel.attributedText = attributtedString
-
+        
     }
     
     func addSubView() {
@@ -186,9 +187,13 @@ extension SignInVC: UITextFieldDelegate {
         textFieldBackView1.rx.tapGesture()
             .when(.recognized)
             .bind {_ in
-                let searchSchoolVC = SearchSchoolVC()
-                self.presentPanModal(searchSchoolVC)
-                
+                self.presentPanModal(SearchSchoolVC())
+            }.disposed(by: disposeBag)
+        
+        agreeLabel.rx.tapGesture()
+            .when(.recognized)
+            .bind {_ in
+                self.navigationController?.pushViewController(ProcessingPolicyVC(), animated: true)
             }.disposed(by: disposeBag)
         
         let scenes = UIApplication.shared.connectedScenes
@@ -208,5 +213,5 @@ extension SignInVC: UITextFieldDelegate {
             })
             .disposed(by: disposeBag)
     }
-
+    
 }
