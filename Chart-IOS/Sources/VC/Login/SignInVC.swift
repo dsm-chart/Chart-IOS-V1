@@ -104,7 +104,7 @@ class SignInVC: BaseViewController {
         let textFieldArraay = [schoolNameTextField, schoolGradeTextField, schoolClassNumberTextField]
         let backViewArray = [textFieldBackView1, textFieldBackView2, textFieldBackView3]
         
-        [signInNameLabbel, agreeLabel, signInDoneButton].forEach {
+        [signInNameLabbel, agreeLabel, agreeCheckBox, signInDoneButton].forEach {
             view.addSubview($0)
         }
         for count in 0..<3 {
