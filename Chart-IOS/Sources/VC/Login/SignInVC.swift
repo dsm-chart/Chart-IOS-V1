@@ -43,6 +43,18 @@ class SignInVC: BaseViewController {
         $0.textAlignment = .left
     }
     
+    private let agreeCheckBox = BEMCheckBox().then {
+        $0.tintColor = Asset.mainColor.color
+        $0.onTintColor = Asset.mainColor.color
+        $0.onFillColor = Asset.mainColor.color
+        $0.onCheckColor = .white
+        $0.offAnimationType = .fade
+        $0.onAnimationType = .fade
+        $0.boxType = .circle
+        $0.lineWidth = 1
+        $0.animationDuration = 0.3
+    }
+
     func makeTextField() {
         
         let attributes = [
