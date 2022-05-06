@@ -183,6 +183,7 @@ class SignInVC: BaseViewController {
             $0.centerY.equalTo(agreeLabel)
             $0.leading.equalTo(view).offset(27)
         }
+    }
     
 }
 
@@ -209,7 +210,8 @@ extension SignInVC: UITextFieldDelegate {
         agreeLabel.rx.tapGesture()
             .when(.recognized)
             .bind {_ in
-                self.navigationController?.pushViewController(ProcessingPolicyVC(), animated: true)
+                self.present(ProcessingPolicyVC(), animated: true)
+                self.agreeCheckBox.setOn(true, animated: true)
             }.disposed(by: disposeBag)
         
         let scenes = UIApplication.shared.connectedScenes
