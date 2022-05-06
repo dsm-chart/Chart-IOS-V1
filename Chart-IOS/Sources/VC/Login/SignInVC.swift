@@ -44,7 +44,7 @@ class SignInVC: BaseViewController {
     }
     
     private let agreeCheckBox = BEMCheckBox().then {
-        $0.tintColor = Asset.mainColor.color
+        $0.tintColor = .lightGray
         $0.onTintColor = Asset.mainColor.color
         $0.onFillColor = Asset.mainColor.color
         $0.onCheckColor = .white
