@@ -24,7 +24,7 @@ class ProcessingPolicyVC: BaseViewController {
     
     override func setupConstraints() {
         pdfView.snp.makeConstraints {
-            $0.edges.equalTo(view.safeAreaLayoutGuide)
+            $0.edges.equalTo(view)
         }
     }
     
