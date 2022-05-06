@@ -20,6 +20,9 @@
 		575B9774280E7CBD00186359 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575B9773280E7CBD00186359 /* UIButton.swift */; };
 		57610D29280B056800818D27 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57610D28280B056800818D27 /* TabBarController.swift */; };
 		578B15C92817937B00901498 /* SignupUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578B15C82817937B00901498 /* SignupUITests.swift */; };
+		57A317E52820EBB20078A80A /* ProcessingPolicyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A317E42820EBB20078A80A /* ProcessingPolicyVC.swift */; };
+		57A317E72820EC890078A80A /* processing_policy.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 57A317E62820EC890078A80A /* processing_policy.pdf */; };
+		57A317E92820FF530078A80A /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A317E82820FF530078A80A /* BaseNavigationController.swift */; };
 		57AA2A5827FE70E4006CDA2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AA2A5727FE70E4006CDA2E /* AppDelegate.swift */; };
 		57AA2A5A27FE70E4006CDA2E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AA2A5927FE70E4006CDA2E /* SceneDelegate.swift */; };
 		57AA2A6127FE70E5006CDA2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57AA2A6027FE70E5006CDA2E /* Assets.xcassets */; };
@@ -67,6 +70,9 @@
 		575B9773280E7CBD00186359 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		57610D28280B056800818D27 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		578B15C82817937B00901498 /* SignupUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupUITests.swift; sourceTree = "<group>"; };
+		57A317E42820EBB20078A80A /* ProcessingPolicyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingPolicyVC.swift; sourceTree = "<group>"; };
+		57A317E62820EC890078A80A /* processing_policy.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = processing_policy.pdf; sourceTree = "<group>"; };
+		57A317E82820FF530078A80A /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		57AA2A5427FE70E4006CDA2E /* Chart-IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chart-IOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57AA2A5727FE70E4006CDA2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57AA2A5927FE70E4006CDA2E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -165,6 +171,7 @@
 			children = (
 				5736862E280C5945003120D3 /* BaseViewController.swift */,
 				57368630280C5BA5003120D3 /* BaseTableViewCell.swift */,
+				57A317E82820FF530078A80A /* BaseNavigationController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -227,6 +234,7 @@
 				57B29D36280D569A00EB9AB0 /* Extension */,
 				5757925828070B0D0040C721 /* Assets.swift */,
 				57AA2A6027FE70E5006CDA2E /* Assets.xcassets */,
+				57A317E62820EC890078A80A /* processing_policy.pdf */,
 				57AA2A6227FE70E5006CDA2E /* LaunchScreen.storyboard */,
 				57AA2A6527FE70E5006CDA2E /* Info.plist */,
 			);
@@ -297,6 +305,7 @@
 				57B29D3A280E575E00EB9AB0 /* LoginVC.swift */,
 				57B29D3C280E5B0D00EB9AB0 /* SignInVC.swift */,
 				57B29D3E280E5B5B00EB9AB0 /* SearchSchoolVC.swift */,
+				57A317E42820EBB20078A80A /* ProcessingPolicyVC.swift */,
 				570B535728195C75009298A2 /* SiginInDoneVC.swift */,
 			);
 			path = Login;
@@ -413,6 +422,7 @@
 			files = (
 				57AA2A6427FE70E5006CDA2E /* LaunchScreen.storyboard in Resources */,
 				57AA2A6127FE70E5006CDA2E /* Assets.xcassets in Resources */,
+				57A317E72820EC890078A80A /* processing_policy.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,6 +555,8 @@
 				57B29D3B280E575E00EB9AB0 /* LoginVC.swift in Sources */,
 				57368637280C5CCE003120D3 /* MainPostVC.swift in Sources */,
 				57AA2A5827FE70E4006CDA2E /* AppDelegate.swift in Sources */,
+				57A317E52820EBB20078A80A /* ProcessingPolicyVC.swift in Sources */,
+				57A317E92820FF530078A80A /* BaseNavigationController.swift in Sources */,
 				575B9774280E7CBD00186359 /* UIButton.swift in Sources */,
 				57B29D3D280E5B0D00EB9AB0 /* SignInVC.swift in Sources */,
 				5757925928070B0D0040C721 /* Assets.swift in Sources */,
