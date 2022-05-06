@@ -175,10 +175,14 @@ class SignInVC: BaseViewController {
         agreeLabel.snp.makeConstraints {
             $0.top.equalTo(textFieldBackView3.snp.bottom).offset(10)
             $0.centerX.equalTo(view)
-            $0.leading.equalTo(view).offset(25)
+            $0.leading.equalTo(view).offset(50)
             $0.height.equalTo(20)
         }
-    }
+        agreeCheckBox.snp.makeConstraints {
+            $0.width.height.equalTo(15)
+            $0.centerY.equalTo(agreeLabel)
+            $0.leading.equalTo(view).offset(27)
+        }
     
 }
 
