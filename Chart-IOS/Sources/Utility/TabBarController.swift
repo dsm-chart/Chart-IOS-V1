@@ -34,8 +34,6 @@ class TabBarController: UITabBarController {
         tabFou.tabBarItem = tabFouBarItem4
         
         self.tabBar.tintColor = Asset.mainColor.color
-        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: Asset.mainColor.color], for: .normal)
-        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: Asset.mainColor.color], for:.selected)
         
         self.viewControllers = [tabOne, tabTwo, tabThr, tabFou]
     }
