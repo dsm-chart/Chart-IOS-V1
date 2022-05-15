@@ -30,6 +30,10 @@ class MainPostCell: BaseTableViewCell {
         titleLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         nameLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         bodylabel.font = UIFont.systemFont(ofSize: 17, weight: .bold)
+        
+        titleLabel.text = "제목이 들어가요"
+        nameLabel.text = "이름이 들어가요"
+        bodylabel.text = "여기에는 본문이 한줄 들어가요"
     }
     
     override func configureUI() {
