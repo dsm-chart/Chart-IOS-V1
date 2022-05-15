@@ -39,6 +39,7 @@ class MainPostCell: BaseTableViewCell {
     override func configureUI() {
         createLabel()
         contentView.addSubview(backView)
+        contentView.backgroundColor = Asset.backgroundColor.color
         [titleLabel, nameLabel, bodylabel].forEach {
             backView.addSubview($0)
         }
@@ -46,8 +47,9 @@ class MainPostCell: BaseTableViewCell {
     
     override func setupConstraints() {
         backView.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview()
-            $0.top.bottom.equalTo(7.5)
+            $0.leading.trailing.equalTo(contentView).inset(35)
+            $0.height.equalTo(100)
+            $0.top.bottom.equalTo(contentView).inset(7.5)
         }
         
         titleLabel.snp.makeConstraints {
