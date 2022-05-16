@@ -19,6 +19,7 @@
 		5757925928070B0D0040C721 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5757925828070B0D0040C721 /* Assets.swift */; };
 		575B9774280E7CBD00186359 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575B9773280E7CBD00186359 /* UIButton.swift */; };
 		57610D29280B056800818D27 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57610D28280B056800818D27 /* TabBarController.swift */; };
+		576D1ABE2831D225008C8F01 /* AddPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D1ABD2831D225008C8F01 /* AddPostVC.swift */; };
 		578B15C92817937B00901498 /* SignupUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578B15C82817937B00901498 /* SignupUITests.swift */; };
 		57A317E52820EBB20078A80A /* ProcessingPolicyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A317E42820EBB20078A80A /* ProcessingPolicyVC.swift */; };
 		57A317E72820EC890078A80A /* processing_policy.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 57A317E62820EC890078A80A /* processing_policy.pdf */; };
@@ -70,6 +71,7 @@
 		5757925828070B0D0040C721 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		575B9773280E7CBD00186359 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		57610D28280B056800818D27 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		576D1ABD2831D225008C8F01 /* AddPostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostVC.swift; sourceTree = "<group>"; };
 		578B15C82817937B00901498 /* SignupUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupUITests.swift; sourceTree = "<group>"; };
 		57A317E42820EBB20078A80A /* ProcessingPolicyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingPolicyVC.swift; sourceTree = "<group>"; };
 		57A317E62820EC890078A80A /* processing_policy.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = processing_policy.pdf; sourceTree = "<group>"; };
@@ -197,8 +199,9 @@
 		57491CD7281250ED0021D28E /* Post */ = {
 			isa = PBXGroup;
 			children = (
-				57C9DE8B282C971B00CA9606 /* Cell */,
 				57368636280C5CCE003120D3 /* MainPostVC.swift */,
+				576D1ABD2831D225008C8F01 /* AddPostVC.swift */,
+				57C9DE8B282C971B00CA9606 /* Cell */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -568,6 +571,7 @@
 				57AA2A5827FE70E4006CDA2E /* AppDelegate.swift in Sources */,
 				57A317E52820EBB20078A80A /* ProcessingPolicyVC.swift in Sources */,
 				57A317E92820FF530078A80A /* BaseNavigationController.swift in Sources */,
+				576D1ABE2831D225008C8F01 /* AddPostVC.swift in Sources */,
 				575B9774280E7CBD00186359 /* UIButton.swift in Sources */,
 				57C9DE8D282C974400CA9606 /* MainPostCell.swift in Sources */,
 				57B29D3D280E5B0D00EB9AB0 /* SignInVC.swift in Sources */,
