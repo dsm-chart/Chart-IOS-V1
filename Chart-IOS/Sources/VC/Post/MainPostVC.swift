@@ -40,9 +40,13 @@ class MainPostVC: BaseViewController, UITableViewDelegate, UITableViewDataSource
     }
 
     override func configureUI() {
-        [labelBackView, tableView, createPostFloatingButton].forEach {
+        [labelBackView, dateLabel, postNameLabel, tableView, createPostFloatingButton].forEach {
             view.addSubview($0)
         }
+        
+        dateLabel.text = "0000-00-00"
+        postNameLabel.text = "학교 게시판"
+        
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -56,10 +60,23 @@ class MainPostVC: BaseViewController, UITableViewDelegate, UITableViewDataSource
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.centerY).offset(-234.5)
         }
+        
+        dateLabel.snp.makeConstraints {
+            $0.height.equalTo(35)
+            $0.centerX.equalTo(view)
+            $0.bottom.equalTo(postNameLabel.snp.top)
+        }
+        
+        postNameLabel.snp.makeConstraints {
+            $0.height.equalTo(35)
+            $0.centerX.equalTo(view)
+            $0.centerY.equalTo(labelBackView).offset(20)
+        }
+
         tableView.snp.makeConstraints {
             $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
             $0.top.equalTo(labelBackView.snp.bottom)
-            $0.bottom.equalToSuperview()
+            $0.bottom.equalTo(view.safeAreaLayoutGuide)
         }
     }
     
