@@ -15,7 +15,7 @@ class AddPostVC: BaseViewController {
         $0.text = "제목 :"
     }
 
-    fileprivate let titleTextField = UITextField().then {
+    private let titleTextField = UITextField().then {
         $0.borderStyle = .none
         $0.font = .systemFont(ofSize: 20, weight: .semibold)
         $0.tintColor = Asset.mainColor.color
@@ -25,9 +25,9 @@ class AddPostVC: BaseViewController {
         ])
     }
     
-    let textViewPlaceHolder = "여기에 본문을 입력해 주세요"
+    fileprivate let textViewPlaceHolder = "여기에 본문을 입력해 주세요"
     
-    fileprivate lazy var contentTextView = UITextView().then {
+    private lazy var contentTextView = UITextView().then {
         $0.tintColor = Asset.mainColor.color
         $0.font = .roundedFont(ofSize: 18, weight: .regular)
         $0.text = textViewPlaceHolder
@@ -36,6 +36,25 @@ class AddPostVC: BaseViewController {
     
     override func configureUI() {
         contentTextView.delegate = self
+        self.navigationItem.title = "새 글 작성하기"
+        [titleLabel, titleTextField, contentTextView].forEach {
+            view.addSubview($0)
+        }
+
     }
-    
+}
+
+extension AddPostVC: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == textViewPlaceHolder {
+            textView.text = nil
+            textView.textColor = Asset.labelColor.color
+        }
+    }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            textView.text = textViewPlaceHolder
+            textView.textColor = .separator
+        }
+    }
 }
