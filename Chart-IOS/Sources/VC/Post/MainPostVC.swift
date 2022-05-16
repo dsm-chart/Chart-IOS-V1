@@ -49,6 +49,11 @@ class MainPostVC: BaseViewController, UITableViewDelegate, UITableViewDataSource
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        createPostFloatingButton.rx.tap.bind {
+            self.navigationController?.pushViewController(AddPostVC(), animated: true)
+        }.disposed(by: disposeBag)
+        
     }
     
     override func setupConstraints() {
