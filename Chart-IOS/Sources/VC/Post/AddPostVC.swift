@@ -19,10 +19,6 @@ class AddPostVC: BaseViewController {
         $0.borderStyle = .none
         $0.font = .systemFont(ofSize: 20, weight: .semibold)
         $0.tintColor = Asset.mainColor.color
-        $0.attributedPlaceholder = NSAttributedString(string: "제목을 입력하세요", attributes:[
-            NSAttributedString.Key.foregroundColor: UIColor.separator,
-            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 20, weight: .semibold)
-        ])
     }
     
     fileprivate let textViewPlaceHolder = "여기에 본문을 입력해 주세요"
@@ -32,6 +28,7 @@ class AddPostVC: BaseViewController {
         $0.font = .roundedFont(ofSize: 18, weight: .regular)
         $0.text = textViewPlaceHolder
         $0.textColor = .separator
+        $0.backgroundColor = .clear
     }
     
     override func configureUI() {
@@ -40,7 +37,6 @@ class AddPostVC: BaseViewController {
         [titleLabel, titleTextField, contentTextView].forEach {
             view.addSubview($0)
         }
-
     }
 
     override func setupConstraints () {
@@ -55,7 +51,6 @@ class AddPostVC: BaseViewController {
             $0.top.equalTo(view.safeAreaLayoutGuide).offset(15)
             $0.trailing.equalTo(-15)
         }
-
         contentTextView.snp.makeConstraints {
             $0.leading.trailing.equalTo(view).inset(15)
             $0.top.equalTo(titleTextField.snp.bottom).offset(15)
