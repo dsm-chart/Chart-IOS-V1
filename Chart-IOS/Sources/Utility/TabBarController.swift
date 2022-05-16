@@ -23,12 +23,12 @@ class TabBarController: UITabBarController {
         
         tabTwo.tabBarItem = tabTwoBarItem2
         
-        let tabThr = UINavigationController(rootViewController: MainPostVC())
+        let tabThr = BaseNavigationController(rootViewController: MainPostVC())
         let tabThrBarItem3 = UITabBarItem(title: "게시판", image: UIImage(systemName: "list.bullet"), tag: 3)
         
         tabThr.tabBarItem = tabThrBarItem3
         
-        let tabFou = UINavigationController(rootViewController: SettingVC())
+        let tabFou = BaseNavigationController(rootViewController: SettingVC())
         let tabFouBarItem4 = UITabBarItem(title: "설정", image: UIImage(systemName: "gearshape.fill"), tag: 4)
         
         tabFou.tabBarItem = tabFouBarItem4
