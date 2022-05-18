@@ -33,6 +33,7 @@ class AddPostVC: BaseViewController {
 
     override func setLayout() {
         self.tabBarController?.tabBar.isHidden = true
+        self.tabBarController?.tabBar.isTranslucent = true // <- 이코드가 꼭 있어야함
     }
 
     override func configureUI() {
