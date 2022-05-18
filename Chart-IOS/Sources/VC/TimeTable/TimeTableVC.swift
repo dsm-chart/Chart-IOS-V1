@@ -9,7 +9,7 @@ import UIKit
 
 class TimeTableVC: BaseViewController {
     
-    private let semesterBackView = UILabel().then { $0.backgroundColor = .clear }
+    private let semesterBackView = UIView().then { $0.backgroundColor = .clear }
     
     private let semesterLabel = UILabel().then {
         $0.textColor = Asset.mainColor.color
