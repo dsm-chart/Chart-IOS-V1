@@ -28,6 +28,7 @@ class ReadPostVC: BaseViewController {
 
     override func setLayout() {
         tabBarController?.tabBar.isHidden = true
+        self.tabBarController?.tabBar.isTranslucent = true // <- 이코드가 꼭 있어야함
     }
 
     private let goCommentButton = UIButton()
@@ -62,10 +63,13 @@ class ReadPostVC: BaseViewController {
             $0.top.equalTo(dateLabel.snp.bottom).offset(15)
             $0.bottom.equalToSuperview()
         }
+
+        let bottom = UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0.0
+
         goCommentButton.snp.makeConstraints {
             $0.leading.trailing.equalTo(view).inset(15)
             $0.height.equalTo(50)
-            $0.bottom.equalTo(view.safeAreaLayoutGuide).offset(-5)
+            $0.bottom.equalTo(view).offset(-bottom - 5) // 일단 이거 safe area 바꿔야됨, 안되는 중임
         }
     }
 
