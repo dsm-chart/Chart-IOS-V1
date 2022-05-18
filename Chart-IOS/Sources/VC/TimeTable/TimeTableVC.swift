@@ -30,8 +30,20 @@ class TimeTableVC: BaseViewController {
         $0.backgroundColor = Asset.viewColor.color
         $0.layer.cornerRadius = 20
     }
+
+    private let periodNumberStackView = UIStackView().then {
+        $0.axis = .vertical
+    }
+
+    private let dayStringStackView = UIStackView().then {
+        $0.axis = .horizontal
+    }
+
     
     override func configureUI() {
+
+        [backLine1, backLine2].forEach { $0.backgroundColor = Asset.mainColor.color }
+
         [semesterBackView, schoolTimeTableView].forEach {
             view.addSubview($0)
         }
@@ -39,8 +51,7 @@ class TimeTableVC: BaseViewController {
             semesterBackView.addSubview($0)
         }
 
-        [backLine1, backLine2].forEach {
-            $0.backgroundColor = Asset.mainColor.color
+        [backLine1, backLine2, periodNumberStackView, dayStringStackView].forEach {
             schoolTimeTableView.addSubview($0)
         }
         
@@ -88,7 +99,17 @@ class TimeTableVC: BaseViewController {
             $0.height.equalTo(1)
         }
 
-        
+        periodNumberStackView.snp.makeConstraints {
+            $0.left.equalTo(50)
+            $0.right.equalTo(-20)
+            $0.height.equalTo(35)
+            $0.bottom.equalTo(backLine2)
+        }
+        dayStringStackView.snp.makeConstraints {
+            $0.right.equalTo(backLine1)
+            $0.top.equalTo(backLine2)
+            $0.bottom.equalTo(-20)
+            $0.width.equalTo(30)
+        }
     }
-    
 }
