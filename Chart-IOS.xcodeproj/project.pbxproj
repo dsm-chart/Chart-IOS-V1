@@ -32,6 +32,7 @@
 		57B29D3F280E5B5B00EB9AB0 /* SearchSchoolVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B29D3E280E5B5B00EB9AB0 /* SearchSchoolVC.swift */; };
 		94BD830BAA49D94F6E02693A /* Pods_Chart_IOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29A81F62EFE885E27803014F /* Pods_Chart_IOS.framework */; };
 		9CDAAD33A5CC04CAAADA9BE1 /* Pods_Chart_IOS_Chart_IOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B437AC0BDC07E5D47699567A /* Pods_Chart_IOS_Chart_IOSUITests.framework */; };
+		CA280EDE469AEED7B6507DEB /* TimeTableSubjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA280B187ADC5C808862F4DF /* TimeTableSubjectCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		79DA26988996054D57F95C23 /* Pods-Chart-IOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chart-IOSTests.debug.xcconfig"; path = "Target Support Files/Pods-Chart-IOSTests/Pods-Chart-IOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8E9E2A2A9BDBF98BEE1C788B /* Pods_Chart_IOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chart_IOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B437AC0BDC07E5D47699567A /* Pods_Chart_IOS_Chart_IOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chart_IOS_Chart_IOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA280B187ADC5C808862F4DF /* TimeTableSubjectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTableSubjectCell.swift; sourceTree = "<group>"; };
 		D4FF9285CF9B75BD579B6A99 /* Pods-Chart-IOS-Chart-IOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chart-IOS-Chart-IOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-Chart-IOS-Chart-IOSUITests/Pods-Chart-IOS-Chart-IOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D7443AAFF3388E077DC01DEF /* Pods-Chart-IOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chart-IOS.debug.xcconfig"; path = "Target Support Files/Pods-Chart-IOS/Pods-Chart-IOS.debug.xcconfig"; sourceTree = "<group>"; };
 		F6ABC769B36408890769C6D3 /* Pods-Chart-IOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chart-IOS.release.xcconfig"; path = "Target Support Files/Pods-Chart-IOS/Pods-Chart-IOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				57368634280C5C85003120D3 /* TimeTableVC.swift */,
+				CA2803FA8D18E16D2F1DB435 /* Cell */,
 			);
 			path = TimeTable;
 			sourceTree = "<group>";
@@ -300,6 +303,14 @@
 				570B535728195C75009298A2 /* SiginInDoneVC.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		CA2803FA8D18E16D2F1DB435 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CA280B187ADC5C808862F4DF /* TimeTableSubjectCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -557,6 +568,7 @@
 				57368631280C5BA5003120D3 /* BaseTableViewCell.swift in Sources */,
 				570B535828195C75009298A2 /* SiginInDoneVC.swift in Sources */,
 				57AA2A5A27FE70E4006CDA2E /* SceneDelegate.swift in Sources */,
+				CA280EDE469AEED7B6507DEB /* TimeTableSubjectCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
