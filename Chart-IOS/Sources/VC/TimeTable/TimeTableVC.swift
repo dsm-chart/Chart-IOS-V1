@@ -30,7 +30,28 @@ class TimeTableVC: BaseViewController {
         $0.backgroundColor = Asset.viewColor.color
         $0.layer.cornerRadius = 20
     }
-    
+
+    private let periodNumberStackView = UIStackView().then {
+        $0.distribution = .fillEqually
+        $0.axis = .vertical
+    }
+
+    private let dayStringStackView = UIStackView().then {
+        $0.distribution = .fillEqually
+        $0.axis = .horizontal
+    }
+
+    private let timeTableStackView = UIStackView().then {
+        $0.distribution = .fillEqually
+        $0.axis = .horizontal
+    }
+
+    private let mondayStackView = UIStackView()
+    private let tuesdayStackView = UIStackView()
+    private let wednesdayStackView = UIStackView()
+    private let thursdayStackView = UIStackView()
+    private let fridayStackView = UIStackView()
+
     override func configureUI() {
         [semesterBackView, schoolTimeTableView].forEach {
             view.addSubview($0)
