@@ -41,6 +41,17 @@ class TimeTableVC: BaseViewController {
         $0.axis = .horizontal
     }
 
+    private let timeTableStackView = UIStackView().then {
+        $0.distribution = .fillEqually
+        $0.axis = .horizontal
+    }
+
+    private let mondayStackView = UIStackView()
+    private let tuesdayStackView = UIStackView()
+    private let wednesdayStackView = UIStackView()
+    private let thursdayStackView = UIStackView()
+    private let fridayStackView = UIStackView()
+
     override func configureUI() {
 
         [backLine1, backLine2].forEach { $0.backgroundColor = Asset.mainColor.color }
@@ -52,7 +63,7 @@ class TimeTableVC: BaseViewController {
             semesterBackView.addSubview($0)
         }
 
-        [backLine1, backLine2, periodNumberStackView, dayStringStackView].forEach {
+        [backLine1, backLine2, periodNumberStackView, dayStringStackView, timeTableStackView].forEach {
             schoolTimeTableView.addSubview($0)
         }
 
@@ -65,14 +76,14 @@ class TimeTableVC: BaseViewController {
 
     private func makeStackView() {
 
-        let poeriodArray = ["월", "화", "수", "목", "금"]
+        let periodArray = ["월", "화", "수", "목", "금"]
 
         for number in 0..<5 {
             let periodLabel = UILabel().then {
                 $0.textAlignment = .center
                 $0.font = .systemFont(ofSize: 18, weight: .bold)
-                $0.textColor = .secondaryLabel
-                $0.text = "\(poeriodArray[number])"
+                $0.textColor = .separator
+                $0.text = "\(periodArray[number])"
             }
             dayStringStackView.addArrangedSubview(periodLabel)
         }
@@ -81,11 +92,40 @@ class TimeTableVC: BaseViewController {
             let dayLabel = UILabel().then {
                 $0.textAlignment = .center
                 $0.font = .systemFont(ofSize: 18, weight: .bold)
-                $0.textColor = .secondaryLabel
+                $0.textColor = .separator
                 $0.text = "\(number)"
             }
             periodNumberStackView.addArrangedSubview(dayLabel)
         }
+
+        // Dummy Data
+        let mondayArr = ["음악", "사회", "대베", "성직", "문학", "자바", "자바"]
+        let tuesdayArr = ["음악", "문학", "자바", "자바", "운체", "사회", "대베"]
+        let wednesdayArr = ["자바", "자바", "데베", "제베", "운체", "자바", "대희"]
+        let thursdayArr = ["음악", "문학", "자바", "자바", "운체", "사회", ""]
+        let fridayArr = ["자바", "자바", "데베", "제베", "운체", "", "", ""]
+
+        let weekStackViewArray = [mondayStackView, tuesdayStackView, wednesdayStackView, thursdayStackView, fridayStackView]
+        let weekValueArray = [mondayArr, tuesdayArr, wednesdayArr, thursdayArr, fridayArr]
+
+        for weekNumber in 0..<5 {
+            for dayNumber in 0..<7 {
+                let weekArr = weekValueArray[weekNumber]
+                let label = UILabel().then {
+                    $0.textColor = Asset.labelColor.color
+                    $0.text = "\(weekArr[dayNumber])"
+                    $0.textAlignment = .center
+                }
+                weekStackViewArray[weekNumber].addArrangedSubview(label)
+            }
+        }
+
+        weekStackViewArray.forEach {
+            $0.distribution = .fillEqually
+            $0.axis = .vertical
+            timeTableStackView.addArrangedSubview($0)
+        }
+
     }
 
     override func setupConstraints() {
@@ -136,6 +176,13 @@ class TimeTableVC: BaseViewController {
             $0.right.equalTo(-20)
             $0.height.equalTo(35)
             $0.bottom.equalTo(backLine2)
+        }
+
+        timeTableStackView.snp.makeConstraints {
+            $0.top.equalTo(backLine2)
+            $0.right.equalTo(backLine2.snp.right)
+            $0.left.equalTo(backLine1)
+            $0.bottom.equalTo(backLine1.snp.bottom)
         }
 
     }
