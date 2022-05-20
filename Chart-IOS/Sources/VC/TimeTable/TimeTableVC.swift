@@ -9,8 +9,10 @@ import UIKit
 
 class TimeTableVC: BaseViewController {
     
-    private let semesterBackView = UIView().then { $0.backgroundColor = .clear }
-    
+    private let semesterBackView = UILabel().then { $0.backgroundColor = .clear }
+
+    private let backLine1 = UIView()
+    private let backLine2 = UIView()    
     private let semesterLabel = UILabel().then {
         $0.textColor = Asset.mainColor.color
         $0.font = .roundedFont(ofSize: 15, weight: .semibold)
@@ -34,6 +36,11 @@ class TimeTableVC: BaseViewController {
         }
         [semesterLabel, classNameLabel].forEach {
             semesterBackView.addSubview($0)
+        }
+
+        [backLine1, backLine2].forEach {
+            $0.backgroundColor = Asset.mainColor.color
+            schoolTimeTableView.addSubview($0)
         }
         
         /// dummy Data
@@ -67,6 +74,19 @@ class TimeTableVC: BaseViewController {
             $0.left.right.equalTo(self.view).inset(35)
             $0.centerY.centerX.equalTo(view)
         }
+
+        backLine1.snp.makeConstraints {
+            $0.left.equalTo(50)
+            $0.top.bottom.equalTo(schoolTimeTableView).inset(20)
+            $0.width.equalTo(1)
+        }
+
+        backLine2.snp.makeConstraints {
+            $0.left.right.equalTo(schoolTimeTableView).inset(20)
+            $0.top.equalTo(55)
+            $0.height.equalTo(1)
+        }
+
         
     }
     
