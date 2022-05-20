@@ -53,6 +53,9 @@ class TimeTableVC: BaseViewController {
     private let fridayStackView = UIStackView()
 
     override func configureUI() {
+
+        [backLine1, backLine2].forEach { $0.backgroundColor = Asset.mainColor.color }
+
         [semesterBackView, schoolTimeTableView].forEach {
             view.addSubview($0)
         }
