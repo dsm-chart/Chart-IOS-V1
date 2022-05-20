@@ -62,8 +62,12 @@ class TimeTableVC: BaseViewController {
         [semesterLabel, classNameLabel].forEach {
             semesterBackView.addSubview($0)
         }
-        
-      /// dummy Data
+
+        [backLine1, backLine2, periodNumberStackView, dayStringStackView, timeTableStackView].forEach {
+            schoolTimeTableView.addSubview($0)
+        }
+
+        /// dummy Data
         semesterLabel.text = "0000년 X학기"
         classNameLabel.text = "0-0 시간표"
         makeStackView()
