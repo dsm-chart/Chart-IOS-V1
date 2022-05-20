@@ -9,6 +9,7 @@ import UIKit
 import RxKeyboard
 import RxGesture
 import PanModal
+import BEMCheckBox
 
 
 class SignInVC: BaseViewController {
@@ -35,6 +36,25 @@ class SignInVC: BaseViewController {
     private let textFieldBackView2 = UIView()
     private let textFieldBackView3 = UIView()
     
+    private let agreeLabel = UILabel().then {
+        $0.text = "개인정보 처리방침 에 동의합니다."
+        $0.font = .roundedFont(ofSize: 13, weight: .semibold)
+        $0.textColor = Asset.labelColor.color
+        $0.textAlignment = .left
+    }
+    
+    private let agreeCheckBox = BEMCheckBox().then {
+        $0.tintColor = .lightGray
+        $0.onTintColor = Asset.mainColor.color
+        $0.onFillColor = Asset.mainColor.color
+        $0.onCheckColor = .white
+        $0.offAnimationType = .fade
+        $0.onAnimationType = .fade
+        $0.boxType = .circle
+        $0.lineWidth = 1
+        $0.animationDuration = 0.3
+    }
+
     func makeTextField() {
         
         let attributes = [
@@ -60,11 +80,31 @@ class SignInVC: BaseViewController {
         
     }
     
+    func makeAgreeText() {
+        
+        let attributtedString = NSMutableAttributedString(string: agreeLabel.text!)
+        
+        attributtedString.addAttribute(.foregroundColor,
+                                       value: Asset.mainColor.color,
+                                       range: (agreeLabel.text! as NSString).range(of:"개인정보 처리방침"))
+        
+        attributtedString.addAttribute(.underlineStyle,
+                                       value: NSUnderlineStyle.single.rawValue,
+                                       range: (agreeLabel.text! as NSString).range(of:"개인정보 처리방침"))
+        
+        attributtedString.addAttribute(.underlineColor,
+                                       value: Asset.mainColor.color,
+                                       range: (agreeLabel.text! as NSString).range(of:"개인정보 처리방침"))
+        
+        agreeLabel.attributedText = attributtedString
+        
+    }
+    
     func addSubView() {
         let textFieldArraay = [schoolNameTextField, schoolGradeTextField, schoolClassNumberTextField]
         let backViewArray = [textFieldBackView1, textFieldBackView2, textFieldBackView3]
         
-        [signInNameLabbel, signInDoneButton].forEach {
+        [signInNameLabbel, agreeLabel, agreeCheckBox, signInDoneButton].forEach {
             view.addSubview($0)
         }
         for count in 0..<3 {
@@ -87,6 +127,7 @@ class SignInVC: BaseViewController {
         )
         
         makeTextField()
+        makeAgreeText()
         addSubView()
         bind()
     }
@@ -103,7 +144,6 @@ class SignInVC: BaseViewController {
         [schoolNameTextField, schoolGradeTextField, schoolClassNumberTextField].forEach { textField in
             textField.snp.makeConstraints {
                 $0.leading.trailing.equalTo(textFieldBackView1).inset(10)
-                
                 $0.top.equalTo(15)
                 $0.bottom.equalTo(-15)
             }
@@ -132,6 +172,17 @@ class SignInVC: BaseViewController {
             $0.height.equalTo(50)
             $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(5)
         }
+        agreeLabel.snp.makeConstraints {
+            $0.top.equalTo(textFieldBackView3.snp.bottom).offset(10)
+            $0.centerX.equalTo(view)
+            $0.leading.equalTo(view).offset(50)
+            $0.height.equalTo(20)
+        }
+        agreeCheckBox.snp.makeConstraints {
+            $0.width.height.equalTo(15)
+            $0.centerY.equalTo(agreeLabel)
+            $0.leading.equalTo(view).offset(27)
+        }
     }
     
 }
@@ -153,9 +204,14 @@ extension SignInVC: UITextFieldDelegate {
         textFieldBackView1.rx.tapGesture()
             .when(.recognized)
             .bind {_ in
-                let searchSchoolVC = SearchSchoolVC()
-                self.presentPanModal(searchSchoolVC)
-                
+                self.presentPanModal(SearchSchoolVC())
+            }.disposed(by: disposeBag)
+        
+        agreeLabel.rx.tapGesture()
+            .when(.recognized)
+            .bind {_ in
+                self.present(ProcessingPolicyVC(), animated: true)
+                self.agreeCheckBox.setOn(true, animated: true)
             }.disposed(by: disposeBag)
         
         let scenes = UIApplication.shared.connectedScenes
@@ -175,5 +231,5 @@ extension SignInVC: UITextFieldDelegate {
             })
             .disposed(by: disposeBag)
     }
-
+    
 }

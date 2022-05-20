@@ -12,8 +12,7 @@ class TimeTableVC: BaseViewController {
     private let semesterBackView = UILabel().then { $0.backgroundColor = .clear }
 
     private let backLine1 = UIView()
-    private let backLine2 = UIView()
-
+    private let backLine2 = UIView()    
     private let semesterLabel = UILabel().then {
         $0.textColor = Asset.mainColor.color
         $0.font = .roundedFont(ofSize: 15, weight: .semibold)
