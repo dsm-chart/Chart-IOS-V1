@@ -196,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				57368634280C5C85003120D3 /* TimeTableVC.swift */,
+				CA2803FA8D18E16D2F1DB435 /* Cell */,
 			);
 			path = TimeTable;
 			sourceTree = "<group>";
@@ -323,10 +324,10 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		57C9DE8B282C971B00CA9606 /* Cell */ = {
+		CA2803FA8D18E16D2F1DB435 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				57C9DE8C282C974400CA9606 /* MainPostCell.swift */,
+				CA280B187ADC5C808862F4DF /* TimeTableSubjectCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
