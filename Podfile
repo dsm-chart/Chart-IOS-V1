@@ -38,6 +38,8 @@ target 'Chart-IOS' do
   
   pod 'PanModal'
   pod 'BEMCheckBox'
+
+  pod 'SwiftLint'
   
   pod 'MaterialComponents/Buttons'
   pod 'MaterialComponents/Buttons+Theming'

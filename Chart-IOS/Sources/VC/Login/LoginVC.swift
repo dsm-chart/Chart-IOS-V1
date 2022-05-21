@@ -21,6 +21,11 @@ class LoginVC: BaseViewController {
         [welcomeImageView, loginGithubButton].forEach {
             view.addSubview($0)
         }
+        
+        loginGithubButton.rx.tap.bind {
+            self.navigationController?.pushViewController(SignInVC(), animated: true)
+        }.disposed(by: disposeBag)
+        
     }
     
     override func setupConstraints() {
