@@ -72,7 +72,6 @@ class TimeTableVC: BaseViewController {
         makeStackView()
     }
 
-
     private func makeStackView() {
 
         let periodArray = ["월", "화", "수", "목", "금"]
@@ -186,6 +185,3 @@ class TimeTableVC: BaseViewController {
 
     }
 }
-
-
-

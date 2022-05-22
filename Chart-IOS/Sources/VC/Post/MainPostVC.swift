@@ -55,11 +55,10 @@ class MainPostVC: BaseViewController, UITableViewDelegate, UITableViewDataSource
         tableView.dataSource = self
 
         createPostFloatingButton.rx.tap.bind {
-                    self.navigationController?.pushViewController(AddPostVC(), animated: true)
-                }
-                .disposed(by: disposeBag)
+            self.navigationController?.pushViewController(AddPostVC(), animated: true)
+        }.disposed(by: disposeBag)
     }
-
+    
     override func setupConstraints() {
         createPostFloatingButton.snp.makeConstraints {
             $0.trailing.bottom.equalTo(view.safeAreaLayoutGuide).offset(-25)

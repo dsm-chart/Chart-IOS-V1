@@ -11,7 +11,6 @@ import RxGesture
 import PanModal
 import BEMCheckBox
 
-
 class SignInVC: BaseViewController {
     
     private let signInNameLabbel = UILabel().then {
@@ -59,7 +58,7 @@ class SignInVC: BaseViewController {
         
         let attributes = [
             NSAttributedString.Key.foregroundColor: UIColor.separator,
-            NSAttributedString.Key.font : UIFont.roundedFont(ofSize: 18, weight: .medium)
+            NSAttributedString.Key.font: UIFont.roundedFont(ofSize: 18, weight: .medium)
         ]
         
         [schoolGradeTextField, schoolClassNumberTextField].forEach {
@@ -75,8 +74,8 @@ class SignInVC: BaseViewController {
             $0.layer.cornerRadius = 10
         }
         
-        schoolGradeTextField.attributedPlaceholder = NSAttributedString(string: "학년을 입력하세요 (ex : 1", attributes:attributes)
-        schoolClassNumberTextField.attributedPlaceholder = NSAttributedString(string: "번호를 입력하세요 (ex : 01", attributes:attributes)
+        schoolGradeTextField.attributedPlaceholder = NSAttributedString(string: "학년을 입력하세요 (ex : 1", attributes: attributes)
+        schoolClassNumberTextField.attributedPlaceholder = NSAttributedString(string: "번호를 입력하세요 (ex : 01", attributes: attributes)
         
     }
     
@@ -86,15 +85,15 @@ class SignInVC: BaseViewController {
         
         attributtedString.addAttribute(.foregroundColor,
                                        value: Asset.mainColor.color,
-                                       range: (agreeLabel.text! as NSString).range(of:"개인정보 처리방침"))
+                                       range: (agreeLabel.text! as NSString).range(of: "개인정보 처리방침"))
         
         attributtedString.addAttribute(.underlineStyle,
                                        value: NSUnderlineStyle.single.rawValue,
-                                       range: (agreeLabel.text! as NSString).range(of:"개인정보 처리방침"))
+                                       range: (agreeLabel.text! as NSString).range(of: "개인정보 처리방침"))
         
         attributtedString.addAttribute(.underlineColor,
                                        value: Asset.mainColor.color,
-                                       range: (agreeLabel.text! as NSString).range(of:"개인정보 처리방침"))
+                                       range: (agreeLabel.text! as NSString).range(of: "개인정보 처리방침"))
         
         agreeLabel.attributedText = attributtedString
         
@@ -159,8 +158,7 @@ class SignInVC: BaseViewController {
         textFieldBackView3.snp.makeConstraints {
             $0.top.equalTo(textFieldBackView2.snp.bottom).offset(25)
         }
-        
-        
+
         signInNameLabbel.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(20)
             $0.height.equalTo(90)
@@ -221,7 +219,7 @@ extension SignInVC: UITextFieldDelegate {
         
         RxKeyboard.instance.visibleHeight
             .skip(1)
-            .drive(onNext : { keyboardVisibleHeight in
+            .drive(onNext: { keyboardVisibleHeight in
                 UIView.animate(withDuration: 0) {
                     self.signInDoneButton.snp.updateConstraints {
                         $0.bottom.equalTo(self.view.safeAreaLayoutGuide).inset(keyboardVisibleHeight - extra + 15)

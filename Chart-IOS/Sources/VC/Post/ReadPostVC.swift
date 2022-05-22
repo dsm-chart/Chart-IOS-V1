@@ -63,8 +63,10 @@ class ReadPostVC: BaseViewController {
             $0.top.equalTo(dateLabel.snp.bottom).offset(15)
             $0.bottom.equalToSuperview()
         }
-
-        let bottom = UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0.0
+        
+        let scenes = UIApplication.shared.connectedScenes
+        let windowScene = scenes.first as? UIWindowScene
+        let bottom = windowScene?.windows.first?.safeAreaInsets.bottom ?? 0.0
 
         goCommentButton.snp.makeConstraints {
             $0.leading.trailing.equalTo(view).inset(15)
