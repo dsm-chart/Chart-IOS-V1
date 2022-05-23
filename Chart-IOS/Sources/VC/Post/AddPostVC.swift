@@ -31,6 +31,8 @@ class AddPostVC: BaseViewController {
         $0.backgroundColor = .clear
     }
 
+    private let writeButton = UIBarButtonItem(title: "작성")
+
     override func setLayout() {
         self.tabBarController?.tabBar.isHidden = true
         self.tabBarController?.tabBar.isTranslucent = true // <- 이코드가 꼭 있어야함
@@ -39,6 +41,7 @@ class AddPostVC: BaseViewController {
     override func configureUI() {
         contentTextView.delegate = self
         navigationItem.title = "새 글 작성하기"
+        navigationItem.rightBarButtonItem = writeButton
         [titleLabel, titleTextField, contentTextView].forEach {
             view.addSubview($0)
         }
