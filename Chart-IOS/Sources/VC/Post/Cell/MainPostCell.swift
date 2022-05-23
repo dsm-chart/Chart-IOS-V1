@@ -16,11 +16,11 @@ class MainPostCell: BaseTableViewCell {
     
     let titleLabel = UILabel()
     let nameLabel = UILabel()
-    let bodylabel = UILabel()
-    
+    let contentLabel = UILabel()
+
     func createLabel() {
         
-        [titleLabel, bodylabel].forEach {
+        [titleLabel, contentLabel].forEach {
             $0.textColor = Asset.labelColor.color
         }
         
@@ -29,18 +29,18 @@ class MainPostCell: BaseTableViewCell {
         
         titleLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         nameLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
-        bodylabel.font = UIFont.systemFont(ofSize: 17, weight: .bold)
+        contentLabel.font = UIFont.systemFont(ofSize: 17, weight: .bold)
         
         titleLabel.text = "제목이 들어가요"
         nameLabel.text = "이름이 들어가요"
-        bodylabel.text = "여기에는 본문이 한줄 들어가요"
+        contentLabel.text = "여기에는 본문이 한줄 들어가요"
     }
     
     override func configureUI() {
         createLabel()
         contentView.addSubview(backView)
         contentView.backgroundColor = Asset.backgroundColor.color
-        [titleLabel, nameLabel, bodylabel].forEach {
+        [titleLabel, nameLabel, contentLabel].forEach {
             backView.addSubview($0)
         }
     }
@@ -63,7 +63,7 @@ class MainPostCell: BaseTableViewCell {
             $0.height.equalTo(26)
         }
         
-        bodylabel.snp.makeConstraints {
+        contentLabel.snp.makeConstraints {
             $0.top.equalTo(56)
             $0.leading.trailing.equalTo(backView).inset(20)
             $0.height.equalTo(26)
