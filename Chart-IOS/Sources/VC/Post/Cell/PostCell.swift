@@ -7,32 +7,32 @@
 
 import UIKit
 
-class MainPostCell: BaseTableViewCell {
+class PostCell: BaseTableViewCell {
     
     private let backView = UIView().then {
         $0.backgroundColor = Asset.viewColor.color
         $0.layer.cornerRadius = 20
     }
     
-    let titleLabel = UILabel()
-    let nameLabel = UILabel()
+    let FirstLabel = UILabel()
+    let secondLabel = UILabel()
     let contentLabel = UILabel()
 
     func createLabel() {
         
-        [titleLabel, contentLabel].forEach {
+        [FirstLabel, contentLabel].forEach {
             $0.textColor = Asset.labelColor.color
         }
         
-        nameLabel.textColor = Asset.mainColor.color
-        nameLabel.textAlignment = .right
+        secondLabel.textColor = Asset.mainColor.color
+        secondLabel.textAlignment = .right
         
-        titleLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
-        nameLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
+        FirstLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
+        secondLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         contentLabel.font = UIFont.systemFont(ofSize: 17, weight: .bold)
         
-        titleLabel.text = "제목이 들어가요"
-        nameLabel.text = "이름이 들어가요"
+        FirstLabel.text = "제목이 들어가요"
+        secondLabel.text = "이름이 들어가요"
         contentLabel.text = "여기에는 본문이 한줄 들어가요"
     }
     
@@ -40,7 +40,7 @@ class MainPostCell: BaseTableViewCell {
         createLabel()
         contentView.addSubview(backView)
         contentView.backgroundColor = Asset.backgroundColor.color
-        [titleLabel, nameLabel, contentLabel].forEach {
+        [FirstLabel, secondLabel, contentLabel].forEach {
             backView.addSubview($0)
         }
     }
@@ -52,12 +52,12 @@ class MainPostCell: BaseTableViewCell {
             $0.top.bottom.equalTo(contentView).inset(7.5)
         }
         
-        titleLabel.snp.makeConstraints {
+        FirstLabel.snp.makeConstraints {
             $0.leading.top.equalTo(20)
             $0.height.equalTo(26)
         }
         
-        nameLabel.snp.makeConstraints {
+        secondLabel.snp.makeConstraints {
             $0.trailing.equalTo(-20)
             $0.top.equalTo(20)
             $0.height.equalTo(26)
