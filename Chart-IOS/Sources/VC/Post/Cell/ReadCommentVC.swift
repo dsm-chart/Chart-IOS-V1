@@ -5,11 +5,11 @@
 
 import UIKit
 
-class ReadCommentVC: BaseViewController {
+class ReadCommentVC: BaseViewController, UITableViewDelegate, UITableViewDataSource {
 
     private let tableView = UITableView().then {
-        $0.backgroundColor = Asset.viewColor.color
-        $0.layer.cornerRadius = 20
+        $0.backgroundColor = Asset.backgroundColor.color
+        $0.separatorStyle = .none
     }
 
     private let writeCommentButton = UIButton()
@@ -20,6 +20,8 @@ class ReadCommentVC: BaseViewController {
         [tableView, writeCommentButton].forEach {
             view.addSubview($0)
         }
+        tableView.delegate = self
+        tableView.dataSource = self
     }
 
     override func setupConstraints() {
@@ -30,4 +32,13 @@ class ReadCommentVC: BaseViewController {
             $0.bottom.equalTo(view.safeAreaLayoutGuide).offset(-5)
         }
     }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return PostCell()
+    }
+
 }
