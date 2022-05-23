@@ -25,7 +25,10 @@ class ReadCommentVC: BaseViewController, UITableViewDelegate, UITableViewDataSou
     }
 
     override func setupConstraints() {
-        tableView.snp.makeConstraints { $0.edges.equalToSuperview() }
+        tableView.snp.makeConstraints {
+            $0.top.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(view.safeAreaLayoutGuide).offset(-40)
+        }
         writeCommentButton.snp.makeConstraints {
             $0.leading.trailing.equalTo(view).inset(15)
             $0.height.equalTo(50)
