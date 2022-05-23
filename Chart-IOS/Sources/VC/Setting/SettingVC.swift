@@ -7,8 +7,8 @@
 
 import UIKit
 
-class SettingVC: BaseViewController {
-    
+class SettingVC: BaseViewController, UITableViewDelegate, UITableViewDataSource {
+
     private let labelBackView = UIView().then {
         $0.backgroundColor = .clear
     }
@@ -17,7 +17,7 @@ class SettingVC: BaseViewController {
         $0.backgroundColor = .clear
         $0.separatorStyle = .none
         $0.keyboardDismissMode = .onDrag
-        $0.register(PostCell.self, forCellReuseIdentifier: "PostCell")
+        $0.register(SettingListCell.self, forCellReuseIdentifier: "settingListCell")
     }
 
     private let subTitleLabel = UILabel().then {
@@ -43,6 +43,8 @@ class SettingVC: BaseViewController {
         subTitleLabel.text = "OOO님 반가워요"
         titleLabel.text = "환경설정"
 
+        tableView.delegate = self
+        tableView.dataSource = self
     }
  
     override func setupConstraints() {
@@ -72,4 +74,18 @@ class SettingVC: BaseViewController {
         }
 
     }
+
+    let settingTitleArray = ["최근 작성한 개시물", "개인정보 수정하기", "개발자 소개", "오픈소스", "문의하기", "로그아웃"]
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return settingTitleArray.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "settingListCell") as? SettingListCell
+        cell!.titleLabel.text = settingTitleArray[indexPath.row]
+        return cell!
+
+    }
+
 }
