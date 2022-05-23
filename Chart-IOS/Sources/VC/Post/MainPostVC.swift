@@ -18,7 +18,7 @@ class MainPostVC: BaseViewController, UITableViewDelegate, UITableViewDataSource
         $0.backgroundColor = .clear
         $0.separatorStyle = .none
         $0.keyboardDismissMode = .onDrag
-        $0.register(MainPostCell.self, forCellReuseIdentifier: "mainPostCell")
+        $0.register(PostCell.self, forCellReuseIdentifier: "PostCell")
     }
 
     private let dateLabel = UILabel().then {
@@ -94,7 +94,7 @@ class MainPostVC: BaseViewController, UITableViewDelegate, UITableViewDataSource
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return MainPostCell()
+        return PostCell()
     }
 
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {

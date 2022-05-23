@@ -14,24 +14,24 @@ class PostCell: BaseTableViewCell {
         $0.layer.cornerRadius = 20
     }
     
-    let FirstLabel = UILabel()
+    let firstLabel = UILabel()
     let secondLabel = UILabel()
     let contentLabel = UILabel()
 
     func createLabel() {
         
-        [FirstLabel, contentLabel].forEach {
+        [firstLabel, contentLabel].forEach {
             $0.textColor = Asset.labelColor.color
         }
         
         secondLabel.textColor = Asset.mainColor.color
         secondLabel.textAlignment = .right
         
-        FirstLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
+        firstLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         secondLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         contentLabel.font = UIFont.systemFont(ofSize: 17, weight: .bold)
         
-        FirstLabel.text = "제목이 들어가요"
+        firstLabel.text = "제목이 들어가요"
         secondLabel.text = "이름이 들어가요"
         contentLabel.text = "여기에는 본문이 한줄 들어가요"
     }
@@ -40,7 +40,7 @@ class PostCell: BaseTableViewCell {
         createLabel()
         contentView.addSubview(backView)
         contentView.backgroundColor = Asset.backgroundColor.color
-        [FirstLabel, secondLabel, contentLabel].forEach {
+        [firstLabel, secondLabel, contentLabel].forEach {
             backView.addSubview($0)
         }
     }
@@ -52,7 +52,7 @@ class PostCell: BaseTableViewCell {
             $0.top.bottom.equalTo(contentView).inset(7.5)
         }
         
-        FirstLabel.snp.makeConstraints {
+        firstLabel.snp.makeConstraints {
             $0.leading.top.equalTo(20)
             $0.height.equalTo(26)
         }
