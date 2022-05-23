@@ -8,7 +8,6 @@
 import XCTest
 
 class SignupUITests: XCTestCase {
-    
 
     override func setUpWithError() throws {
         continueAfterFailure = false
@@ -24,7 +23,6 @@ class SignupUITests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
 
-        
     }
 
     func testLaunchPerformance() throws {

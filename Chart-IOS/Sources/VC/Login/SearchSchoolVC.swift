@@ -31,7 +31,7 @@ class SearchSchoolVC: BaseViewController, PanModalPresentable, UITableViewDelega
         $0.tintColor = Asset.mainColor.color
         $0.attributedPlaceholder = NSAttributedString(string: "학교를 검색하세요", attributes: [
             NSAttributedString.Key.foregroundColor: UIColor.secondaryLabel,
-            NSAttributedString.Key.font : UIFont.roundedFont(ofSize: 18, weight: .medium)
+            NSAttributedString.Key.font: UIFont.roundedFont(ofSize: 18, weight: .medium)
         ])
     }
     
@@ -62,10 +62,9 @@ class SearchSchoolVC: BaseViewController, PanModalPresentable, UITableViewDelega
         
         schoolSearchTextField.rx.text.bind { text in
             
-            if text == "" {
+            if text!.isEmpty {
                 UIView.animate(withDuration: 0.2) { self.searchButton.tintColor = .clear }
-            }
-            else {
+            } else {
                 UIView.animate(withDuration: 0.2) { self.searchButton.tintColor = Asset.mainColor.color }
             }
             

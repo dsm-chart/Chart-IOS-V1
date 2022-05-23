@@ -8,9 +8,11 @@
 import UIKit
 
 class BaseNavigationController: UINavigationController {
-
+    
     private var backButtonImage: UIImage? {
-        return UIImage(systemName: "chevron.backward")?.withAlignmentRectInsets(UIEdgeInsets(top: 0.0, left: -12.0, bottom: 0.0, right: 0.0))
+        return UIImage(
+            systemName: "chevron.backward")?
+            .withAlignmentRectInsets(UIEdgeInsets(top: 0.0, left: -12.0, bottom: 0.0, right: 0.0))
     }
     
     private var backButtonAppearance: UIBarButtonItemAppearance {
@@ -31,17 +33,19 @@ class BaseNavigationController: UINavigationController {
     }
     
     func setNavigationBarAppearance() {
-        
         let appearance = UINavigationBarAppearance()
-        appearance.shadowColor = .clear
-        self.navigationController?.navigationBar.standardAppearance = appearance
-        appearance.setBackIndicatorImage(backButtonImage, transitionMaskImage: backButtonImage)
-        appearance.configureWithTransparentBackground()
-        appearance.backButtonAppearance = backButtonAppearance
-        navigationBar.standardAppearance = appearance
-        navigationBar.scrollEdgeAppearance = appearance
+        let appearance2 = UINavigationBarAppearance()
         navigationBar.tintColor = Asset.mainColor.color
-        
-    }
+        appearance.setBackIndicatorImage(backButtonImage, transitionMaskImage: backButtonImage)
+        appearance2.setBackIndicatorImage(backButtonImage, transitionMaskImage: backButtonImage)
 
+        appearance.configureWithTransparentBackground()
+        appearance2.configureWithDefaultBackground()
+        appearance.backButtonAppearance = backButtonAppearance
+        appearance2.backButtonAppearance = backButtonAppearance
+        navigationBar.standardAppearance = appearance2
+        navigationController?.setNeedsStatusBarAppearanceUpdate()
+        navigationBar.scrollEdgeAppearance = appearance
+    }
+    
 }

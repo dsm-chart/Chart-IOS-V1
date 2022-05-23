@@ -36,8 +36,7 @@ class SchoolMealVC: BaseViewController {
     private let breakfastTextView = UITextView()
     private let lunchTextView = UITextView()
     private let dinnerTextView = UITextView()
-    
-    
+
     func makeMealView() {
         [breakfastView, lunchView, dinnerView].forEach {
             $0.backgroundColor = Asset.viewColor.color
@@ -61,7 +60,7 @@ class SchoolMealVC: BaseViewController {
     
     func addSubView() {
         
-        let mealName =  ["아침", "점심", "저녁"]
+        let mealName = ["아침", "점심", "저녁"]
         
         view.addSubview(dateBackView)
         [dateLabel, mealTabelNameLabel].forEach { dateBackView.addSubview($0) }
@@ -77,7 +76,7 @@ class SchoolMealVC: BaseViewController {
             mealViewArray[count].addSubview(mealTextViewArray[count])
         }
         
-        //TODO: Dummy Data, 추후 추가 예정
+        // TODO: Dummy Data, 추후 추가 예정
         
         dateLabel.text = "0000-00-00"
         mealTabelNameLabel.text = "무요일 식단표"
