@@ -208,7 +208,7 @@ extension SignInVC: UITextFieldDelegate {
         agreeLabel.rx.tapGesture()
             .when(.recognized)
             .bind {_ in
-                self.present(ProcessingPolicyVC(), animated: true)
+                self.navigationController?.pushViewController(ProcessingPolicyVC(), animated: true)
                 self.agreeCheckBox.setOn(true, animated: true)
             }.disposed(by: disposeBag)
         
