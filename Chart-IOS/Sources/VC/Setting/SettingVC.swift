@@ -39,5 +39,37 @@ class SettingVC: BaseViewController {
         [subTitleLabel, titleLabel].forEach {
             labelBackView.addSubview($0)
         }
+        
+        subTitleLabel.text = "OOO님 반가워요"
+        titleLabel.text = "환경설정"
+
+    }
+ 
+    override func setupConstraints() {
+        labelBackView.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(
+                    -(self.navigationController?.navigationBar.frame.height ?? 0.0))
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(view.snp.centerY).offset(-234.5)
+        }
+
+        subTitleLabel.snp.makeConstraints {
+            $0.height.equalTo(35)
+            $0.centerX.equalTo(view)
+            $0.bottom.equalTo(titleLabel.snp.top)
+        }
+
+        titleLabel.snp.makeConstraints {
+            $0.height.equalTo(35)
+            $0.centerX.equalTo(view)
+            $0.centerY.equalTo(labelBackView).offset(20)
+        }
+
+        tableView.snp.makeConstraints {
+            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+            $0.top.equalTo(labelBackView.snp.bottom)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide)
+        }
+
     }
 }
