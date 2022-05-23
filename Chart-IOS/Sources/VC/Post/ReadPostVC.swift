@@ -45,6 +45,10 @@ class ReadPostVC: BaseViewController {
             view.addSubview($0)
         }
         goCommentButton.makeMyDesign(color: Asset.mainColor.color, title: "Comment 보기", titleColor: .white)
+
+        goCommentButton.rx.tap.bind {
+            self.navigationController?.pushViewController(ReadCommentVC(), animated: true)
+        }.disposed(by: disposeBag)
     }
 
     override func setupConstraints() {
