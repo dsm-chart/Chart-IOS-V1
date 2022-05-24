@@ -3,19 +3,19 @@
 //
 
 import Foundation
+import Moya
 
 extension API {
 
     func getBaseURL() -> URL {
-        return URL(string: baseURL)
+        return URL(string: baseURL)!
     }
 
     func getPath() -> String {
         switch self {
-
         case .postQuestion(_, _), .getQuestion(_, _):
             return "/api/v1/question"
-        case .postComment(_, _), .deleteComment(_), .patchComment(_, _):
+        case .postComment(_, _):
             return "/api/v1/comment"
         case .signUp:
             return "/api/v1/auth/signup"
@@ -34,5 +34,12 @@ extension API {
         }
     }
 
-
+    func getMethod() -> Moya.Method {
+        switch self {
+        case .postQuestion(_, _), .postComment(_, _), .signUp, .reissue, .login(_):
+            return .post
+        case .getQuestion(_, _), .myAuth, .getTimeTable(_, _), .todayTimeTable, .getMeal:
+            return .get
+        }
+    }
 }

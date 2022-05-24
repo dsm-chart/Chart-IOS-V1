@@ -18,8 +18,6 @@ enum API {
     // question-controller
 
     case postComment(_ content: String, _ targetId: String)
-    case deleteComment(_ commentId: String)
-    case patchComment(_ content: String, _ targetId: String)
 
     // account-controller
 
