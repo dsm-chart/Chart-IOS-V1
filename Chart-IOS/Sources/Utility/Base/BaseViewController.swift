@@ -29,7 +29,8 @@ class BaseViewController: UIViewController {
     init() {
         super.init(nibName: nil, bundle: nil)
     }
-    
+
+    @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -38,6 +39,10 @@ class BaseViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.setLayout()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+          self.view.endEditing(true)
     }
     
     override func viewDidLoad() {
