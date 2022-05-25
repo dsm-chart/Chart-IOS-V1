@@ -24,6 +24,10 @@
 		5757925928070B0D0040C721 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5757925828070B0D0040C721 /* Assets.swift */; };
 		575B9774280E7CBD00186359 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575B9773280E7CBD00186359 /* UIButton.swift */; };
 		57610D29280B056800818D27 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57610D28280B056800818D27 /* TabBarController.swift */; };
+		5769A5E4283DA4E600D60DB6 /* CreateQuestionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5769A5E3283DA4E600D60DB6 /* CreateQuestionRequest.swift */; };
+		5769A5E6283DA4F600D60DB6 /* ReplyCommentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5769A5E5283DA4F600D60DB6 /* ReplyCommentRequest.swift */; };
+		5769A5E8283DA50A00D60DB6 /* SignupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5769A5E7283DA50A00D60DB6 /* SignupRequest.swift */; };
+		5769A5EA283DA53500D60DB6 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5769A5E9283DA53500D60DB6 /* LoginRequest.swift */; };
 		576D1ABE2831D225008C8F01 /* AddPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D1ABD2831D225008C8F01 /* AddPostVC.swift */; };
 		578B15C92817937B00901498 /* SignupUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578B15C82817937B00901498 /* SignupUITests.swift */; };
 		57A317E52820EBB20078A80A /* ProcessingPolicyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A317E42820EBB20078A80A /* ProcessingPolicyVC.swift */; };
@@ -86,6 +90,10 @@
 		5757925828070B0D0040C721 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		575B9773280E7CBD00186359 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		57610D28280B056800818D27 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		5769A5E3283DA4E600D60DB6 /* CreateQuestionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateQuestionRequest.swift; sourceTree = "<group>"; };
+		5769A5E5283DA4F600D60DB6 /* ReplyCommentRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyCommentRequest.swift; sourceTree = "<group>"; };
+		5769A5E7283DA50A00D60DB6 /* SignupRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupRequest.swift; sourceTree = "<group>"; };
+		5769A5E9283DA53500D60DB6 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		576D1ABD2831D225008C8F01 /* AddPostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostVC.swift; sourceTree = "<group>"; };
 		578B15C82817937B00901498 /* SignupUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupUITests.swift; sourceTree = "<group>"; };
 		57A317E42820EBB20078A80A /* ProcessingPolicyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingPolicyVC.swift; sourceTree = "<group>"; };
@@ -269,9 +277,37 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
+		5769A5E0283DA44E00D60DB6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5769A5E2283DA46E00D60DB6 /* Response */,
+				5769A5E1283DA45800D60DB6 /* Reqqust */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5769A5E1283DA45800D60DB6 /* Reqqust */ = {
+			isa = PBXGroup;
+			children = (
+				5769A5E3283DA4E600D60DB6 /* CreateQuestionRequest.swift */,
+				5769A5E5283DA4F600D60DB6 /* ReplyCommentRequest.swift */,
+				5769A5E7283DA50A00D60DB6 /* SignupRequest.swift */,
+				5769A5E9283DA53500D60DB6 /* LoginRequest.swift */,
+			);
+			path = Reqqust;
+			sourceTree = "<group>";
+		};
+		5769A5E2283DA46E00D60DB6 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
 		5798BE2A28046AF400D3AD29 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				5769A5E0283DA44E00D60DB6 /* Model */,
 				5704BDB8283CB79200FA89B0 /* Networking */,
 				5736862C280C58BF003120D3 /* VC */,
 				57610D27280B01CD00818D27 /* Utility */,
@@ -630,6 +666,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5736862F280C5945003120D3 /* BaseViewController.swift in Sources */,
+				5769A5EA283DA53500D60DB6 /* LoginRequest.swift in Sources */,
 				57B29D38280D56B600EB9AB0 /* Font.swift in Sources */,
 				57B29D3B280E575E00EB9AB0 /* LoginVC.swift in Sources */,
 				57368637280C5CCE003120D3 /* MainPostVC.swift in Sources */,
@@ -653,10 +690,13 @@
 				57368639280C5CD9003120D3 /* SettingVC.swift in Sources */,
 				57368631280C5BA5003120D3 /* BaseTableViewCell.swift in Sources */,
 				570B535828195C75009298A2 /* SiginInDoneVC.swift in Sources */,
+				5769A5E4283DA4E600D60DB6 /* CreateQuestionRequest.swift in Sources */,
 				57AA2A5A27FE70E4006CDA2E /* SceneDelegate.swift in Sources */,
 				5704BDBE283CB8BB00FA89B0 /* MyAPI+Request.swift in Sources */,
 				CA280407AC8E3107A9676844 /* ReadPostVC.swift in Sources */,
+				5769A5E6283DA4F600D60DB6 /* ReplyCommentRequest.swift in Sources */,
 				CA280354F9CE09CD35608D28 /* ReadCommentVC.swift in Sources */,
+				5769A5E8283DA50A00D60DB6 /* SignupRequest.swift in Sources */,
 				CA280BF92228A7120A43B18D /* KeyChain.swift in Sources */,
 				CA280595FBE89301C77DD6FA /* TargetType.swift in Sources */,
 			);
