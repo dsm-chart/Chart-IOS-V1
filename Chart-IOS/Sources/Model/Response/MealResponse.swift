@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct Meal: Codable {
+    let breakfast: [String]
+    let lunch: [String]
+    let dinner: [String]
+}

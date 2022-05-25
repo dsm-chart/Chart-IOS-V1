@@ -17,6 +17,8 @@ extension API {
             return "/api/v1/question"
         case .postComment(_, _):
             return "/api/v1/comment"
+        case .getComment(let postId):
+            return "/api/v1/comment/\(postId)"
         case .signUp:
             return "/api/v1/auth/signup"
         case .reissue:
@@ -38,7 +40,7 @@ extension API {
         switch self {
         case .postQuestion(_, _), .postComment(_, _), .signUp, .reissue, .login(_):
             return .post
-        case .getQuestion(_, _), .myAuth, .getTimeTable(_, _), .todayTimeTable, .getMeal:
+        case .getQuestion(_, _), .getComment(_), .myAuth, .getTimeTable(_, _), .todayTimeTable, .getMeal:
             return .get
         }
     }

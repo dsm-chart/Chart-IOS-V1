@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct Comment: Codable {
+    let content: String
+    let writer: User
+}

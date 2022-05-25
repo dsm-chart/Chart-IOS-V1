@@ -6,3 +6,14 @@
 //
 
 import Foundation
+
+struct QuestionArr: Codable {
+    let question: [Question]
+}
+
+struct Question: Codable {
+    let id: String
+    let title: String
+    let content: String
+    let writer: User
+}

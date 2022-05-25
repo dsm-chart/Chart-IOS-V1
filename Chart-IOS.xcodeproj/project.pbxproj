@@ -33,6 +33,7 @@
 		5769A5F2283DB3D500D60DB6 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5769A5F1283DB3D500D60DB6 /* UserResponse.swift */; };
 		5769A5F4283DB3E900D60DB6 /* CommentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5769A5F3283DB3E900D60DB6 /* CommentResponse.swift */; };
 		5769A5F6283DB57C00D60DB6 /* MealResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5769A5F5283DB57C00D60DB6 /* MealResponse.swift */; };
+		5769A5F8283DB92E00D60DB6 /* MyInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5769A5F7283DB92E00D60DB6 /* MyInfoResponse.swift */; };
 		576D1ABE2831D225008C8F01 /* AddPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D1ABD2831D225008C8F01 /* AddPostVC.swift */; };
 		578B15C92817937B00901498 /* SignupUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578B15C82817937B00901498 /* SignupUITests.swift */; };
 		57A317E52820EBB20078A80A /* ProcessingPolicyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A317E42820EBB20078A80A /* ProcessingPolicyVC.swift */; };
@@ -104,6 +105,7 @@
 		5769A5F1283DB3D500D60DB6 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
 		5769A5F3283DB3E900D60DB6 /* CommentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentResponse.swift; sourceTree = "<group>"; };
 		5769A5F5283DB57C00D60DB6 /* MealResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealResponse.swift; sourceTree = "<group>"; };
+		5769A5F7283DB92E00D60DB6 /* MyInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoResponse.swift; sourceTree = "<group>"; };
 		576D1ABD2831D225008C8F01 /* AddPostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostVC.swift; sourceTree = "<group>"; };
 		578B15C82817937B00901498 /* SignupUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupUITests.swift; sourceTree = "<group>"; };
 		57A317E42820EBB20078A80A /* ProcessingPolicyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingPolicyVC.swift; sourceTree = "<group>"; };
@@ -315,6 +317,7 @@
 				5769A5F1283DB3D500D60DB6 /* UserResponse.swift */,
 				5769A5F3283DB3E900D60DB6 /* CommentResponse.swift */,
 				5769A5F5283DB57C00D60DB6 /* MealResponse.swift */,
+				5769A5F7283DB92E00D60DB6 /* MyInfoResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -704,6 +707,7 @@
 				57368635280C5C85003120D3 /* TimeTableVC.swift in Sources */,
 				572D56912810130100F5D457 /* SearchSchoolTableViewCell.swift in Sources */,
 				5704BDBA283CB7B700FA89B0 /* BaseURL.swift in Sources */,
+				5769A5F8283DB92E00D60DB6 /* MyInfoResponse.swift in Sources */,
 				57368633280C5C33003120D3 /* SchoolMealVC.swift in Sources */,
 				57368639280C5CD9003120D3 /* SettingVC.swift in Sources */,
 				57368631280C5BA5003120D3 /* BaseTableViewCell.swift in Sources */,

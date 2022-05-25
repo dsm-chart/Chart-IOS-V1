@@ -6,3 +6,20 @@
 //
 
 import Foundation
+
+struct TimeTable: Codable {
+    let dayTimeTable: [DayTimeTable]
+}
+
+struct DayTimeTable: Codable {
+    let grade: Int
+    let classNum: Int
+    let totalCount: Int
+    let day: Int
+    let subjects: [Subjects]
+}
+
+struct Subjects: Codable {
+    let name: String
+    let period: Int
+}

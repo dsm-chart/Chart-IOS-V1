@@ -18,6 +18,7 @@ enum API {
     // question-controller
 
     case postComment(_ content: String, _ targetId: String)
+    case getComment(_ postId: String)
 
     // account-controller
 
