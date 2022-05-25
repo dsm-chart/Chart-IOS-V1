@@ -193,12 +193,12 @@
 		5704BDB8283CB79200FA89B0 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				CA28037D56F574B355CE48EB /* KeyChain.swift */,
 				5704BDB9283CB7B700FA89B0 /* BaseURL.swift */,
+				5704BDBF283CB94B00FA89B0 /* API.swift */,
+				CA280273466BBCE9AF67CAA0 /* TargetType.swift */,
 				5704BDBB283CB85100FA89B0 /* Moya+NetworkError.swift */,
 				5704BDBD283CB8BB00FA89B0 /* MyAPI+Request.swift */,
-				5704BDBF283CB94B00FA89B0 /* API.swift */,
-				CA28037D56F574B355CE48EB /* KeyChain.swift */,
-				CA280273466BBCE9AF67CAA0 /* TargetType.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";

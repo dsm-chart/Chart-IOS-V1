@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SignUpRequet: {
+struct SignUpRequet: Codable {
     let areaCode: String
     let githubCode: String
     let schoolCode: String
