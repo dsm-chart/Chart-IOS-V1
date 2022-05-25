@@ -7,3 +7,7 @@
 
 import Foundation
 
+struct QuestionRequest: Codable {
+    let title: String
+    let content: String
+}

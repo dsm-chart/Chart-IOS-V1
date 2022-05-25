@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct CommentRequest: Codable {
+    let content: String
+    let targetId: String
+}

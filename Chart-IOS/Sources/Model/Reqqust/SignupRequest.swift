@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+struct SignUpRequet: {
+    let areaCode: String
+    let githubCode: String
+    let schoolCode: String
+    let grade: Int
+    let classNum: Int
+}
