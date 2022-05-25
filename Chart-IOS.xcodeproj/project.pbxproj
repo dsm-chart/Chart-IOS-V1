@@ -24,8 +24,8 @@
 		5757925928070B0D0040C721 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5757925828070B0D0040C721 /* Assets.swift */; };
 		575B9774280E7CBD00186359 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575B9773280E7CBD00186359 /* UIButton.swift */; };
 		57610D29280B056800818D27 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57610D28280B056800818D27 /* TabBarController.swift */; };
-		5769A5E4283DA4E600D60DB6 /* CreateQuestionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5769A5E3283DA4E600D60DB6 /* CreateQuestionRequest.swift */; };
-		5769A5E6283DA4F600D60DB6 /* ReplyCommentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5769A5E5283DA4F600D60DB6 /* ReplyCommentRequest.swift */; };
+		5769A5E4283DA4E600D60DB6 /* QuestionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5769A5E3283DA4E600D60DB6 /* QuestionRequest.swift */; };
+		5769A5E6283DA4F600D60DB6 /* CommentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5769A5E5283DA4F600D60DB6 /* CommentRequest.swift */; };
 		5769A5E8283DA50A00D60DB6 /* SignupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5769A5E7283DA50A00D60DB6 /* SignupRequest.swift */; };
 		5769A5EA283DA53500D60DB6 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5769A5E9283DA53500D60DB6 /* LoginRequest.swift */; };
 		5769A5EE283DB35E00D60DB6 /* TimeTableResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5769A5ED283DB35E00D60DB6 /* TimeTableResponse.swift */; };
@@ -96,8 +96,8 @@
 		5757925828070B0D0040C721 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		575B9773280E7CBD00186359 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		57610D28280B056800818D27 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		5769A5E3283DA4E600D60DB6 /* CreateQuestionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateQuestionRequest.swift; sourceTree = "<group>"; };
-		5769A5E5283DA4F600D60DB6 /* ReplyCommentRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyCommentRequest.swift; sourceTree = "<group>"; };
+		5769A5E3283DA4E600D60DB6 /* QuestionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionRequest.swift; sourceTree = "<group>"; };
+		5769A5E5283DA4F600D60DB6 /* CommentRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRequest.swift; sourceTree = "<group>"; };
 		5769A5E7283DA50A00D60DB6 /* SignupRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupRequest.swift; sourceTree = "<group>"; };
 		5769A5E9283DA53500D60DB6 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		5769A5ED283DB35E00D60DB6 /* TimeTableResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableResponse.swift; sourceTree = "<group>"; };
@@ -301,8 +301,8 @@
 		5769A5E1283DA45800D60DB6 /* Reqqust */ = {
 			isa = PBXGroup;
 			children = (
-				5769A5E3283DA4E600D60DB6 /* CreateQuestionRequest.swift */,
-				5769A5E5283DA4F600D60DB6 /* ReplyCommentRequest.swift */,
+				5769A5E3283DA4E600D60DB6 /* QuestionRequest.swift */,
+				5769A5E5283DA4F600D60DB6 /* CommentRequest.swift */,
 				5769A5E7283DA50A00D60DB6 /* SignupRequest.swift */,
 				5769A5E9283DA53500D60DB6 /* LoginRequest.swift */,
 			);
@@ -712,11 +712,11 @@
 				57368639280C5CD9003120D3 /* SettingVC.swift in Sources */,
 				57368631280C5BA5003120D3 /* BaseTableViewCell.swift in Sources */,
 				570B535828195C75009298A2 /* SiginInDoneVC.swift in Sources */,
-				5769A5E4283DA4E600D60DB6 /* CreateQuestionRequest.swift in Sources */,
+				5769A5E4283DA4E600D60DB6 /* QuestionRequest.swift in Sources */,
 				57AA2A5A27FE70E4006CDA2E /* SceneDelegate.swift in Sources */,
 				5704BDBE283CB8BB00FA89B0 /* MyAPI+Request.swift in Sources */,
 				CA280407AC8E3107A9676844 /* ReadPostVC.swift in Sources */,
-				5769A5E6283DA4F600D60DB6 /* ReplyCommentRequest.swift in Sources */,
+				5769A5E6283DA4F600D60DB6 /* CommentRequest.swift in Sources */,
 				5769A5EE283DB35E00D60DB6 /* TimeTableResponse.swift in Sources */,
 				CA280354F9CE09CD35608D28 /* ReadCommentVC.swift in Sources */,
 				5769A5E8283DA50A00D60DB6 /* SignupRequest.swift in Sources */,
