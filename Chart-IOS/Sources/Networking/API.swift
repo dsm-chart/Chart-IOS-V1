@@ -12,25 +12,24 @@ enum API {
 
     // question-controller
 
-    case postQuestion(_ title: String, _ content: String)
+    case postQuestion(_ questionRequest: QuestionRequest)
     case getQuestion(_ idx: Int, _ size: Int)
 
     // question-controller
 
-    case postComment(_ content: String, _ targetId: String)
+    case postComment(_ commentRequest: CommentRequest)
     case getComment(_ postId: String)
 
     // account-controller
 
-    case signUp
+    case signUp(_ signUpRequet: SignUpRequet)
     case reissue
-    case login(_ githubCode: String)
+    case login(_ loginRequest: LoginRequest)
     case myAuth
 
     // timetable-controller
 
     case getTimeTable(_ start: Int, _ end: Int)
-    case todayTimeTable
 
     // cafeteria-controller
 
