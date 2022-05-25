@@ -7,6 +7,10 @@
 
 import Foundation
 
+struct CommentArr: Codable {
+    let data: [Comment]
+}
+
 struct Comment: Codable {
     let content: String
     let writer: User

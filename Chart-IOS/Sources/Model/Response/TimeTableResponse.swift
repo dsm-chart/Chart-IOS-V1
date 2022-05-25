@@ -8,7 +8,7 @@
 import Foundation
 
 struct TimeTable: Codable {
-    let dayTimeTable: [DayTimeTable]
+    let data: [DayTimeTable]
 }
 
 struct DayTimeTable: Codable {

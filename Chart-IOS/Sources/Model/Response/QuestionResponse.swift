@@ -8,7 +8,7 @@
 import Foundation
 
 struct QuestionArr: Codable {
-    let question: [Question]
+    let data: [Question]
 }
 
 struct Question: Codable {
