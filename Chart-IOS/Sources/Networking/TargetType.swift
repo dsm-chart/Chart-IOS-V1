@@ -8,7 +8,7 @@ import Moya
 extension API {
     
     func getBaseURL() -> URL {
-        return URL(string: baseURL)!
+        return URL(string: Base.baseURL)!
     }
     
     func getPath() -> String {
@@ -55,6 +55,15 @@ extension API {
             return .requestJSONEncodable(loginRequest)
         default:
             return .requestPlain
+        }
+    }
+    
+    func getHeader() -> [String : String] {
+        switch self {
+        case .signUp( _), .reissue, .login(_):
+            return ["Content-Type" : "application/json"]
+        default:
+            return ["Authorization" : "Bearer \(KeyChain.read(key: Token.accessToken) ?? "")"]
         }
     }
 }
