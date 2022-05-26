@@ -7,5 +7,7 @@
 
 import Foundation
 
-let baseURL = "http://13.125.236.178:8080"
-let niceApiKey = "f28891c644a84ae5a968e48ea8e2f9d6"
+struct Base {
+    static let baseURL = "http://13.125.236.178:8080"
+    static let niceApiKey = "f28891c644a84ae5a968e48ea8e2f9d6"
+}
