@@ -61,16 +61,17 @@ extension API {
         var headers: [String : String]? { self.base.headers }
     }
     
-    private enum MoyaWrapper {
-        struct Plugins {
-            var plugins: [PluginType]
-            
-            init(plugins: [PluginType] = []) {
-                self.plugins = plugins
-            }
-            
-            func callAsFunction() -> [PluginType] { self.plugins }
+    struct Plugins {
+        var plugins: [PluginType]
+        
+        init(plugins: [PluginType] = []) {
+            self.plugins = plugins
         }
+        
+        func callAsFunction() -> [PluginType] { self.plugins }
+    }
+    
+    private enum MoyaWrapper {
         
         static var provider: MoyaProvider<API.Wrapper> {
             let plugins = Plugins(plugins: [])
