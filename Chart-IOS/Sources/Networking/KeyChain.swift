@@ -5,6 +5,11 @@
 import Foundation
 import Security
 
+class Token {
+    static let accessToken = "access_token"
+    static let refreshToken = "refresh_token"
+}
+
 class KeyChain {
     // Create
     class func create(key: String, token: String) {
@@ -17,7 +22,7 @@ class KeyChain {
         // Keychain은 Key값에 중복이 생기면, 저장할 수 없기 때문에 먼저 Delete해줌
 
         let status = SecItemAdd(query, nil)
-        assert(status == noErr, "failed to save Token")
+        assert(status == noErr, "🥵 failed to save Token")
     }
 
     // Read
@@ -38,7 +43,7 @@ class KeyChain {
                 return value
             } else { return nil }
         } else {
-            print("failed to loading, status code = \(status)")
+            print("🥵 failed to loading, status code = \(status)")
             return nil
         }
     }
@@ -50,7 +55,6 @@ class KeyChain {
             kSecAttrAccount: key
         ]
         let status = SecItemDelete(query)
-        assert(status == noErr, "failed to delete the value, status code = \(status)")
+        assert(status == noErr, "🥵 failed to delete the value, status code = \(status)")
     }
 }
-
