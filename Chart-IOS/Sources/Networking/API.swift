@@ -23,7 +23,7 @@ enum API {
     // account-controller
 
     case signUp(_ signUpRequet: SignUpRequet)
-    case reissue
+    case reissue(_ token: String)
     case login(_ loginRequest: LoginRequest)
     case myAuth
 
@@ -37,4 +37,11 @@ enum API {
 
 }
 
-
+extension API: Moya.TargetType {
+    var baseURL: URL { self.getBaseURL() }
+    var path: String { self.getPath() }
+    var method: Moya.Method { self.getMethod() }
+    var sampleData: Data { Data() }
+    var task: Task { return getTask() }
+    var headers: [String : String]? { return getHeader() }
+}
