@@ -34,6 +34,10 @@ enum API {
     // cafeteria-controller
 
     case getMeal
+    
+    // neis API
+    
+    case getSchoolId(_ search: String)
 
 }
 

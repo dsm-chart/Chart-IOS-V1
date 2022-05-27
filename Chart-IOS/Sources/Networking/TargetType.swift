@@ -8,7 +8,12 @@ import Moya
 extension API {
     
     func getBaseURL() -> URL {
-        return URL(string: Base.baseURL)!
+        switch self {
+        case .getSchoolId(_):
+            return URL(string: Base.neisURL)!
+        default:
+            return URL(string: Base.baseURL)!
+        }
     }
     
     func getPath() -> String {
@@ -31,6 +36,8 @@ extension API {
             return "/api/v1/timetable"
         case .getMeal:
             return "/api/v1/meal"
+        case .getSchoolId(let scarch):
+            return "/hub/schoolInfo?KEY=\(Base.neisApiKey)&Type=json&pIndex=1&pSize=20&SCHUL_NM=\(scarch)"
         }
     }
     
@@ -38,7 +45,7 @@ extension API {
         switch self {
         case .postQuestion(_), .postComment(_), .signUp, .reissue, .login(_):
             return .post
-        case .getQuestion(_, _), .getComment(_), .myAuth, .getTimeTable(_, _), .getMeal:
+        case .getQuestion(_, _), .getComment(_), .myAuth, .getTimeTable(_, _), .getMeal, .getSchoolId(_):
             return .get
         }
     }
@@ -60,7 +67,7 @@ extension API {
     
     func getHeader() -> [String : String] {
         switch self {
-        case .signUp( _), .reissue, .login(_):
+        case .signUp( _), .reissue, .login(_), .getSchoolId(_):
             return ["Content-Type" : "application/json"]
         default:
             return ["Authorization" : "Bearer \(KeyChain.read(key: Token.accessToken) ?? "")"]
