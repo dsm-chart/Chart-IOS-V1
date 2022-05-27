@@ -53,7 +53,12 @@ opt_in_rules:
 
 disabled_rules:
 # 추가한 rules
+    - fallthrough
+    - no_fallthrough_only
+    - empty_enum_arguments
     - todo
+    - colon
+    - unneeded_break_in_switch
     - type_name
     - overridden_super_call
     - orphaned_doc_comment
