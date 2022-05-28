@@ -154,7 +154,7 @@ extension API {
                         case MyAPIError.requestTimeout:
                             print("⚠️ RequestTimeout")
                         case MyAPIError.internetConnection:
-                            print("⚠️ 인터넷 열결 없음")
+                            print("⚠️ 인터넷 연결 없음")
                         case let MyAPIError.restError(error, _, _):
                             guard let response = (error as? MoyaError)?.response else { break }
                             if let jsonObject = try? response.mapJSON(failsOnEmptyData: false) {
