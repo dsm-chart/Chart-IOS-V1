@@ -146,15 +146,15 @@ extension API {
                 .catch(self.handleREST)
                 .do(
                     onSuccess: { response in
-                        let requestContent = "🛰 SUCCESS: \(requestString) (\(response.statusCode))"
+                        let requestContent = "✅ SUCCESS: \(requestString) (\(response.statusCode))"
                         print(requestContent, file, function, line)
                     },
                     onError: { rawError in
                         switch rawError {
                         case MyAPIError.requestTimeout:
-                            print("---TODO: alert MyAPIError.requestTimeout---")
+                            print("⚠️ RequestTimeout")
                         case MyAPIError.internetConnection:
-                            print("--TODO: alert MyAPIError.internetConnection---")
+                            print("⚠️ 인터넷 열결 없음")
                         case let MyAPIError.restError(error, _, _):
                             guard let response = (error as? MoyaError)?.response else { break }
                             if let jsonObject = try? response.mapJSON(failsOnEmptyData: false) {
@@ -162,13 +162,13 @@ extension API {
                                 guard let key = errorDictionary?.first?.key else { return }
                                 let message: String
                                 if let description = errorDictionary?[key] as? String {
-                                    message = "🛰 FAILURE: \(requestString) (\(response.statusCode)\n\(key): \(description)"
+                                    message = "❌ 실폐!! : \(requestString) (\(response.statusCode)\n\(key): \(description)"
                                 } else if let description = (errorDictionary?[key] as? [String]) {
-                                    message = "🛰 FAILURE: \(requestString) (\(response.statusCode))\n\(key): \(description)"
+                                    message = "❌ 실폐!!: \(requestString) (\(response.statusCode))\n\(key): \(description)"
                                 } else if let rawString = String(data: response.data, encoding: .utf8) {
-                                    message = "🛰 FAILURE: \(requestString) (\(response.statusCode))\n\(rawString)"
+                                    message = "❌ 실폐!!: \(requestString) (\(response.statusCode))\n\(rawString)"
                                 } else {
-                                    message = "🛰 FAILURE: \(requestString) (\(response.statusCode)"
+                                    message = "❌ 실폐!!: \(requestString) (\(response.statusCode)"
                                 }
                                 print(message)
                             }
