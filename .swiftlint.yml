@@ -53,6 +53,7 @@ opt_in_rules:
 
 disabled_rules:
 # 추가한 rules
+    - cyclomatic_complexity
     - fallthrough
     - no_fallthrough_only
     - empty_enum_arguments
