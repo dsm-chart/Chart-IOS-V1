@@ -8,6 +8,8 @@ import Security
 class Token {
     static let accessToken = "access_token"
     static let refreshToken = "refresh_token"
+    static let gituhbCode = "github_code"
+    static let githubAccessToken = "github_access_token"
 }
 
 class KeyChain {
