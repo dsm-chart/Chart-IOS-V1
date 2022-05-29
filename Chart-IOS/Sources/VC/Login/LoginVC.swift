@@ -23,7 +23,8 @@ class LoginVC: BaseViewController {
         }
         
         loginGithubButton.rx.tap.bind {
-            self.navigationController?.pushViewController(SignInVC(), animated: true)
+//            self.navigationController?.pushViewController(SignInVC(), animated: true)
+            self.requestCode()
         }.disposed(by: disposeBag)
         
     }
@@ -44,4 +45,11 @@ class LoginVC: BaseViewController {
         
     }
     
+    // 추후 리액터로 넣어줄 값들
+    func requestCode() {
+        let urlString = "\(Base.githubURL)/login/oauth/authorize?client_id=\(Base.githubClientId)&scope=\(Base.githubScope)"
+        if let url = URL(string: urlString), UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url)
+        }
+    }
 }
