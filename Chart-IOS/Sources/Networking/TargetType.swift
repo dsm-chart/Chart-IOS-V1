@@ -11,6 +11,8 @@ extension API {
         switch self {
         case .getSchoolId(_):
             return URL(string: Base.neisURL)!
+        case .postGithubCode(_):
+        return URL(string: Base.githubURL)!
         default:
             return URL(string: Base.baseURL)!
         }
@@ -38,12 +40,14 @@ extension API {
             return "/api/v1/meal"
         case .getSchoolId(let scarch):
             return "/hub/schoolInfo?KEY=\(Base.neisApiKey)&Type=json&pIndex=1&pSize=20&SCHUL_NM=\(scarch)"
+        case .postGithubCode(_):
+            return "/login/oauth/access_token"
         }
     }
     
     func getMethod() -> Moya.Method {
         switch self {
-        case .postQuestion(_), .postComment(_), .signUp, .reissue, .login(_):
+        case .postQuestion(_), .postComment(_), .signUp, .reissue, .login(_), .postGithubCode(_):
             return .post
         case .getQuestion(_, _), .getComment(_), .myAuth, .getTimeTable(_, _), .getMeal, .getSchoolId(_):
             return .get
@@ -60,6 +64,8 @@ extension API {
             return .requestJSONEncodable(signUpRequet)
         case .login(let loginRequest):
             return .requestJSONEncodable(loginRequest)
+        case .postGithubCode(let githubRequst):
+            return .requestJSONEncodable(githubRequst)
         default:
             return .requestPlain
         }
@@ -69,6 +75,8 @@ extension API {
         switch self {
         case .signUp( _), .reissue, .login(_), .getSchoolId(_):
             return ["Content-Type" : "application/json"]
+        case .postGithubCode(_):
+            return ["Accept": "application/json"]
         default:
             return ["Authorization" : "Bearer \(KeyChain.read(key: Token.accessToken) ?? "")"]
         }

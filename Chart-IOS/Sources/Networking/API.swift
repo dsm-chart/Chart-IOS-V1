@@ -38,6 +38,10 @@ enum API {
     // neis API
     
     case getSchoolId(_ search: String)
+    
+    // Github API
+    
+    case postGithubCode(_ githubRequst: GithubCodeRequst)
 
 }
 
