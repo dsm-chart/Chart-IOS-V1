@@ -13,15 +13,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        window = UIWindow(windowScene: windowScene) // SceneDelegate의 프로퍼티에 설정해줌
-//        let mainViewController = BaseNavigationController(rootViewController: LoginVC())
-        let mainViewController = TabBarController() // First ViewController
-
-        window?.rootViewController = mainViewController
+        window = UIWindow(windowScene: windowScene)
+        
+        if KeyChain.read(key: Token.refreshToken) == nil {
+            goLogin()
+        } else {
+            goMainHome()
+        }
+        
         window?.makeKeyAndVisible()
         
         #if targetEnvironment(macCatalyst)
-        
         if let titlebar = windowScene.titlebar {
             titlebar.titleVisibility = .hidden
             titlebar.toolbar = nil
@@ -29,4 +31,26 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         #endif
         
     }
+    
+    func goMainHome() {
+        let mainViewController = TabBarController()
+        window?.rootViewController = mainViewController
+    }
+    
+    func goLogin() {
+        let mainViewController = BaseNavigationController(rootViewController: LoginVC())
+        window?.rootViewController = mainViewController
+    }
+    
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        if let url = URLContexts.first?.url {
+            print("URLContexts: \(url)")
+            if url.absoluteString.starts(with: "githubprviewer://") {
+                if let code = url.absoluteString.split(separator: "=").last.map({ String($0) }) {
+                    print("Code: \(code)")
+                }
+            }
+        }
+    }
+    
 }
