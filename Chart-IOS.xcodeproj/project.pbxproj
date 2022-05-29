@@ -21,6 +21,7 @@
 		57368635280C5C85003120D3 /* TimeTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57368634280C5C85003120D3 /* TimeTableVC.swift */; };
 		57368637280C5CCE003120D3 /* MainPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57368636280C5CCE003120D3 /* MainPostVC.swift */; };
 		57368639280C5CD9003120D3 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57368638280C5CD9003120D3 /* SettingVC.swift */; };
+		574E76232843C08500982201 /* GithubCodeRequst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574E76222843C08500982201 /* GithubCodeRequst.swift */; };
 		5757925928070B0D0040C721 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5757925828070B0D0040C721 /* Assets.swift */; };
 		575B9774280E7CBD00186359 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575B9773280E7CBD00186359 /* UIButton.swift */; };
 		57610D29280B056800818D27 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57610D28280B056800818D27 /* TabBarController.swift */; };
@@ -93,6 +94,7 @@
 		57368634280C5C85003120D3 /* TimeTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableVC.swift; sourceTree = "<group>"; };
 		57368636280C5CCE003120D3 /* MainPostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPostVC.swift; sourceTree = "<group>"; };
 		57368638280C5CD9003120D3 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
+		574E76222843C08500982201 /* GithubCodeRequst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubCodeRequst.swift; sourceTree = "<group>"; };
 		5757925828070B0D0040C721 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		575B9773280E7CBD00186359 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		57610D28280B056800818D27 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 				5769A5E5283DA4F600D60DB6 /* CommentRequest.swift */,
 				5769A5E7283DA50A00D60DB6 /* SignupRequest.swift */,
 				5769A5E9283DA53500D60DB6 /* LoginRequest.swift */,
+				574E76222843C08500982201 /* GithubCodeRequst.swift */,
 			);
 			path = Reqqust;
 			sourceTree = "<group>";
@@ -723,6 +726,7 @@
 				5769A5F6283DB57C00D60DB6 /* MealResponse.swift in Sources */,
 				CA280BF92228A7120A43B18D /* KeyChain.swift in Sources */,
 				CA280595FBE89301C77DD6FA /* TargetType.swift in Sources */,
+				574E76232843C08500982201 /* GithubCodeRequst.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
