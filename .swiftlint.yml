@@ -53,6 +53,9 @@ opt_in_rules:
 
 disabled_rules:
 # 추가한 rules
+    - force_cast
+    - explicit_init
+    - unused_closure_parameter
     - cyclomatic_complexity
     - fallthrough
     - no_fallthrough_only
