@@ -19,7 +19,9 @@ class Chart_IOSTests: XCTestCase {
     }
 
     func testExample() throws {
-        
+        print("-github INFO PLIST 가져오기-")
+        print(Base.githubClientId!)
+        print(Base.clientSecret!)
     }
 
     func testPerformanceExample() throws {
