@@ -48,6 +48,7 @@
 		57AA2A6F27FE70E5006CDA2E /* Chart_IOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AA2A6E27FE70E5006CDA2E /* Chart_IOSTests.swift */; };
 		57AA2A7B27FE70E5006CDA2E /* LaunchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AA2A7A27FE70E5006CDA2E /* LaunchUITests.swift */; };
 		57B0B8CF2844AE120074EB7E /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B0B8CE2844AE120074EB7E /* TokenResponse.swift */; };
+		57B0B8D12844CB000074EB7E /* CheckUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B0B8D02844CB000074EB7E /* CheckUserResponse.swift */; };
 		57B29D38280D56B600EB9AB0 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B29D37280D56B600EB9AB0 /* Font.swift */; };
 		57B29D3B280E575E00EB9AB0 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B29D3A280E575E00EB9AB0 /* LoginVC.swift */; };
 		57B29D3D280E5B0D00EB9AB0 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B29D3C280E5B0D00EB9AB0 /* SignInVC.swift */; };
@@ -128,6 +129,7 @@
 		57AA2A7427FE70E5006CDA2E /* Chart-IOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Chart-IOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57AA2A7A27FE70E5006CDA2E /* LaunchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchUITests.swift; sourceTree = "<group>"; };
 		57B0B8CE2844AE120074EB7E /* TokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponse.swift; sourceTree = "<group>"; };
+		57B0B8D02844CB000074EB7E /* CheckUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUserResponse.swift; sourceTree = "<group>"; };
 		57B29D37280D56B600EB9AB0 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		57B29D3A280E575E00EB9AB0 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		57B29D3C280E5B0D00EB9AB0 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 				5769A5F5283DB57C00D60DB6 /* MealResponse.swift */,
 				5769A5F7283DB92E00D60DB6 /* MyInfoResponse.swift */,
 				57B0B8CE2844AE120074EB7E /* TokenResponse.swift */,
+				57B0B8D02844CB000074EB7E /* CheckUserResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -704,6 +707,7 @@
 				57AA2A5827FE70E4006CDA2E /* AppDelegate.swift in Sources */,
 				57A317E52820EBB20078A80A /* ProcessingPolicyVC.swift in Sources */,
 				5704BDC0283CB94B00FA89B0 /* API.swift in Sources */,
+				57B0B8D12844CB000074EB7E /* CheckUserResponse.swift in Sources */,
 				57A317E92820FF530078A80A /* BaseNavigationController.swift in Sources */,
 				576D1ABE2831D225008C8F01 /* AddPostVC.swift in Sources */,
 				575B9774280E7CBD00186359 /* UIButton.swift in Sources */,

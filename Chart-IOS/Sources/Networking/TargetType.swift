@@ -42,6 +42,8 @@ extension API {
             return "/hub/schoolInfo?KEY=\(Base.neisApiKey!)&Type=json&pIndex=1&pSize=20&SCHUL_NM=\(scarch)"
         case .postGithubCode(_):
             return "/login/oauth/access_token"
+        case .checkGithubUser(_):
+            return "/api/v1/auth/check"
         }
     }
     
@@ -51,6 +53,8 @@ extension API {
             return .post
         case .getQuestion(_, _), .getComment(_), .myAuth, .getTimeTable(_, _), .getMeal, .getSchoolId(_):
             return .get
+        case .checkGithubUser(_):
+            return .put
         }
     }
     
@@ -62,7 +66,7 @@ extension API {
             return .requestJSONEncodable(commentRequest)
         case .signUp(let signUpRequet):
             return .requestJSONEncodable(signUpRequet)
-        case .login(let loginRequest):
+        case .login(let loginRequest), .checkGithubUser(let loginRequest):
             return .requestJSONEncodable(loginRequest)
         case .postGithubCode(let githubRequst):
             return .requestJSONEncodable(githubRequst)
@@ -73,7 +77,7 @@ extension API {
     
     func getHeader() -> [String : String] {
         switch self {
-        case .signUp( _), .reissue, .login(_), .getSchoolId(_):
+        case .signUp( _), .reissue, .login(_), .getSchoolId(_), .checkGithubUser(_):
             return ["Content-Type" : "application/json"]
         case .postGithubCode(_):
             return ["Accept": "application/json"]

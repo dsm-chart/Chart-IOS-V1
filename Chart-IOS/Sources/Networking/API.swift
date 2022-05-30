@@ -42,6 +42,8 @@ enum API {
     // Github API
     
     case postGithubCode(_ githubRequst: GithubCodeRequst)
+    
+    case checkGithubUser(_ loginRequest: LoginRequest)
 
 }
 
