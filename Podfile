@@ -28,6 +28,7 @@ target 'Chart-IOS' do
   pod "RxGesture"
   pod 'RxKeyboard'
   pod 'SPIndicator'
+  pod 'SPAlert'
   
   pod 'Charts'
   pod 'Then', '~> 2.7.0'
