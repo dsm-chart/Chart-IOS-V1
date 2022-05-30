@@ -48,6 +48,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             if url.absoluteString.starts(with: "githubprviewer://") {
                 if let code = url.absoluteString.split(separator: "=").last.map({ String($0) }) {
                     print("Code: \(code)")
+                    LoginManager.shared.requestAccessToken(with: code)
                 }
             }
         }
