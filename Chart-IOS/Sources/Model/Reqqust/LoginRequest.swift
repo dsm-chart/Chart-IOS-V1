@@ -8,5 +8,8 @@
 import Foundation
 
 struct LoginRequest: Codable {
-    let githubCode: String
+    var githubCode: String
+    init( _ githubCode: String) {
+        self.githubCode = githubCode
+    }
 }

@@ -14,8 +14,8 @@ struct GithubCodeRequst: Codable {
     var code: String
     
     init(_ code: String) {
-        self.clientId = Base.githubClientId ?? ""
-        self.clientSecret = Base.clientSecret ?? ""
+        self.clientId = Base.githubClientId 
+        self.clientSecret = Base.clientSecret 
         self.code = code
     }
     
