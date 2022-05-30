@@ -8,8 +8,8 @@
 import Foundation
 
 struct LoginRequest: Codable {
-    var githubCode: String
-    init( _ githubCode: String) {
-        self.githubCode = githubCode
+    var accessToken: String
+    init( _ accessToken: String) {
+        self.accessToken = accessToken
     }
 }

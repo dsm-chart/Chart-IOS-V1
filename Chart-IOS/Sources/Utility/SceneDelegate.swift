@@ -7,11 +7,12 @@
 
 import UIKit
 import RxSwift
+import SPAlert
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
-
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
@@ -24,12 +25,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window?.makeKeyAndVisible()
         
-        #if targetEnvironment(macCatalyst)
+#if targetEnvironment(macCatalyst)
         if let titlebar = windowScene.titlebar {
             titlebar.titleVisibility = .hidden
             titlebar.toolbar = nil
         }
-        #endif
+#endif
         
     }
     
@@ -45,19 +46,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
         
-         let disposeBag = DisposeBag()
-        
+        let disposeBag = DisposeBag()
         if let url = URLContexts.first?.url {
             print("URLContexts: \(url)")
             if url.absoluteString.starts(with: "githubprviewer://") {
                 if let code = url.absoluteString.split(separator: "=").last.map({ String($0) }) {
                     print("Code: \(code)")
                     KeyChain.create(key: Token.gituhbCode, token: code)
-                    LoginManager.shared.checkGithubUser().bind { string in
-                        if string == "true" {
-                            LoginManager.shared.login().bind { bool in
-                                if bool == true {
-                                    self.goMainHome()
+                    LoginManager.shared.requestAccessToken(code: code).bind { bool in
+                        if bool == true {
+                            LoginManager.shared.checkGithubUser().bind { string in
+                                if string == "false" {
+                                    LoginVC().navigationController?.pushViewController(SignInVC(), animated: true)
+                                } else if string == "error" {
+                                    let alertView = SPAlertView(title: "오류가 발생했어요.", preset: .error)
+                                    alertView.duration = 1
+                                    alertView.present()
                                 }
                             }.disposed(by: disposeBag)
                         }

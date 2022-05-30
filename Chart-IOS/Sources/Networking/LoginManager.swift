@@ -10,6 +10,7 @@ import Alamofire
 import UIKit
 import RxSwift
 import RxRelay
+import SPAlert
 
 class LoginManager {
     
@@ -19,7 +20,8 @@ class LoginManager {
     private init() {}
     
     //  어떤 친구가 코드를 잘못 짜서 이거 안써도 됨
-    func requestAccessToken(with code: String) {
+    func requestAccessToken(code: String) -> PublishRelay<Bool> {
+        let requestToken = PublishRelay<Bool>()
         let parm = GithubCodeRequst.init(code)
         API.postGithubCode(parm).request().subscribe { event in
             switch event {
@@ -29,12 +31,19 @@ class LoginManager {
                         let githubAccessToken = dic["access_token"]
                         print(githubAccessToken ?? "")
                         KeyChain.create(key: Token.githubAccessToken, token: githubAccessToken!)
+                        requestToken.accept(true)
+                    } else {
+                        requestToken.accept(false)
                     }
+                } else {
+                    requestToken.accept(false)
                 }
             case .failure(let error):
                 print(error)
+                requestToken.accept(false)
             }
         }.disposed(by: disposeBag)
+        return requestToken
     }
     
     func checkGithubUser() -> PublishRelay<String> {
@@ -49,7 +58,19 @@ class LoginManager {
                     return
                 }
                 if data.isAlreadyJoined == true {
-                    checkGithubUser.accept("true")
+                    self.login().bind { bool in
+                        if bool == true {
+                            let alertView = SPAlertView(title: "로그인에 성공했어요.", preset: .done)
+                            alertView.duration = 1
+                            alertView.present()
+                            self.goMainHome()
+                        } else if bool == false {
+                            let alertView = SPAlertView(title: "로그인에 실폐했어요.", preset: .error)
+                            alertView.duration = 1
+                            alertView.present()
+                        }
+                    }.disposed(by: self.disposeBag)
+//                    checkGithubUser.accept("true")
                 } else {
                     checkGithubUser.accept("false")
                 }
@@ -83,4 +104,15 @@ class LoginManager {
         
         return loginSuccess
     }
+    
+    func goMainHome() {
+        let mainViewController = TabBarController()
+        mainViewController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+        LoginVC().present(mainViewController, animated: true)
+    }
+    
+    func goLogin() {
+        LoginVC().navigationController?.pushViewController(SignInVC(), animated: true)
+    }
+    
 }
