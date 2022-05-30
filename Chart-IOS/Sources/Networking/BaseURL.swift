@@ -13,6 +13,6 @@ struct Base {
     static let neisApiKey = Bundle.main.object(forInfoDictionaryKey: "neisApiKey") as? String
     static let githubURL = "https://github.com"
     static let githubScope = "repo,user"
-    static let githubClientId = Bundle.main.object(forInfoDictionaryKey: "githubClientId") as? String
-    static let clientSecret = Bundle.main.object(forInfoDictionaryKey: "clientSecret") as? String
+    static let githubClientId = Bundle.main.object(forInfoDictionaryKey: "githubClientId") as! String
+    static let clientSecret = Bundle.main.object(forInfoDictionaryKey: "clientSecret") as! String
 }

@@ -13,6 +13,12 @@ struct GithubCodeRequst: Codable {
     var clientSecret: String
     var code: String
     
+    init(_ code: String) {
+        self.clientId = Base.githubClientId ?? ""
+        self.clientSecret = Base.clientSecret ?? ""
+        self.code = code
+    }
+    
     enum CodingKeys: String, CodingKey {
         case clientId = "client_id"
         case clientSecret = "client_secret"

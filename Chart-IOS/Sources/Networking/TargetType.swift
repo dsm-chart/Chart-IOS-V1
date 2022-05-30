@@ -39,7 +39,7 @@ extension API {
         case .getMeal:
             return "/api/v1/meal"
         case .getSchoolId(let scarch):
-            return "/hub/schoolInfo?KEY=\(Base.neisApiKey)&Type=json&pIndex=1&pSize=20&SCHUL_NM=\(scarch)"
+            return "/hub/schoolInfo?KEY=\(Base.neisApiKey!)&Type=json&pIndex=1&pSize=20&SCHUL_NM=\(scarch)"
         case .postGithubCode(_):
             return "/login/oauth/access_token"
         }

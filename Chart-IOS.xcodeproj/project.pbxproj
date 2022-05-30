@@ -22,6 +22,7 @@
 		57368637280C5CCE003120D3 /* MainPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57368636280C5CCE003120D3 /* MainPostVC.swift */; };
 		57368639280C5CD9003120D3 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57368638280C5CD9003120D3 /* SettingVC.swift */; };
 		574E76232843C08500982201 /* GithubCodeRequst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574E76222843C08500982201 /* GithubCodeRequst.swift */; };
+		574E762528443BAC00982201 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574E762428443BAC00982201 /* LoginManager.swift */; };
 		5757925928070B0D0040C721 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5757925828070B0D0040C721 /* Assets.swift */; };
 		575B9774280E7CBD00186359 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575B9773280E7CBD00186359 /* UIButton.swift */; };
 		57610D29280B056800818D27 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57610D28280B056800818D27 /* TabBarController.swift */; };
@@ -95,6 +96,8 @@
 		57368636280C5CCE003120D3 /* MainPostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPostVC.swift; sourceTree = "<group>"; };
 		57368638280C5CD9003120D3 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		574E76222843C08500982201 /* GithubCodeRequst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubCodeRequst.swift; sourceTree = "<group>"; };
+		574E762428443BAC00982201 /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
+		574E76262844438000982201 /* SecretsConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SecretsConfig.xcconfig; sourceTree = "<group>"; };
 		5757925828070B0D0040C721 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		575B9773280E7CBD00186359 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		57610D28280B056800818D27 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -201,6 +204,7 @@
 				CA280273466BBCE9AF67CAA0 /* TargetType.swift */,
 				5704BDBB283CB85100FA89B0 /* Moya+NetworkError.swift */,
 				5704BDBD283CB8BB00FA89B0 /* MyAPI+Request.swift */,
+				574E762428443BAC00982201 /* LoginManager.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -352,6 +356,7 @@
 		57AA2A4B27FE70E4006CDA2E = {
 			isa = PBXGroup;
 			children = (
+				574E76262844438000982201 /* SecretsConfig.xcconfig */,
 				57AA2A5627FE70E4006CDA2E /* Chart-IOS */,
 				57AA2A6D27FE70E5006CDA2E /* Chart-IOSTests */,
 				57AA2A7727FE70E5006CDA2E /* Chart-IOSUITests */,
@@ -375,8 +380,8 @@
 		57AA2A5627FE70E4006CDA2E /* Chart-IOS */ = {
 			isa = PBXGroup;
 			children = (
-				5798BE2A28046AF400D3AD29 /* Sources */,
 				5798BE2B28046B7C00D3AD29 /* Resources */,
+				5798BE2A28046AF400D3AD29 /* Sources */,
 			);
 			path = "Chart-IOS";
 			sourceTree = "<group>";
@@ -709,6 +714,7 @@
 				57B29D3F280E5B5B00EB9AB0 /* SearchSchoolVC.swift in Sources */,
 				57368635280C5C85003120D3 /* TimeTableVC.swift in Sources */,
 				572D56912810130100F5D457 /* SearchSchoolTableViewCell.swift in Sources */,
+				574E762528443BAC00982201 /* LoginManager.swift in Sources */,
 				5704BDBA283CB7B700FA89B0 /* BaseURL.swift in Sources */,
 				5769A5F8283DB92E00D60DB6 /* MyInfoResponse.swift in Sources */,
 				57368633280C5C33003120D3 /* SchoolMealVC.swift in Sources */,
@@ -776,6 +782,7 @@
 /* Begin XCBuildConfiguration section */
 		57AA2A7C27FE70E5006CDA2E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 574E76262844438000982201 /* SecretsConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -836,6 +843,7 @@
 		};
 		57AA2A7D27FE70E5006CDA2E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 574E76262844438000982201 /* SecretsConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
