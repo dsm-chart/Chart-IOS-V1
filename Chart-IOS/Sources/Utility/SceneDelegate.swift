@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
@@ -43,12 +44,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        
+         let disposeBag = DisposeBag()
+        
         if let url = URLContexts.first?.url {
             print("URLContexts: \(url)")
             if url.absoluteString.starts(with: "githubprviewer://") {
                 if let code = url.absoluteString.split(separator: "=").last.map({ String($0) }) {
                     print("Code: \(code)")
-                    LoginManager.shared.requestAccessToken(with: code)
+                    KeyChain.create(key: Token.gituhbCode, token: code)
+                    LoginManager.shared.checkGithubUser().bind { string in
+                        if string == "true" {
+                            LoginManager.shared.login().bind { bool in
+                                if bool == true {
+                                    self.goMainHome()
+                                }
+                            }.disposed(by: disposeBag)
+                        }
+                    }.disposed(by: disposeBag)
                 }
             }
         }

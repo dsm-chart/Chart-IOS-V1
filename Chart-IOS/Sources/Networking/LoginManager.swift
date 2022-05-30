@@ -9,6 +9,7 @@ import Foundation
 import Alamofire
 import UIKit
 import RxSwift
+import RxRelay
 
 class LoginManager {
     
@@ -16,7 +17,8 @@ class LoginManager {
     private let disposeBag = DisposeBag()
     
     private init() {}
-
+    
+    //  어떤 친구가 코드를 잘못 짜서 이거 안써도 됨
     func requestAccessToken(with code: String) {
         let parm = GithubCodeRequst.init(code)
         API.postGithubCode(parm).request().subscribe { event in
@@ -35,4 +37,50 @@ class LoginManager {
         }.disposed(by: disposeBag)
     }
     
+    func checkGithubUser() -> PublishRelay<String> {
+        let checkGithubUser = PublishRelay<String>()
+        let parm = LoginRequest.init(KeyChain.read(key: Token.gituhbCode) ?? "")
+        API.checkGithubUser(parm).request().subscribe { event in
+            switch event {
+            case .success(let response):
+                print(response.data)
+                guard let data = try? JSONDecoder().decode(CheckGithubUser.self, from: response.data) else {
+                    checkGithubUser.accept("error")
+                    return
+                }
+                if data.isAlreadyJoined == true {
+                    checkGithubUser.accept("true")
+                } else {
+                    checkGithubUser.accept("false")
+                }
+            case .failure(let error):
+                print(error)
+                checkGithubUser.accept("error")
+            }
+        }.disposed(by: disposeBag)
+        
+        return checkGithubUser
+    }
+    
+    func login() -> PublishRelay<Bool> {
+        let loginSuccess = PublishRelay<Bool>()
+        let parm = LoginRequest.init(KeyChain.read(key: Token.gituhbCode) ?? "")
+        API.login(parm).request().subscribe { event in
+            switch event {
+            case .success(let response):
+                print(response.data)
+                guard let data = try? JSONDecoder().decode(TokenResponse.self, from: response.data) else {
+                    loginSuccess.accept(false)
+                    return
+                }
+                KeyChain.create(key: Token.accessToken, token: data.accessToken)
+                KeyChain.create(key: Token.refreshToken, token: data.refreshToken)
+            case .failure(let error):
+                print(error)
+                loginSuccess.accept(false)
+            }
+        }.disposed(by: disposeBag)
+        
+        return loginSuccess
+    }
 }
