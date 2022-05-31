@@ -140,7 +140,7 @@
 		B437AC0BDC07E5D47699567A /* Pods_Chart_IOS_Chart_IOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chart_IOS_Chart_IOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA280273466BBCE9AF67CAA0 /* TargetType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
 		CA28037D56F574B355CE48EB /* KeyChain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
-		CA280490F07C9FB695E88837 /* ReadCommentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReadCommentVC.swift; path = Cell/ReadCommentVC.swift; sourceTree = "<group>"; };
+		CA280490F07C9FB695E88837 /* ReadCommentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadCommentVC.swift; sourceTree = "<group>"; };
 		CA2808B76D42847EC6BB439C /* ReadPostVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadPostVC.swift; sourceTree = "<group>"; };
 		CA280B88F8F5806C2595650A /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		D4FF9285CF9B75BD579B6A99 /* Pods-Chart-IOS-Chart-IOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chart-IOS-Chart-IOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-Chart-IOS-Chart-IOSUITests/Pods-Chart-IOS-Chart-IOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -221,6 +221,56 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		57222E3B28461DB50009A5C5 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				57368632280C5C33003120D3 /* SchoolMealVC.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		57222E3C28461DBF0009A5C5 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				57368634280C5C85003120D3 /* TimeTableVC.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		57222E3D28461DC50009A5C5 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				57C9DE8B282C971B00CA9606 /* Cell */,
+				57368636280C5CCE003120D3 /* MainPostVC.swift */,
+				576D1ABD2831D225008C8F01 /* AddPostVC.swift */,
+				CA2808B76D42847EC6BB439C /* ReadPostVC.swift */,
+				CA280490F07C9FB695E88837 /* ReadCommentVC.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		57222E3E28461DEA0009A5C5 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				570BC41A283BA01800B1CB30 /* Cell */,
+				57368638280C5CD9003120D3 /* SettingVC.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		57222E3F28461DF40009A5C5 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				572D568F281012EE00F5D457 /* Cell */,
+				57B29D3A280E575E00EB9AB0 /* LoginVC.swift */,
+				57B29D3C280E5B0D00EB9AB0 /* SignInVC.swift */,
+				57B29D3E280E5B5B00EB9AB0 /* SearchSchoolVC.swift */,
+				57A317E42820EBB20078A80A /* ProcessingPolicyVC.swift */,
+				570B535728195C75009298A2 /* SiginInDoneVC.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		572D568F281012EE00F5D457 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,7 +279,7 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		5736862C280C58BF003120D3 /* VC */ = {
+		5736862C280C58BF003120D3 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
 				57491CD528124EA00021D28E /* SchoolMeal */,
@@ -238,7 +288,7 @@
 				57491CD828125F3B0021D28E /* Setting */,
 				57B29D39280E574E00EB9AB0 /* Login */,
 			);
-			path = VC;
+			path = Scene;
 			sourceTree = "<group>";
 		};
 		5736862D280C593B003120D3 /* Base */ = {
@@ -254,7 +304,7 @@
 		57491CD528124EA00021D28E /* SchoolMeal */ = {
 			isa = PBXGroup;
 			children = (
-				57368632280C5C33003120D3 /* SchoolMealVC.swift */,
+				57222E3B28461DB50009A5C5 /* UI */,
 			);
 			path = SchoolMeal;
 			sourceTree = "<group>";
@@ -262,7 +312,7 @@
 		57491CD6281250D60021D28E /* TimeTable */ = {
 			isa = PBXGroup;
 			children = (
-				57368634280C5C85003120D3 /* TimeTableVC.swift */,
+				57222E3C28461DBF0009A5C5 /* UI */,
 			);
 			path = TimeTable;
 			sourceTree = "<group>";
@@ -270,11 +320,7 @@
 		57491CD7281250ED0021D28E /* Post */ = {
 			isa = PBXGroup;
 			children = (
-				57368636280C5CCE003120D3 /* MainPostVC.swift */,
-				576D1ABD2831D225008C8F01 /* AddPostVC.swift */,
-				57C9DE8B282C971B00CA9606 /* Cell */,
-				CA2808B76D42847EC6BB439C /* ReadPostVC.swift */,
-				CA280490F07C9FB695E88837 /* ReadCommentVC.swift */,
+				57222E3D28461DC50009A5C5 /* UI */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -282,8 +328,7 @@
 		57491CD828125F3B0021D28E /* Setting */ = {
 			isa = PBXGroup;
 			children = (
-				570BC41A283BA01800B1CB30 /* Cell */,
-				57368638280C5CD9003120D3 /* SettingVC.swift */,
+				57222E3E28461DEA0009A5C5 /* UI */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -338,10 +383,10 @@
 		5798BE2A28046AF400D3AD29 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				5769A5E0283DA44E00D60DB6 /* Model */,
 				5704BDB8283CB79200FA89B0 /* Networking */,
-				5736862C280C58BF003120D3 /* VC */,
 				57610D27280B01CD00818D27 /* Utility */,
+				5769A5E0283DA44E00D60DB6 /* Model */,
+				5736862C280C58BF003120D3 /* Scene */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -421,12 +466,7 @@
 		57B29D39280E574E00EB9AB0 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				572D568F281012EE00F5D457 /* Cell */,
-				57B29D3A280E575E00EB9AB0 /* LoginVC.swift */,
-				57B29D3C280E5B0D00EB9AB0 /* SignInVC.swift */,
-				57B29D3E280E5B5B00EB9AB0 /* SearchSchoolVC.swift */,
-				57A317E42820EBB20078A80A /* ProcessingPolicyVC.swift */,
-				570B535728195C75009298A2 /* SiginInDoneVC.swift */,
+				57222E3F28461DF40009A5C5 /* UI */,
 			);
 			path = Login;
 			sourceTree = "<group>";
