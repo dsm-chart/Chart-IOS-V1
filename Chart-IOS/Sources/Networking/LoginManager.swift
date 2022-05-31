@@ -48,7 +48,8 @@ class LoginManager {
     
     func checkGithubUser() -> PublishRelay<String> {
         let checkGithubUser = PublishRelay<String>()
-        let parm = LoginRequest.init(KeyChain.read(key: Token.gituhbCode) ?? "")
+        let parm = LoginRequest.init(KeyChain.read(key: Token.githubAccessToken) ?? "")
+        print(KeyChain.read(key: Token.gituhbCode) ?? "")
         API.checkGithubUser(parm).request().subscribe { event in
             switch event {
             case .success(let response):
@@ -58,19 +59,7 @@ class LoginManager {
                     return
                 }
                 if data.isAlreadyJoined == true {
-                    self.login().bind { bool in
-                        if bool == true {
-                            let alertView = SPAlertView(title: "로그인에 성공했어요.", preset: .done)
-                            alertView.duration = 1
-                            alertView.present()
-                            self.goMainHome()
-                        } else if bool == false {
-                            let alertView = SPAlertView(title: "로그인에 실폐했어요.", preset: .error)
-                            alertView.duration = 1
-                            alertView.present()
-                        }
-                    }.disposed(by: self.disposeBag)
-//                    checkGithubUser.accept("true")
+                    checkGithubUser.accept("true")
                 } else {
                     checkGithubUser.accept("false")
                 }

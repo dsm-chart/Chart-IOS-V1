@@ -25,12 +25,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window?.makeKeyAndVisible()
         
-#if targetEnvironment(macCatalyst)
+        #if targetEnvironment(macCatalyst)
         if let titlebar = windowScene.titlebar {
             titlebar.titleVisibility = .hidden
             titlebar.toolbar = nil
         }
-#endif
+        #endif
         
     }
     
@@ -42,6 +42,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func goLogin() {
         let mainViewController = BaseNavigationController(rootViewController: LoginVC())
         window?.rootViewController = mainViewController
+    }
+    
+    func presentAlert(_ title: String, _ preset: SPAlertIconPreset) {
+        let alertView = SPAlertView(title: title, preset: preset)
+        alertView.duration = 1
+        alertView.present()
     }
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
@@ -56,13 +62,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     LoginManager.shared.requestAccessToken(code: code).bind { bool in
                         if bool == true {
                             LoginManager.shared.checkGithubUser().bind { string in
-                                if string == "false" {
-                                    LoginVC().navigationController?.pushViewController(SignInVC(), animated: true)
-                                } else if string == "error" {
-                                    let alertView = SPAlertView(title: "오류가 발생했어요.", preset: .error)
-                                    alertView.duration = 1
-                                    alertView.present()
-                                }
+                                if string == "true" {
+                                    LoginManager.shared.login().bind { bool in
+                                        if bool == true { self.presentAlert("로그인 성공!", .done) }
+                                        if bool == false { self.presentAlert("로그인 실패!", .error) }
+                                    }.disposed(by: disposeBag)
+                                } else if string == "false" {
+                                    let mainViewController = BaseNavigationController(rootViewController: LoginVC())
+                                    mainViewController.pushViewController(SignInVC(), animated: true)
+                                    self.window?.rootViewController = mainViewController
+                                } else { self.presentAlert("알 수 없는 오류 발생!", .error) }
                             }.disposed(by: disposeBag)
                         }
                     }.disposed(by: disposeBag)
@@ -70,5 +79,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             }
         }
     }
-    
 }

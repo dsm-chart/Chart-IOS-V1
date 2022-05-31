@@ -23,7 +23,6 @@ class LoginVC: BaseViewController {
         }
         
         loginGithubButton.rx.tap.bind {
-//            self.navigationController?.pushViewController(SignInVC(), animated: true)
             self.requestCode()
         }.disposed(by: disposeBag)
         
