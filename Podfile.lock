@@ -96,6 +96,9 @@ PODS:
     - RxSwift (~> 6.0)
   - PanModal (1.2.7)
   - PinLayout (1.10.2)
+  - ReactorKit (3.2.0):
+    - RxSwift (~> 6.0)
+    - WeakMapTable (~> 1.1)
   - RxAlamofire (6.1.1):
     - RxAlamofire/Core (= 6.1.1)
   - RxAlamofire/Core (6.1.1):
@@ -119,6 +122,7 @@ PODS:
   - SwiftAlgorithms (1.0.0)
   - SwiftLint (0.46.5)
   - Then (2.7.0)
+  - WeakMapTable (1.2.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.5)
@@ -131,6 +135,7 @@ DEPENDENCIES:
   - Moya/RxSwift (~> 15.0)
   - PanModal
   - PinLayout
+  - ReactorKit
   - RxAlamofire
   - RxCocoa (= 6.5.0)
   - RxGesture
@@ -155,6 +160,7 @@ SPEC REPOS:
     - Moya
     - PanModal
     - PinLayout
+    - ReactorKit
     - RxAlamofire
     - RxCocoa
     - RxGesture
@@ -167,6 +173,7 @@ SPEC REPOS:
     - SwiftAlgorithms
     - SwiftLint
     - Then
+    - WeakMapTable
 
 SPEC CHECKSUMS:
   Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
@@ -180,6 +187,7 @@ SPEC CHECKSUMS:
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   PanModal: 3e16ead1a907fb06f4df3f13492fd00149fa4974
   PinLayout: d6b1960e4b182b4da1481b9aa6728f621e20708d
+  ReactorKit: e8b11d6b9c415405f381669b095c154a05b59eca
   RxAlamofire: beb75a1c452d0de225651db4903f5d29d034a620
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxGesture: abadd243fc36db74df43dfc893829ddde94f1a3d
@@ -192,7 +200,8 @@ SPEC CHECKSUMS:
   SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
   SwiftLint: 2c16e8fa99dac2e440dc0c70ea74d2532048f6cf
   Then: acfe0be7e98221c6204e12f8161459606d5d822d
+  WeakMapTable: 05c694ce8439a7a9ebabb56187287a63c57673d6
 
-PODFILE CHECKSUM: 9feedcd8e9dee8a64329f847cc4026655546bb58
+PODFILE CHECKSUM: f19a76d947f4dbee95e278e8fd9f91800e603593
 
 COCOAPODS: 1.11.2
