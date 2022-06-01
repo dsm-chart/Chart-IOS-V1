@@ -9,10 +9,10 @@ extension API {
     
     func getBaseURL() -> URL {
         switch self {
-        case .getSchoolId(_):
+        case .getSchoolId(_, _):
             return URL(string: Base.neisURL)!
         case .postGithubCode(_):
-        return URL(string: Base.githubURL)!
+            return URL(string: Base.githubURL)!
         default:
             return URL(string: Base.baseURL)!
         }
@@ -38,7 +38,7 @@ extension API {
             return "/api/v1/timetable"
         case .getMeal:
             return "/api/v1/meal"
-        case .getSchoolId(let scarch):
+        case .getSchoolId(let scarch, _):
             return "/hub/schoolInfo?KEY=\(Base.neisApiKey!)&Type=json&pIndex=1&pSize=20&SCHUL_NM=\(scarch)"
         case .postGithubCode(_):
             return "/login/oauth/access_token"
@@ -51,7 +51,7 @@ extension API {
         switch self {
         case .postQuestion(_), .postComment(_), .signUp, .reissue, .login(_), .postGithubCode(_):
             return .post
-        case .getQuestion(_, _), .getComment(_), .myAuth, .getTimeTable(_, _), .getMeal, .getSchoolId(_):
+        case .getQuestion(_, _), .getComment(_), .myAuth, .getTimeTable(_, _), .getMeal, .getSchoolId(_, _):
             return .get
         case .checkGithubUser(_):
             return .put
@@ -70,6 +70,8 @@ extension API {
             return .requestJSONEncodable(loginRequest)
         case .postGithubCode(let githubRequst):
             return .requestJSONEncodable(githubRequst)
+        case .getSchoolId(_, let searchSchoolResponse):
+            return .requestJSONEncodable(searchSchoolResponse)
         default:
             return .requestPlain
         }
@@ -77,7 +79,7 @@ extension API {
     
     func getHeader() -> [String : String] {
         switch self {
-        case .signUp( _), .reissue, .login(_), .getSchoolId(_), .checkGithubUser(_):
+        case .signUp( _), .reissue, .login(_), .getSchoolId(_, _), .checkGithubUser(_):
             return ["Content-Type" : "application/json"]
         case .postGithubCode(_):
             return ["Accept": "application/json"]
