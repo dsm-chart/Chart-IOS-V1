@@ -15,7 +15,7 @@ struct SearchSchoolResponse: Codable {
 // MARK: - SchoolInfo
 struct SchoolInfo: Codable {
     let head: [Head]?
-    let row: [[String: String?]]?
+    let row: [SearchRow]?
 }
 
 // MARK: - Head
