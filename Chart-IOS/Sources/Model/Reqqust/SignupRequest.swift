@@ -9,8 +9,16 @@ import Foundation
 
 struct SignUpRequet: Codable {
     let areaCode: String
-    let githubCode: String
+    let accessToken: String
     let schoolCode: String
     let grade: Int
     let classNum: Int
+    
+    init(areaCode: String, accessToken: String, schoolCode: String, grade: Int, classNum: Int) {
+        self.areaCode = areaCode
+        self.accessToken = accessToken
+        self.schoolCode = schoolCode
+        self.grade = grade
+        self.classNum = classNum
+    }
 }
