@@ -6,12 +6,17 @@
 //
 
 import UIKit
+import RxRelay
 import RxKeyboard
 import RxGesture
 import PanModal
 import BEMCheckBox
 
 class SignInVC: BaseViewController {
+    
+    let searchedSchoolCode = PublishRelay<String>()
+    let searchedAreaCode = PublishRelay<String>()
+    let searchedSchoolName = PublishRelay<String>()
     
     private let signInNameLabbel = UILabel().then {
         $0.text = "Sign in"
