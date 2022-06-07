@@ -141,6 +141,10 @@ class SignInVC: BaseViewController, View {
         bind()
     }
     
+    func bind(reactor: SignInReactor) {
+        bindAction(reactor)
+        bindState(reactor)
+    }
     override func setupConstraints() {
         
         [textFieldBackView1, textFieldBackView2, textFieldBackView3].forEach { textField in
