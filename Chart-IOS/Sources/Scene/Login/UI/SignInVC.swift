@@ -15,10 +15,6 @@ import ReactorKit
 
 class SignInVC: BaseViewController, View {
     
-    init(reactor : SignInReactor) {
-        super.init()
-        self.reactor = reactor as! SignInVC.Reactor
-    }
     let searchedSchoolCode = PublishRelay<String>()
     let searchedAreaCode = PublishRelay<String>()
     let searchedSchoolName = PublishRelay<String>()
