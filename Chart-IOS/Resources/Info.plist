@@ -32,10 +32,10 @@
 			</array>
 		</dict>
 	</dict>
-	<key>githubClientId</key>
-	<string>$(githubClientId)</string>
 	<key>clientSecret</key>
 	<string>$(clientSecret)</string>
+	<key>githubClientId</key>
+	<string>$(githubClientId)</string>
 	<key>neisApiKey</key>
 	<string>$(neisApiKey)</string>
 </dict>
