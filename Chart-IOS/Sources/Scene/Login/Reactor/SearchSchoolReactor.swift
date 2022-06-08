@@ -51,11 +51,13 @@ extension SearchSchoolReactor {
             API.getSchoolId(search).request().subscribe { event in
                 switch event {
                 case .success(let response):
-                    guard let data = try? JSONDecoder().decode(SearchSchoolResponse.self, from: response.data) else {
-                        SPIndicator.present(title: "파싱 애러!", preset: .error)
-                        return
+                    do {
+                        let data = try JSONDecoder().decode(SearchSchoolResponse.self, from: response.data)
+                        newState.schoolList = data.schoolInfo[1].row ?? []
+
+                    } catch {
+                        print(error)
                     }
-                    newState.schoolList = data.schoolInfo[1].row ?? []
                 case .failure(let error):
                     print(error)
                     SPIndicator.present(title: "Network 애러!", preset: .error)
