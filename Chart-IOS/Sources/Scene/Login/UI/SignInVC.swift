@@ -19,6 +19,8 @@ class SignInVC: BaseViewController, View {
     let searchedAreaCode = PublishRelay<String>()
     let searchedSchoolName = PublishRelay<String>()
     
+    let reactor = SignInReactor()
+    
     private let signInNameLabbel = UILabel().then {
         $0.text = "Sign in"
         $0.textColor = Asset.labelColor.color
@@ -59,7 +61,7 @@ class SignInVC: BaseViewController, View {
         $0.lineWidth = 1
         $0.animationDuration = 0.3
     }
-
+    
     func makeTextField() {
         
         let attributes = [
@@ -134,13 +136,81 @@ class SignInVC: BaseViewController, View {
         makeTextField()
         makeAgreeText()
         addSubView()
-        bind()
+        bind(reactor: reactor)
     }
     
     func bind(reactor: SignInReactor) {
         bindAction(reactor)
         bindState(reactor)
     }
+    
+    private func bindAction(_ reactor: SignInReactor) {
+        
+        textFieldBackView1.rx.tapGesture()
+            .when(.recognized)
+            .bind {_ in
+                self.presentPanModal(SearchSchoolVC())
+            }.disposed(by: disposeBag)
+        
+        agreeLabel.rx.tapGesture()
+            .when(.recognized)
+            .bind {_ in
+                self.navigationController?.pushViewController(ProcessingPolicyVC(), animated: true)
+                self.agreeCheckBox.setOn(true, animated: true)
+            }.disposed(by: disposeBag)
+        
+        signInDoneButton.rx.tap
+            .map { Reactor.Action.signUpButtonDidTap }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        schoolGradeTextField.rx.text
+            .orEmpty
+            .map { Reactor.Action.updateSchoolClass($0 ) }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        schoolClassNumberTextField.rx.text
+            .orEmpty
+            .map { Reactor.Action.updateSchoolNumber($0) }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        searchedSchoolCode
+            .map { Reactor.Action.updateSchoolCode($0) }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        searchedAreaCode
+            .map { Reactor.Action.updateAreaCode($0) }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        searchedSchoolName
+            .map { Reactor.Action.updateSchoolName($0) }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+    }
+    
+    private func bindState(_ reactor: SignInReactor) {
+        reactor.state
+            .map { String($0.schoolClass) }
+            .distinctUntilChanged()
+            .bind(to: schoolGradeTextField.rx.text)
+            .disposed(by: disposeBag)
+        reactor.state
+            .map { $0.schoolName }
+            .distinctUntilChanged()
+            .bind(to: schoolNameTextField.rx.text)
+            .disposed(by: disposeBag)
+        reactor.state
+            .map { String($0.scholNumber) }
+            .distinctUntilChanged()
+            .bind(to: schoolClassNumberTextField.rx.text)
+            .disposed(by: disposeBag)
+    }
+    
     override func setupConstraints() {
         
         [textFieldBackView1, textFieldBackView2, textFieldBackView3].forEach { textField in
@@ -168,7 +238,7 @@ class SignInVC: BaseViewController, View {
         textFieldBackView3.snp.makeConstraints {
             $0.top.equalTo(textFieldBackView2.snp.bottom).offset(25)
         }
-
+        
         signInNameLabbel.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(20)
             $0.height.equalTo(90)
@@ -205,39 +275,6 @@ extension SignInVC: UITextFieldDelegate {
             schoolClassNumberTextField.resignFirstResponder()
         }
         return true
-    }
-    
-    func bind() {
-        
-        textFieldBackView1.rx.tapGesture()
-            .when(.recognized)
-            .bind {_ in
-                self.presentPanModal(SearchSchoolVC())
-            }.disposed(by: disposeBag)
-        
-        agreeLabel.rx.tapGesture()
-            .when(.recognized)
-            .bind {_ in
-                self.navigationController?.pushViewController(ProcessingPolicyVC(), animated: true)
-                self.agreeCheckBox.setOn(true, animated: true)
-            }.disposed(by: disposeBag)
-        
-        let scenes = UIApplication.shared.connectedScenes
-        let windowScenes = scenes.first as? UIWindowScene
-        let window = windowScenes?.windows.first
-        let extra = window!.safeAreaInsets.bottom
-        
-        RxKeyboard.instance.visibleHeight
-            .skip(1)
-            .drive(onNext: { keyboardVisibleHeight in
-                UIView.animate(withDuration: 0) {
-                    self.signInDoneButton.snp.updateConstraints {
-                        $0.bottom.equalTo(self.view.safeAreaLayoutGuide).inset(keyboardVisibleHeight - extra + 15)
-                    }
-                }
-                self.view.layoutIfNeeded()
-            })
-            .disposed(by: disposeBag)
     }
     
 }

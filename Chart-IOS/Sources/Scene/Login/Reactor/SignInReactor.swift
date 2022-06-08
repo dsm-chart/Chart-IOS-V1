@@ -15,7 +15,7 @@ import SPAlert
 final class SignInReactor: Reactor {
     
     let initialState = State(
-        schoolClass: .zero, scholNumber: .zero,
+        schoolClass: "" , scholNumber: "",
         schoolCode: "", schoolName: "학교를 검색하세요",
         areaCode: "", nextVC: UIViewController())
     
@@ -24,15 +24,17 @@ final class SignInReactor: Reactor {
     enum Action {
         case updateAreaCode(String)
         case updateSchoolCode(String)
-        case updateSchoolClass(Int)
-        case updateSchoolNumber(Int)
+        case updateSchoolName(String)
+        case updateSchoolClass(String)
+        case updateSchoolNumber(String)
         case searchSchoolDidTap
         case signUpButtonDidTap
     }
     
     enum Mutation {
-        case setSchoolClass(Int)
-        case setSchoolNumber(Int)
+        case setSchoolClass(String)
+        case setSchoolNumber(String)
+        case setSchoolName(String)
         case setSchoolCode(String)
         case setAreaCode(String)
         case goSchoolSearchView
@@ -40,8 +42,8 @@ final class SignInReactor: Reactor {
     }
     
     struct State {
-        var schoolClass: Int
-        var scholNumber: Int
+        var schoolClass: String
+        var scholNumber: String
         var schoolCode: String
         var schoolName: String
         var areaCode: String
@@ -65,6 +67,8 @@ extension SignInReactor {
             return .just(.setAreaCode(code))
         case let .updateSchoolCode(code):
             return .just(.setAreaCode(code))
+        case let .updateSchoolName(name):
+            return .just(.setSchoolName(name))
         }
     }
 }
@@ -85,8 +89,9 @@ extension SignInReactor {
                 areaCode: state.areaCode,
                 accessToken: KeyChain.read(key: Token.githubAccessToken) ?? "",
                 schoolCode: state.schoolCode,
-                grade: state.schoolClass,
-                classNum: state.scholNumber)
+                grade: Int(state.schoolClass) ?? 0,
+                classNum: Int(state.scholNumber) ?? 0)
+            print(signupParm)
             API.signUp(signupParm).request().subscribe { event in
                 switch event {
                 case .success(let response):
@@ -106,6 +111,8 @@ extension SignInReactor {
             newState.schoolCode = code
         case let .setAreaCode(code):
             newState.areaCode = code
+        case let .setSchoolName(name):
+            newState.schoolName = name
         }
         return newState
     }
