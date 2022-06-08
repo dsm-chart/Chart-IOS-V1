@@ -14,7 +14,11 @@ import SPAlert
 
 final class SignInReactor: Reactor {
     
-    let initialState = State(schoolClass: 0, scholNumber: 0, schoolCode: "", schoolName: "", areaCode: "", nextVC: UIViewController())
+    let initialState = State(
+        schoolClass: .zero, scholNumber: .zero,
+        schoolCode: "", schoolName: "학교를 검색하세요",
+        areaCode: "", nextVC: UIViewController())
+    
     private let disposeBag: DisposeBag = .init()
     
     enum Action {
