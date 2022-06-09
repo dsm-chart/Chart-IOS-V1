@@ -85,6 +85,7 @@ class LoginManager {
                 }
                 KeyChain.create(key: Token.accessToken, token: data.accessToken)
                 KeyChain.create(key: Token.refreshToken, token: data.refreshToken)
+                loginSuccess.accept(true)
             case .failure(let error):
                 print(error)
                 loginSuccess.accept(false)
@@ -92,6 +93,28 @@ class LoginManager {
         }.disposed(by: disposeBag)
         
         return loginSuccess
+    }
+    
+    func postReissue() -> PublishRelay<Bool> {
+        let postReissue = PublishRelay<Bool>()
+        let parm = TokenResponse.init(
+            accessToken: KeyChain.read(key: Token.accessToken)!,
+            refreshToken: KeyChain.read(key: Token.refreshToken)!)
+        
+        API.reissue(parm).request().subscribe { evnt in
+            switch evnt {
+            case .success(let response):
+                guard let data = try? JSONDecoder().decode(TokenResponse.self, from: response.data) else {
+                    postReissue.accept(false)
+                    return
+                }
+                KeyChain.create(key: Token.accessToken, token: data.accessToken)
+                KeyChain.create(key: Token.refreshToken, token: data.refreshToken)
+
+            case .failure(_): break
+            }
+        }.disposed(by: disposeBag)
+        return postReissue
     }
     
     func goMainHome() {
