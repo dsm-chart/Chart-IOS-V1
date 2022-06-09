@@ -25,7 +25,7 @@ class SearchSchoolReactor: Reactor {
     }
     
     struct State {
-        var schoolList: [SearchRow]
+        var schoolList: [SearchSchoolResponse]
     }
     
 }
@@ -48,13 +48,13 @@ extension SearchSchoolReactor {
         var newState = state
         switch mutation {
         case let .getSchoolList(search):
-            API.getSchoolId(search).request().subscribe { event in
+            let parm = SearchRequest.init(search)
+            API.getSchoolId(parm).request().subscribe { event in
                 switch event {
                 case .success(let response):
                     do {
-                        let data = try JSONDecoder().decode(SearchSchoolResponse.self, from: response.data)
-                        newState.schoolList = data.schoolInfo[1].row ?? []
-
+                        let data = try JSONDecoder().decode([SearchSchoolResponse].self, from: response.data)
+                        newState.schoolList = data
                     } catch {
                         print(error)
                     }
@@ -66,8 +66,8 @@ extension SearchSchoolReactor {
             
         case let .setSchoolInfo(indexPath):
             signUpVC.searchedAreaCode.accept(state.schoolList[indexPath.row].areaCode)
-            signUpVC.searchedSchoolCode.accept(state.schoolList[indexPath.row].schoolCode)
-            signUpVC.searchedSchoolName.accept(state.schoolList[indexPath.row].schoolName)
+            signUpVC.searchedSchoolCode.accept(state.schoolList[indexPath.row].code)
+            signUpVC.searchedSchoolName.accept(state.schoolList[indexPath.row].name)
         }
         return newState
     }

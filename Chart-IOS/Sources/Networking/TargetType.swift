@@ -9,8 +9,6 @@ extension API {
     
     func getBaseURL() -> URL {
         switch self {
-        case .getSchoolId(_):
-            return URL(string: Base.neisURL)!
         case .postGithubCode(_):
             return URL(string: Base.githubURL)!
         default:
@@ -38,8 +36,8 @@ extension API {
             return "/api/v1/timetable"
         case .getMeal:
             return "/api/v1/meal"
-        case .getSchoolId(let scarch):
-            return "/hub/schoolInfo?KEY=\(Base.neisApiKey!)&Type=json&pIndex=1&pSize=20&SCHUL_NM=\(scarch)"
+        case .getSchoolId(_):
+            return "/api/v1/school"
         case .postGithubCode(_):
             return "/login/oauth/access_token"
         case .checkGithubUser(_):
@@ -70,6 +68,8 @@ extension API {
             return .requestJSONEncodable(loginRequest)
         case .postGithubCode(let githubRequst):
             return .requestJSONEncodable(githubRequst)
+        case .getSchoolId(let schoolRequest):
+            return .requestJSONEncodable(schoolRequest)
         default:
             return .requestPlain
         }

@@ -37,7 +37,7 @@ enum API {
     
     // neis API
     
-    case getSchoolId(_ search: String)
+    case getSchoolId(_ search: SearchRequest)
     
     // Github API
     
