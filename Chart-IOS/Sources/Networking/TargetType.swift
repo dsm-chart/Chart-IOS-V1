@@ -47,9 +47,9 @@ extension API {
     
     func getMethod() -> Moya.Method {
         switch self {
-        case .postQuestion(_), .postComment(_), .signUp, .reissue, .login(_), .postGithubCode(_):
+        case .postQuestion(_), .postComment(_), .signUp, .reissue, .login(_), .postGithubCode(_), .getSchoolId(_):
             return .post
-        case .getQuestion(_, _), .getComment(_), .myAuth, .getTimeTable(_, _), .getMeal, .getSchoolId(_):
+        case .getQuestion(_, _), .getComment(_), .myAuth, .getTimeTable(_, _), .getMeal:
             return .get
         case .checkGithubUser(_):
             return .put
@@ -68,8 +68,8 @@ extension API {
             return .requestJSONEncodable(loginRequest)
         case .postGithubCode(let githubRequst):
             return .requestJSONEncodable(githubRequst)
-        case .getSchoolId(let schoolRequest):
-            return .requestJSONEncodable(schoolRequest)
+        case .getSchoolId(let search):
+            return .requestParameters(parameters: ["school" : search], encoding: URLEncoding.queryString)
         default:
             return .requestPlain
         }
