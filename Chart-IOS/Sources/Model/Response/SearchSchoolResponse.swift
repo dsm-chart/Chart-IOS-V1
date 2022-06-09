@@ -10,5 +10,5 @@ import Foundation
 // MARK: - Welcome
 struct SearchSchoolResponse: Codable {
     let code, name, areaCode, addressCode: String
-    let homePage, telephone, type, kind: String
+    let homePage, telephone, kind: String
 }
