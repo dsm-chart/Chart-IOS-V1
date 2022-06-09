@@ -76,14 +76,34 @@ class SearchSchoolVC: BaseViewController, PanModalPresentable, View {
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
+        tableView.rx.itemSelected
+            .map { Reactor.Action.selectView($0.row) }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        tableView.rx.itemSelected
+            .map { Reactor.Action.selectView($0.row) }
+            .bind { _ in
+                self.dismiss(animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.schoolList }
+            .debounce(.seconds(2), scheduler: MainScheduler.instance)
+            .bind { arr in
+                print(arr)
+            }.disposed(by: disposeBag)
+        
         reactor.state
             .map { $0.schoolList }
             .bind(to: tableView.rx.items(
                 cellIdentifier: "searchSchoolTableViewCell",
                 cellType: SearchSchoolTableViewCell.self)) {(row, element: SearchSchoolResponse, cell) in
                     cell.schoolLabel.text = element.name
-                    cell.areaLabel.text = element.addressCode
+                    cell.areaLabel.text = "우편번호 : \(element.addressCode), 전화번호 : \(element.telephone)"
                 }.disposed(by: disposeBag)
+
     }
     
     override func setupConstraints() {

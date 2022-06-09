@@ -15,7 +15,7 @@ import SPAlert
 final class SignInReactor: Reactor {
     
     let initialState = State(
-        schoolClass: "" , scholNumber: "",
+        schoolClass: "", scholNumber: "",
         schoolCode: "", schoolName: "학교를 검색하세요",
         areaCode: "", nextVC: UIViewController())
     
@@ -62,6 +62,7 @@ extension SignInReactor {
         case .searchSchoolDidTap:
             return .empty()
         case .signUpButtonDidTap:
+            
             return .just(.signUp)
         case let .updateAreaCode(code):
             return .just(.setAreaCode(code))
