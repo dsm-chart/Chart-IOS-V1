@@ -8,10 +8,13 @@
 import UIKit
 import RxKeyboard
 import PanModal
+import ReactorKit
 
-class SearchSchoolVC: BaseViewController, PanModalPresentable, UITableViewDelegate, UITableViewDataSource {
+class SearchSchoolVC: BaseViewController, PanModalPresentable, View {
     
     var hasLoaded = true
+    var panScrollable: UIScrollView? { return nil }
+    let reactor = SearchSchoolReactor()
     
     private let headFooterView = UIView().then {
         $0.backgroundColor = .clear
@@ -48,10 +51,6 @@ class SearchSchoolVC: BaseViewController, PanModalPresentable, UITableViewDelega
     }
     
     override func configureUI() {
-        
-        tableView.delegate = self
-        tableView.dataSource = self
-        
         [textFieldBackView, tableView].forEach {
             view.addSubview($0)
         }
@@ -59,17 +58,32 @@ class SearchSchoolVC: BaseViewController, PanModalPresentable, UITableViewDelega
         [schoolSearchTextField, searchButton].forEach {
             textFieldBackView.addSubview($0)
         }
+        bind(reactor: reactor)
+    }
+    
+    func bind(reactor: SearchSchoolReactor) {
         
         schoolSearchTextField.rx.text.bind { text in
-            
             if text!.isEmpty {
                 UIView.animate(withDuration: 0.2) { self.searchButton.tintColor = .clear }
             } else {
                 UIView.animate(withDuration: 0.2) { self.searchButton.tintColor = Asset.mainColor.color }
             }
-            
         }.disposed(by: disposeBag)
+
+        searchButton.rx.tap
+            .map { Reactor.Action.searchSchool(self.schoolSearchTextField.text ?? "") }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
         
+        reactor.state
+            .map { $0.schoolList }
+            .bind(to: tableView.rx.items(
+                cellIdentifier: "searchSchoolTableViewCell",
+                cellType: SearchSchoolTableViewCell.self)) {(row, element: SearchSchoolResponse, cell) in
+                    cell.schoolLabel.text = element.name
+                    cell.areaLabel.text = element.addressCode
+                }.disposed(by: disposeBag)
     }
     
     override func setupConstraints() {
@@ -99,17 +113,4 @@ class SearchSchoolVC: BaseViewController, PanModalPresentable, UITableViewDelega
     }
     
     // dunny & Test Code
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return SearchSchoolTableViewCell()
-    }
-    
-    var panScrollable: UIScrollView? {
-        return nil
-    }
-    
 }

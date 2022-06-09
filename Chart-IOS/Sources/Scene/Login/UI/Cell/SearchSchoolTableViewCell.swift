@@ -14,10 +14,10 @@ class SearchSchoolTableViewCell: BaseTableViewCell {
         $0.backgroundColor = Asset.viewColor.color
     }
     
-    private let schoolLabel = UILabel().then {
+    let schoolLabel = UILabel().then {
         $0.font = .roundedFont(ofSize: 18, weight: .medium)
     }
-    private let areaLabel = UILabel().then {
+    let areaLabel = UILabel().then {
         $0.font = .roundedFont(ofSize: 16, weight: .medium)
         $0.textColor = Asset.labelColor.color
     }
