@@ -23,7 +23,7 @@ enum API {
     // account-controller
 
     case signUp(_ signUpRequet: SignUpRequet)
-    case reissue(_ token: String)
+    case reissue(_ token: TokenResponse)
     case login(_ loginRequest: LoginRequest)
     case myAuth
 
@@ -37,7 +37,7 @@ enum API {
     
     // neis API
     
-    case getSchoolId(_ search: SearchRequest)
+    case getSchoolId(_ search: String)
     
     // Github API
     
