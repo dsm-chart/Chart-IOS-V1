@@ -74,7 +74,7 @@ class LoginManager {
     
     func login() -> PublishRelay<Bool> {
         let loginSuccess = PublishRelay<Bool>()
-        let parm = LoginRequest.init(KeyChain.read(key: Token.gituhbCode) ?? "")
+        let parm = LoginRequest.init(KeyChain.read(key: Token.githubAccessToken) ?? "")
         API.login(parm).request().subscribe { event in
             switch event {
             case .success(let response):
@@ -100,7 +100,6 @@ class LoginManager {
         let parm = TokenResponse.init(
             accessToken: KeyChain.read(key: Token.accessToken)!,
             refreshToken: KeyChain.read(key: Token.refreshToken)!)
-        
         API.reissue(parm).request().subscribe { evnt in
             switch evnt {
             case .success(let response):
@@ -110,8 +109,8 @@ class LoginManager {
                 }
                 KeyChain.create(key: Token.accessToken, token: data.accessToken)
                 KeyChain.create(key: Token.refreshToken, token: data.refreshToken)
-
-            case .failure(_): break
+                postReissue.accept(true)
+            case .failure(_): postReissue.accept(false)
             }
         }.disposed(by: disposeBag)
         return postReissue

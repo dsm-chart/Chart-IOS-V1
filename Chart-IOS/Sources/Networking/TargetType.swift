@@ -68,6 +68,8 @@ extension API {
             return .requestJSONEncodable(loginRequest)
         case .postGithubCode(let githubRequst):
             return .requestJSONEncodable(githubRequst)
+        case .reissue(let tokenRespust):
+            return .requestJSONEncodable(tokenRespust)
         case .getSchoolId(let search):
             return .requestParameters(parameters: ["school" : search], encoding: URLEncoding.queryString)
         default:
