@@ -13,6 +13,10 @@ import PanModal
 import BEMCheckBox
 import ReactorKit
 
+protocol SearchViewDelegate: AnyObject {
+    func dismissSearchVC(_ areaCode: String, _ schooolCode: String, _ schoolName: String)
+}
+
 class SignInVC: BaseViewController, View {
     
     let searchedSchoolCode = PublishRelay<String>()
@@ -149,7 +153,9 @@ class SignInVC: BaseViewController, View {
         textFieldBackView1.rx.tapGesture()
             .when(.recognized)
             .bind {_ in
-                self.presentPanModal(SearchSchoolVC())
+                let searchSchoolVC = SearchSchoolVC()
+                searchSchoolVC.delegate = self
+                self.presentPanModal(searchSchoolVC)
             }.disposed(by: disposeBag)
         
         agreeLabel.rx.tapGesture()
@@ -265,7 +271,20 @@ class SignInVC: BaseViewController, View {
     
 }
 
-extension SignInVC: UITextFieldDelegate {
+extension SignInVC: UITextFieldDelegate, SearchViewDelegate {
+    
+    func dismissSearchVC(_ areaCode: String, _ schooolCode: String, _ schoolName: String) {
+        print(schoolName, areaCode)
+        searchedAreaCode.accept(areaCode)
+        searchedSchoolCode.accept(schooolCode)
+        searchedSchoolName.accept(schoolName)
+        if self.schoolNameTextField.text == "학교를 검색하세요" {
+            self.schoolNameTextField.textColor = .separator
+        } else {
+            self.schoolNameTextField.textColor = .label
+        }
+
+    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == schoolGradeTextField {

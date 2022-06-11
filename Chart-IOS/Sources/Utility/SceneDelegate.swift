@@ -16,15 +16,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let windowScene = (scene as? UIWindowScene) else { return }
-        window = UIWindow(windowScene: windowScene)
         
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        
+        window = UIWindow(windowScene: windowScene)
+        window?.rootViewController = LoadingVC()
         if KeyChain.read(key: Token.refreshToken) != nil {
             LoginManager.shared.postReissue().bind { bool in
                 if bool == true { self.goMainHome() }
+                if bool == false { self.goLogin() }
             }.disposed(by: disposeBag)
         } else { goLogin() }
-        
         window?.makeKeyAndVisible()
         
 #if targetEnvironment(macCatalyst)
@@ -67,7 +69,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                                     print(string)
                                     LoginManager.shared.login().bind { bool in
                                         print(bool)
-                                        if bool == true { self.presentAlert("로그인 성공!", .done) }
+                                        if bool == true { self.presentAlert("로그인 성공!", .done)
+                                            self.goMainHome()
+                                        }
                                         if bool == false { self.presentAlert("로그인 실패!", .error) }
                                     }.disposed(by: self.disposeBag)
                                 } else if string == "false" {
