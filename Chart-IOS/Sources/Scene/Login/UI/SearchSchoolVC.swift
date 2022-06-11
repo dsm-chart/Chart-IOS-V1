@@ -16,6 +16,8 @@ class SearchSchoolVC: BaseViewController, PanModalPresentable, View {
     var panScrollable: UIScrollView? { return nil }
     let reactor = SearchSchoolReactor()
     
+    weak var delegate: SearchViewDelegate?
+    
     private let headFooterView = UIView().then {
         $0.backgroundColor = .clear
     }
@@ -70,7 +72,7 @@ class SearchSchoolVC: BaseViewController, PanModalPresentable, View {
                 UIView.animate(withDuration: 0.2) { self.searchButton.tintColor = Asset.mainColor.color }
             }
         }.disposed(by: disposeBag)
-
+        
         searchButton.rx.tap
             .map { Reactor.Action.searchSchool(self.schoolSearchTextField.text ?? "") }
             .bind(to: reactor.action)
@@ -81,18 +83,11 @@ class SearchSchoolVC: BaseViewController, PanModalPresentable, View {
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
-        tableView.rx.itemSelected
-            .map { Reactor.Action.selectView($0.row) }
-            .bind { _ in
-                self.dismiss(animated: true)
-            }
-            .disposed(by: disposeBag)
-        
-        reactor.state
-            .map { $0.schoolList }
-            .debounce(.seconds(2), scheduler: MainScheduler.instance)
-            .bind { arr in
-                print(arr)
+        tableView.rx.modelSelected(SearchSchoolResponse.self)
+            .bind { [weak self] in
+                print($0.name)
+                self?.delegate?.dismissSearchVC($0.areaCode, $0.code, $0.name)
+                self?.dismiss(animated: true)
             }.disposed(by: disposeBag)
         
         reactor.state
@@ -102,8 +97,8 @@ class SearchSchoolVC: BaseViewController, PanModalPresentable, View {
                 cellType: SearchSchoolTableViewCell.self)) {(row, element: SearchSchoolResponse, cell) in
                     cell.schoolLabel.text = element.name
                     cell.areaLabel.text = "우편번호 : \(element.addressCode), 전화번호 : \(element.telephone)"
-                }.disposed(by: disposeBag)
-
+            }.disposed(by: disposeBag)
+        
     }
     
     override func setupConstraints() {
@@ -132,5 +127,4 @@ class SearchSchoolVC: BaseViewController, PanModalPresentable, View {
         }
     }
     
-    // dunny & Test Code
 }
