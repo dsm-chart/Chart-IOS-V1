@@ -81,7 +81,7 @@ extension SearchSchoolReactor {
                 print(error)
                 SPIndicator.present(title: "검색결과 없슴", preset: .error)
             }
-        }.disposed(by: disposeBag)
+            }.disposed(by: disposeBag)
         return returnData
     }
 }

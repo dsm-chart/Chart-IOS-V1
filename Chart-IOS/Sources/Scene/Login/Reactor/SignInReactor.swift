@@ -100,7 +100,7 @@ extension SignInReactor {
                         SPIndicator.present(title: "파싱 애러!", preset: .error)
                         return
                     }
-                    SPAlert.present(title: "회원가입 성공", preset: .error)
+                    SPAlert.present(title: "회원가입 성공", preset: .done)
                     KeyChain.create(key: Token.accessToken, token: data.accessToken)
                     KeyChain.create(key: Token.refreshToken, token: data.refreshToken)
                 case .failure(let error):
