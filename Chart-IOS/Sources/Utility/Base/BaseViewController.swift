@@ -10,6 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 import RxRelay
+import RxViewController
 
 import Then
 import SnapKit
@@ -46,6 +47,7 @@ class BaseViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         self.view.backgroundColor = Asset.backgroundColor.color
         self.configureUI()
         self.setupConstraints()
