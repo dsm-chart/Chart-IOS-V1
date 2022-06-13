@@ -27,6 +27,7 @@ target 'Chart-IOS' do
   pod 'Kingfisher', '~> 7.0'
   pod "RxGesture"
   pod 'RxKeyboard'
+  pod 'RxViewController'
   pod 'SPIndicator'
   pod 'SPAlert'
   pod 'ReactorKit'
