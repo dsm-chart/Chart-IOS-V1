@@ -4,6 +4,7 @@
 
 import Foundation
 import Moya
+import Then
 
 extension API {
     
@@ -72,6 +73,11 @@ extension API {
             return .requestJSONEncodable(tokenRespust)
         case .getSchoolId(let search):
             return .requestParameters(parameters: ["school" : search], encoding: URLEncoding.queryString)
+        case .getMeal:
+            let dateFormatter = DateFormatter()
+            let date = Date()
+            dateFormatter.dateFormat = "YYYYMMdd" // set
+            return .requestParameters(parameters: ["date" : "\(dateFormatter.string(from: date))"], encoding: URLEncoding.queryString)
         default:
             return .requestPlain
         }
