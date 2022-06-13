@@ -6,11 +6,24 @@
 //
 
 import UIKit
+import ReactorKit
 
-class SchoolMealVC: BaseViewController {
+class SchoolMealVC: BaseViewController, View {
     
+    let reactor = SchoolMealReactor()
+
     private let dateBackView = UILabel().then {
         $0.backgroundColor = .clear
+    }
+    
+    let date = Date()
+    
+    let dateFormatter = DateFormatter().then {
+        $0.dateFormat = "YYYY년 MM월 dd일"
+    }
+    let weekDateFormatter = DateFormatter().then {
+        $0.locale = Locale(identifier: "ko")
+        $0.dateFormat = "E요일"
     }
     
     private let dateLabel = UILabel().then {
@@ -78,14 +91,30 @@ class SchoolMealVC: BaseViewController {
         
         // TODO: Dummy Data, 추후 추가 예정
         
-        dateLabel.text = "0000-00-00"
-        mealTabelNameLabel.text = "무요일 식단표"
+        dateLabel.text = dateFormatter.string(from: date)
+        mealTabelNameLabel.text = "\(weekDateFormatter.string(from: date)) 식단표"
         
     }
     
     override func configureUI() {
+        bind(reactor: reactor)
         makeMealView()
         addSubView()
+    }
+
+    func bind(reactor: SchoolMealReactor) {
+        rx.viewDidAppear
+            .map { _ in Reactor.Action.viewDidLoad }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.schoolList }
+            .bind { meal in
+                self.breakfastTextView.text = meal.breakfast.joined(separator: ", ")
+                self.lunchTextView.text = meal.lunch.joined(separator: ", ")
+                self.dinnerTextView.text = meal.dinner.joined(separator: ", ")
+            }.disposed(by: disposeBag)
     }
     
     override func setupConstraints() {
