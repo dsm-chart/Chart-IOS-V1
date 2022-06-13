@@ -29,6 +29,8 @@
 		5757925928070B0D0040C721 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5757925828070B0D0040C721 /* Assets.swift */; };
 		575B9774280E7CBD00186359 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575B9773280E7CBD00186359 /* UIButton.swift */; };
 		57610D29280B056800818D27 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57610D28280B056800818D27 /* TabBarController.swift */; };
+		57697D532856ACA8008E92E3 /* TimeTableReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57697D522856ACA8008E92E3 /* TimeTableReactor.swift */; };
+		57697D552856F0EA008E92E3 /* SchoolMealReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57697D542856F0EA008E92E3 /* SchoolMealReactor.swift */; };
 		5769A5E4283DA4E600D60DB6 /* QuestionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5769A5E3283DA4E600D60DB6 /* QuestionRequest.swift */; };
 		5769A5E6283DA4F600D60DB6 /* CommentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5769A5E5283DA4F600D60DB6 /* CommentRequest.swift */; };
 		5769A5E8283DA50A00D60DB6 /* SignupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5769A5E7283DA50A00D60DB6 /* SignupRequest.swift */; };
@@ -110,6 +112,8 @@
 		5757925828070B0D0040C721 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		575B9773280E7CBD00186359 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		57610D28280B056800818D27 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		57697D522856ACA8008E92E3 /* TimeTableReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableReactor.swift; sourceTree = "<group>"; };
+		57697D542856F0EA008E92E3 /* SchoolMealReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolMealReactor.swift; sourceTree = "<group>"; };
 		5769A5E3283DA4E600D60DB6 /* QuestionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionRequest.swift; sourceTree = "<group>"; };
 		5769A5E5283DA4F600D60DB6 /* CommentRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRequest.swift; sourceTree = "<group>"; };
 		5769A5E7283DA50A00D60DB6 /* SignupRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupRequest.swift; sourceTree = "<group>"; };
@@ -229,22 +233,6 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		57222E3B28461DB50009A5C5 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				57368632280C5C33003120D3 /* SchoolMealVC.swift */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
-		57222E3C28461DBF0009A5C5 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				57368634280C5C85003120D3 /* TimeTableVC.swift */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
 		57222E3D28461DC50009A5C5 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -300,11 +288,11 @@
 		5736862C280C58BF003120D3 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				57B29D39280E574E00EB9AB0 /* Login */,
 				57491CD528124EA00021D28E /* SchoolMeal */,
 				57491CD6281250D60021D28E /* TimeTable */,
 				57491CD7281250ED0021D28E /* Post */,
 				57491CD828125F3B0021D28E /* Setting */,
-				57B29D39280E574E00EB9AB0 /* Login */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -322,7 +310,8 @@
 		57491CD528124EA00021D28E /* SchoolMeal */ = {
 			isa = PBXGroup;
 			children = (
-				57222E3B28461DB50009A5C5 /* UI */,
+				57368632280C5C33003120D3 /* SchoolMealVC.swift */,
+				57697D542856F0EA008E92E3 /* SchoolMealReactor.swift */,
 			);
 			path = SchoolMeal;
 			sourceTree = "<group>";
@@ -330,7 +319,8 @@
 		57491CD6281250D60021D28E /* TimeTable */ = {
 			isa = PBXGroup;
 			children = (
-				57222E3C28461DBF0009A5C5 /* UI */,
+				57697D522856ACA8008E92E3 /* TimeTableReactor.swift */,
+				57368634280C5C85003120D3 /* TimeTableVC.swift */,
 			);
 			path = TimeTable;
 			sourceTree = "<group>";
@@ -784,6 +774,7 @@
 				57368635280C5C85003120D3 /* TimeTableVC.swift in Sources */,
 				572D56912810130100F5D457 /* SearchSchoolTableViewCell.swift in Sources */,
 				57222E42284631C90009A5C5 /* SignInReactor.swift in Sources */,
+				57697D532856ACA8008E92E3 /* TimeTableReactor.swift in Sources */,
 				574E762528443BAC00982201 /* LoginManager.swift in Sources */,
 				5704BDBA283CB7B700FA89B0 /* BaseURL.swift in Sources */,
 				5769A5F8283DB92E00D60DB6 /* MyInfoResponse.swift in Sources */,
@@ -803,6 +794,7 @@
 				5769A5F6283DB57C00D60DB6 /* MealResponse.swift in Sources */,
 				571C9C232847A41800381500 /* SearchSchoolResponse.swift in Sources */,
 				CA280BF92228A7120A43B18D /* KeyChain.swift in Sources */,
+				57697D552856F0EA008E92E3 /* SchoolMealReactor.swift in Sources */,
 				CA280595FBE89301C77DD6FA /* TargetType.swift in Sources */,
 				574E76232843C08500982201 /* GithubCodeRequst.swift in Sources */,
 			);
