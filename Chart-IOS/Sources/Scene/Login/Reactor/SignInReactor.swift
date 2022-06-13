@@ -95,7 +95,7 @@ extension SignInReactor {
             print(signupParm)
             API.signUp(signupParm).request().subscribe { event in
                 switch event {
-                case .success(let response):
+                case .success(_):
                     SPAlert.present(title: "회원가입 성공", preset: .done)
                 case .failure(let error):
                     print(error)
