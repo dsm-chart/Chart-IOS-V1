@@ -7,10 +7,6 @@
 
 import Foundation
 
-struct QuestionArr: Codable {
-    let data: [Question]
-}
-
 struct Question: Codable {
     let id: String
     let title: String
