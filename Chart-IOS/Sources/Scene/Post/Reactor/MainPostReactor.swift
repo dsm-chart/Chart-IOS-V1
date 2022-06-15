@@ -21,15 +21,15 @@ class MainPostReactor: Reactor {
         case refreshList
     }
     enum Mutation {
-        case getList([Question])
+        case getList([QuestionData])
         case setLoading(Bool)
     }
     struct State {
-        var list: [Question]
+        var list: [QuestionData]
         var isLoading = false
-
+        
     }
-     
+    
 }
 
 // MARK: - Mutate
@@ -37,16 +37,13 @@ extension MainPostReactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .viewDidLoad:
-            return .concat([
-                .just(.setLoading(true)),
-                getPostList().map { list -> Mutation in
-                    return .getList(list)
-                },
-                .just(.setLoading(false))
-            ])
+            let getPostList = getPostList().map { list -> Mutation in
+                return .getList(list)
+            }
+            return getPostList
         case .refreshList:
+            print("958943850948509589034850")
             return .concat([
-                .just(.setLoading(true)),
                 getPostList().map { list -> Mutation in
                     return .getList(list)
                 },
@@ -57,16 +54,30 @@ extension MainPostReactor {
     
 }
 
+// MARK: - Reduce
+extension MainPostReactor {
+    func reduce(state: State, mutation: Mutation) -> State {
+        var newState = state
+        switch mutation {
+        case let .getList(questionData):
+            newState.list = questionData
+        case let .setLoading(bool):
+            newState.isLoading = bool
+        }
+        return newState
+    }
+}
+
 // MARK: - Function
 
 extension MainPostReactor {
-    func getPostList() -> PublishRelay<[Question]> {
-        let question = PublishRelay<[Question]>()
-        API.getQuestion(1, 20).request().subscribe { event in
+    func getPostList() -> PublishRelay<[QuestionData]> {
+        let question = PublishRelay<[QuestionData]>()
+        API.getQuestion(0, 100).request().subscribe { event in
             switch event {
             case .success(let response):
-                if let data = try? JSONDecoder().decode([Question].self, from: response.data) {
-                    question.accept(data)
+                if let data = try? JSONDecoder().decode(QuestionResponse.self, from: response.data) {
+                    question.accept(data.data)
                 }
             case .failure(_):
                 SPIndicator.present(title: "Error!!", haptic: .error)
