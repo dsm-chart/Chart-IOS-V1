@@ -7,6 +7,9 @@
 
 import UIKit
 import MaterialComponents.MaterialButtons
+    let dateFormatter = DateFormatter().then {
+        $0.dateFormat = "YYYY년 MM월 dd일"
+    }
 
 class MainPostVC: BaseViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -49,10 +52,10 @@ class MainPostVC: BaseViewController, UITableViewDelegate, UITableViewDataSource
         }
 
         dateLabel.text = "0000-00-00"
+        dateLabel.text = dateFormatter.string(from: Date())
         postNameLabel.text = "학교 게시판"
-
-        tableView.delegate = self
-        tableView.dataSource = self
+        bind(reactor: reactor)
+    }
 
         createPostFloatingButton.rx.tap.bind {
             self.navigationController?.pushViewController(AddPostVC(), animated: true)
