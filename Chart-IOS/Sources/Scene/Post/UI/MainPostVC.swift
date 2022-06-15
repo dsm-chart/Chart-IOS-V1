@@ -12,6 +12,11 @@ import MaterialComponents.MaterialButtons
     }
 
 class MainPostVC: BaseViewController, UITableViewDelegate, UITableViewDataSource {
+    private let emptyLabel = UILabel().then {
+        $0.text = "내용이 없습니다."
+        $0.font = .systemFont(ofSize: 16)
+        $0.textColor = .secondaryLabel
+    }
 
     private let labelBackView = UIView().then {
         $0.backgroundColor = .clear
