@@ -19,7 +19,9 @@ extension API {
     
     func getPath() -> String {
         switch self {
-        case .postQuestion(_), .getQuestion(_, _):
+        case .getQuestion(_, _):
+            return "/api/v1/question/list"
+        case .postQuestion(_):
             return "/api/v1/question"
         case .postComment(_):
             return "/api/v1/comment"
@@ -61,6 +63,8 @@ extension API {
         switch self {
         case .postQuestion(let questionRequest):
             return .requestJSONEncodable(questionRequest)
+        case let .getQuestion(idx, size):
+            return .requestParameters(parameters: ["idx" : idx, "size" : size], encoding: URLEncoding.queryString)
         case .postComment(let commentRequest):
             return .requestJSONEncodable(commentRequest)
         case .signUp(let signUpRequet):

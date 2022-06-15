@@ -100,7 +100,6 @@ class LoginManager {
         let parm = TokenResponse.init(
             accessToken: KeyChain.read(key: Token.accessToken)!,
             refreshToken: KeyChain.read(key: Token.refreshToken)!)
-        print(parm)
         API.reissue(parm).request().subscribe { evnt in
             switch evnt {
             case .success(let response):
@@ -110,6 +109,7 @@ class LoginManager {
                 }
                 KeyChain.create(key: Token.accessToken, token: data.accessToken)
                 KeyChain.create(key: Token.refreshToken, token: data.refreshToken)
+                print(parm)
                 postReissue.accept(true)
             case .failure(_): postReissue.accept(false)
             }

@@ -16,5 +16,5 @@ struct MyInfomation: Codable {
     let createdAt: String
     let updatedAt: String
     
-    let questionList: [Question]
+    let questionList: [QuestionData]
 }

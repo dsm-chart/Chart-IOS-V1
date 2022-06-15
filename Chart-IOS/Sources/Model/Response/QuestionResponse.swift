@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct Question: Codable {
+struct QuestionResponse: Codable {
+    let data: [QuestionData]
+}
+
+struct QuestionData: Codable {
     let id: String
     let title: String
     let content: String
