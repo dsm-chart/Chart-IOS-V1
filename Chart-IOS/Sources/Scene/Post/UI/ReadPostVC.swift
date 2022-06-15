@@ -7,8 +7,10 @@
 import UIKit
 
 class ReadPostVC: BaseViewController {
+    
+    let postId = ""
 
-    private let titleTextLabel = UILabel().then {
+    let titleTextLabel = UILabel().then {
         $0.font = .systemFont(ofSize: 20, weight: .semibold)
         $0.tintColor = Asset.mainColor.color
     }
@@ -18,7 +20,7 @@ class ReadPostVC: BaseViewController {
         $0.font = .roundedFont(ofSize: 12, weight: .regular)
     }
 
-    private lazy var contentTextView = UITextView().then {
+    lazy var contentTextView = UITextView().then {
         $0.isEditable = false
         $0.tintColor = Asset.mainColor.color
         $0.font = .roundedFont(ofSize: 18, weight: .regular)
