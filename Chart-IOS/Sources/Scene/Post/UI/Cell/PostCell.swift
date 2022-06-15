@@ -54,6 +54,7 @@ class PostCell: BaseTableViewCell {
         
         firstLabel.snp.makeConstraints {
             $0.leading.top.equalTo(20)
+            $0.trailing.equalTo(secondLabel.snp.leading).offset(-10)
             $0.height.equalTo(26)
         }
         
