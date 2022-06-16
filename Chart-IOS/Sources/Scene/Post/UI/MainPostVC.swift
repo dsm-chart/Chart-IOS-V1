@@ -97,17 +97,4 @@ class MainPostVC: BaseViewController, UITableViewDelegate, UITableViewDataSource
         }
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return PostCell()
-    }
-
-    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        self.navigationController?.pushViewController(ReadPostVC(), animated: true)
-        return indexPath
-    }
-
 }
