@@ -13,4 +13,22 @@ import SPIndicator
 
 class AddPostReactor: Reactor {
     
+    var initialState = State()
+    let disposeBag: DisposeBag = .init()
+    
+    enum Action {
+        case postButtonClicked
+    }
+    
+    enum Mutation {
+        case setTitle
+        case setContent
+        case setLoading(Bool)
+    }
+    
+    struct State {
+        var title = ""
+        var content = ""
+    }
+
 }
