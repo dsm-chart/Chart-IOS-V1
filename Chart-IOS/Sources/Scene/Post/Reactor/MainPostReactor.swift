@@ -42,7 +42,6 @@ extension MainPostReactor {
             }
             return getPostList
         case .refreshList:
-            print("958943850948509589034850")
             return .concat([
                 getPostList().map { list -> Mutation in
                     return .getList(list)
