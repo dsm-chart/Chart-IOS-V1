@@ -23,12 +23,22 @@ class AddPostReactor: Reactor {
     enum Mutation {
         case setTitle
         case setContent
-        case setLoading(Bool)
+        case postQuestion
     }
     
     struct State {
         var title = ""
         var content = ""
     }
+    
+}
 
+// MARK: - Mutate
+extension AddPostReactor {
+    func mutate(action: Action) -> Observable<Mutation> {
+        switch action {
+        case .postButtonClicked:
+            return .just(.postQuestion)
+        }
+    }
 }
