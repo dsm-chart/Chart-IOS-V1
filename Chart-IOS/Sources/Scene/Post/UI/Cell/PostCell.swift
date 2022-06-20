@@ -31,9 +31,6 @@ class PostCell: BaseTableViewCell {
         secondLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         contentLabel.font = UIFont.systemFont(ofSize: 17, weight: .bold)
         
-        firstLabel.text = "제목이 들어가요"
-        secondLabel.text = "이름이 들어가요"
-        contentLabel.text = "여기에는 본문이 한줄 들어가요"
     }
     
     override func configureUI() {
