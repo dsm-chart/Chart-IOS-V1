@@ -43,9 +43,11 @@ class ReadPostVC: BaseViewController {
             view.addSubview($0)
         }
         goCommentButton.makeMyDesign(color: Asset.mainColor.color, title: "Comment 보기", titleColor: .white)
-
+        
         goCommentButton.rx.tap.bind {
-            self.navigationController?.pushViewController(ReadCommentVC(), animated: true)
+            let readCommentVC = ReadCommentVC()
+            readCommentVC.postId = self.postId
+            self.navigationController?.pushViewController(readCommentVC, animated: true)
         }.disposed(by: disposeBag)
     }
 

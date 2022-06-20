@@ -7,6 +7,8 @@ import UIKit
 
 class ReadCommentVC: BaseViewController, UITableViewDelegate, UITableViewDataSource {
 
+    var postId = ""
+    
     private let tableView = UITableView().then {
         $0.backgroundColor = Asset.backgroundColor.color
         $0.separatorStyle = .none
