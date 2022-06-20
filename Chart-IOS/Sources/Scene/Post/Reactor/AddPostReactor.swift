@@ -17,60 +17,34 @@ class AddPostReactor: Reactor {
     let disposeBag: DisposeBag = .init()
     
     enum Action {
-        case postButtonClicked
-        case updateTitle(String)
-        case updateContent(String)
+        case postButtonClicked(String, String)
     }
     
     enum Mutation {
-        case setTitle(String)
-        case setContent(String)
-        case postQuestion(Bool)
+        case postQuestion
     }
     
-    struct State {
-        var title = ""
-        var content = ""
-    }
-    
+    struct State {}
+
 }
 
 // MARK: - Mutate
 extension AddPostReactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
-        case .postButtonClicked:
-            let postQuestion = postQuestion(state: State()).map { bool -> Mutation in return .postQuestion(bool) }
-            return postQuestion
-        case .updateTitle(let title):
-            return .just(.setTitle(title))
-        case .updateContent(let content):
-            return .just(.setContent(content))
+        case let .postButtonClicked(title, content):
+            return postQuestion(title: title, content: content)
+                .map { bool -> Mutation in return .postQuestion }
         }
-    }
-}
-
-// MARK: - Reduce
-extension AddPostReactor {
-    func reduce(state: State, mutation: Mutation) -> State {
-        var newState = state
-        switch mutation {
-        case let .setTitle(title):
-            newState.title = title
-        case let .setContent(content):
-            newState.content = content
-        case .postQuestion: break
-        }
-        return newState
     }
 }
 
 // MARK: - Function
 
 extension AddPostReactor {
-    func postQuestion(state: State) -> PublishRelay<Bool> {
+    func postQuestion(title: String, content: String) -> PublishRelay<Bool> {
         let bool = PublishRelay<Bool>()
-        let parm = QuestionRequest(title: state.title, content: state.content)
+        let parm = QuestionRequest(title: title, content: content)
         
         API.postQuestion(parm).request().subscribe { event in
                 switch event {
