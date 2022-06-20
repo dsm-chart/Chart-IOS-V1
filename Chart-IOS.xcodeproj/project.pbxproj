@@ -64,7 +64,6 @@
 		57CF3E1228576BC8003E2787 /* MainPostReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CF3E1128576BC8003E2787 /* MainPostReactor.swift */; };
 		94BD830BAA49D94F6E02693A /* Pods_Chart_IOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29A81F62EFE885E27803014F /* Pods_Chart_IOS.framework */; };
 		9CDAAD33A5CC04CAAADA9BE1 /* Pods_Chart_IOS_Chart_IOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B437AC0BDC07E5D47699567A /* Pods_Chart_IOS_Chart_IOSUITests.framework */; };
-		CA28005C364F2764C0C24AD1 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = CA280B88F8F5806C2595650A /* .swiftlint.yml */; };
 		CA280354F9CE09CD35608D28 /* ReadCommentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA280490F07C9FB695E88837 /* ReadCommentVC.swift */; };
 		CA280407AC8E3107A9676844 /* ReadPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2808B76D42847EC6BB439C /* ReadPostVC.swift */; };
 		CA280595FBE89301C77DD6FA /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA280273466BBCE9AF67CAA0 /* TargetType.swift */; };
@@ -158,7 +157,6 @@
 		CA28037D56F574B355CE48EB /* KeyChain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
 		CA280490F07C9FB695E88837 /* ReadCommentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadCommentVC.swift; sourceTree = "<group>"; };
 		CA2808B76D42847EC6BB439C /* ReadPostVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadPostVC.swift; sourceTree = "<group>"; };
-		CA280B88F8F5806C2595650A /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		D4FF9285CF9B75BD579B6A99 /* Pods-Chart-IOS-Chart-IOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chart-IOS-Chart-IOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-Chart-IOS-Chart-IOSUITests/Pods-Chart-IOS-Chart-IOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D7443AAFF3388E077DC01DEF /* Pods-Chart-IOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chart-IOS.debug.xcconfig"; path = "Target Support Files/Pods-Chart-IOS/Pods-Chart-IOS.debug.xcconfig"; sourceTree = "<group>"; };
 		F6ABC769B36408890769C6D3 /* Pods-Chart-IOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chart-IOS.release.xcconfig"; path = "Target Support Files/Pods-Chart-IOS/Pods-Chart-IOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -437,7 +435,6 @@
 				57AA2A5527FE70E4006CDA2E /* Products */,
 				2D08FA76A249A7A746D474E7 /* Pods */,
 				50E7EAEA5CAE1467573FC2B2 /* Frameworks */,
-				CA280B88F8F5806C2595650A /* .swiftlint.yml */,
 			);
 			sourceTree = "<group>";
 		};
@@ -616,7 +613,6 @@
 				57AA2A6427FE70E5006CDA2E /* LaunchScreen.storyboard in Resources */,
 				57AA2A6127FE70E5006CDA2E /* Assets.xcassets in Resources */,
 				57A317E72820EC890078A80A /* processing_policy.pdf in Resources */,
-				CA28005C364F2764C0C24AD1 /* .swiftlint.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
