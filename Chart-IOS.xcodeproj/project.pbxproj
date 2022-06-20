@@ -43,6 +43,7 @@
 		5769A5F6283DB57C00D60DB6 /* MealResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5769A5F5283DB57C00D60DB6 /* MealResponse.swift */; };
 		5769A5F8283DB92E00D60DB6 /* MyInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5769A5F7283DB92E00D60DB6 /* MyInfoResponse.swift */; };
 		576D1ABE2831D225008C8F01 /* AddPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D1ABD2831D225008C8F01 /* AddPostVC.swift */; };
+		57812A372860AC580098412B /* ReadCommentReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57812A362860AC580098412B /* ReadCommentReactor.swift */; };
 		578B15C92817937B00901498 /* SignupUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578B15C82817937B00901498 /* SignupUITests.swift */; };
 		57A317E52820EBB20078A80A /* ProcessingPolicyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A317E42820EBB20078A80A /* ProcessingPolicyVC.swift */; };
 		57A317E72820EC890078A80A /* processing_policy.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 57A317E62820EC890078A80A /* processing_policy.pdf */; };
@@ -127,6 +128,7 @@
 		5769A5F5283DB57C00D60DB6 /* MealResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealResponse.swift; sourceTree = "<group>"; };
 		5769A5F7283DB92E00D60DB6 /* MyInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoResponse.swift; sourceTree = "<group>"; };
 		576D1ABD2831D225008C8F01 /* AddPostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostVC.swift; sourceTree = "<group>"; };
+		57812A362860AC580098412B /* ReadCommentReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadCommentReactor.swift; sourceTree = "<group>"; };
 		578B15C82817937B00901498 /* SignupUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupUITests.swift; sourceTree = "<group>"; };
 		57A317E42820EBB20078A80A /* ProcessingPolicyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingPolicyVC.swift; sourceTree = "<group>"; };
 		57A317E62820EC890078A80A /* processing_policy.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = processing_policy.pdf; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 			children = (
 				57CF3E1128576BC8003E2787 /* MainPostReactor.swift */,
 				5737962D285AF25300060135 /* AddPostReactor.swift */,
+				57812A362860AC580098412B /* ReadCommentReactor.swift */,
 			);
 			path = Reactor;
 			sourceTree = "<group>";
@@ -792,6 +795,7 @@
 				57368639280C5CD9003120D3 /* SettingVC.swift in Sources */,
 				57368631280C5BA5003120D3 /* BaseTableViewCell.swift in Sources */,
 				5737962E285AF25300060135 /* AddPostReactor.swift in Sources */,
+				57812A372860AC580098412B /* ReadCommentReactor.swift in Sources */,
 				570B535828195C75009298A2 /* SiginInDoneVC.swift in Sources */,
 				5769A5E4283DA4E600D60DB6 /* QuestionRequest.swift in Sources */,
 				571E72BC2848A65C00286986 /* SearchSchoolReactor.swift in Sources */,
