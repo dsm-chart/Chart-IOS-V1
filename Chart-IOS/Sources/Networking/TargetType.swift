@@ -35,8 +35,8 @@ extension API {
             return "/api/v1/auth/login"
         case .myAuth:
             return "/api/v1/auth/my"
-        case .getTimeTable(_, _):
-            return "/api/v1/timetable"
+        case .getTimeTable:
+            return "/api/v1/timetable/week"
         case .getMeal:
             return "/api/v1/meal"
         case .getSchoolId(_):
@@ -52,7 +52,7 @@ extension API {
         switch self {
         case .postQuestion(_), .postComment(_), .signUp, .reissue, .login(_), .postGithubCode(_), .getSchoolId(_):
             return .post
-        case .getQuestion(_, _), .getComment(_), .myAuth, .getTimeTable(_, _), .getMeal:
+        case .getQuestion(_, _), .getComment(_), .myAuth, .getTimeTable, .getMeal:
             return .get
         case .checkGithubUser(_):
             return .put

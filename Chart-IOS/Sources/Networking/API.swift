@@ -29,7 +29,7 @@ enum API {
 
     // timetable-controller
 
-    case getTimeTable(_ start: Int, _ end: Int)
+    case getTimeTable
 
     // cafeteria-controller
 
