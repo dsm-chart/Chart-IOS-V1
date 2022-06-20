@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct TimeTable: Codable {
-    let data: [DayTimeTable]
+struct TimeTableResponse: Codable {
+    let data: [TimeTable]
 }
 
-struct DayTimeTable: Codable {
+struct TimeTable: Codable {
     let grade: Int
     let classNum: Int
     let totalCount: Int
