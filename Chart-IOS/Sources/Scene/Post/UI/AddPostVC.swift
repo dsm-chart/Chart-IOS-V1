@@ -6,8 +6,12 @@
 //
 
 import UIKit
+import ReactorKit
+import SPAlert
 
-class AddPostVC: BaseViewController {
+class AddPostVC: BaseViewController, View {
+
+    let reactor = AddPostReactor()
 
     private let titleLabel = UILabel().then {
         $0.font = .systemFont(ofSize: 20, weight: .semibold)
@@ -45,7 +49,24 @@ class AddPostVC: BaseViewController {
         [titleLabel, titleTextField, contentTextView].forEach {
             view.addSubview($0)
         }
+        bind(reactor: reactor)
     }
+
+    func bind(reactor: AddPostReactor) {
+        
+        writeButton.rx.tap
+            .filter { self.titleTextField.text!.isEmpty == false || self.contentTextView.text != self.textViewPlaceHolder }
+            .map { Reactor.Action.postButtonClicked(self.titleTextField.text!, self.contentTextView.text!) }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        writeButton.rx.tap.bind {
+            if self.titleTextField.text!.isEmpty || self.contentTextView.text == self.textViewPlaceHolder {
+                SPAlert.present(title: "내용을 입력하지 않았어요.", preset: .error)
+            } else { self.navigationController?.popViewController(animated: true) }
+        }.disposed(by: disposeBag)
+        
+}
 
     override func setupConstraints() {
         titleLabel.snp.makeConstraints {
