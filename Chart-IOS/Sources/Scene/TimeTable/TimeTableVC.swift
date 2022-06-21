@@ -118,11 +118,11 @@ class TimeTableVC: BaseViewController, View {
                     let weekArr = timeTable[weekNumber]
                     let labelBacKView = UIView()
                     
-                    let name = weekArr.subjects[dayNumber].name
-                    let startIndex = name.index(name.startIndex, offsetBy: 0)// 사용자지정 시작인덱스
-                    let endIndex = name.index(name.startIndex, offsetBy: 2)// 사용자지정 끝인덱스
+                    let subject = weekArr.subjects[dayNumber].name
+                    let startIndex = subject.index(subject.startIndex, offsetBy: 0)// 사용자지정 시작인덱스
+                    let endIndex = subject.index(subject.startIndex, offsetBy: 2)// 사용자지정 끝인덱스
                     
-                    let nameSlice = name[startIndex ..< endIndex]
+                    let nameSlice = subject[startIndex ..< endIndex]
                     
                     let label = UILabel().then {
                         $0.textColor = Asset.labelColor.color
