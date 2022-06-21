@@ -103,21 +103,31 @@ class TimeTableVC: BaseViewController, View {
     }
     
     func bind(reactor: TimeTableReactor) {
-        rx.viewDidAppear.distinctUntilChanged().map { _ in Reactor.Action.viewDidLoad }.bind(to: reactor.action).disposed(by: disposeBag)
+
+        rx.viewDidAppear.distinctUntilChanged()
+                .map { _ in Reactor.Action.viewDidLoad }.bind(to: reactor.action)
+                .disposed(by: disposeBag)
         
         reactor.state.map { $0.timeTable }.filter { $0.isEmpty == false }.bind { timeTable in
             let weekStackViewArray = [self.mondayStackView, self.tuesdayStackView,
                                       self.wednesdayStackView, self.thursdayStackView, self.fridayStackView]
+
             print(timeTable)
             for weekNumber in 0..<timeTable.count {
                 for dayNumber in 0..<7 {
+
                     let weekArr = timeTable[weekNumber]
+                    let labelBacKView = UIView()
                     let label = UILabel().then {
                         $0.textColor = Asset.labelColor.color
                         $0.text = "\(weekArr.subjects[dayNumber].name)"
                         $0.textAlignment = .center
                     }
-                    weekStackViewArray[weekNumber].addArrangedSubview(label)
+
+                    labelBacKView.addSubview(label)
+                    label.snp.makeConstraints { $0.edges.equalToSuperview().offset(5) }
+                    weekStackViewArray[weekNumber].addArrangedSubview(labelBacKView)
+
                 }
             }
             weekStackViewArray.forEach {
