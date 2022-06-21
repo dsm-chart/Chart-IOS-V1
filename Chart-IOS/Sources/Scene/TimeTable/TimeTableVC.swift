@@ -12,6 +12,12 @@ class TimeTableVC: BaseViewController, View {
     
     let reactor = TimeTableReactor()
     
+    let dateFormatter = DateFormatter().then {
+        $0.dateFormat = "YYYY년 MM월"
+    }
+    
+    let date = Date()
+    
     private let semesterBackView = UILabel().then { $0.backgroundColor = .clear }
     
     private let backLine1 = UIView()
@@ -70,8 +76,7 @@ class TimeTableVC: BaseViewController, View {
         }
         
         /// dummy Data
-        semesterLabel.text = "0000년 X학기"
-        classNameLabel.text = "0-0 시간표"
+        semesterLabel.text = dateFormatter.string(from: date)
         makeStackView()
         bind(reactor: reactor)
     }
@@ -103,46 +108,52 @@ class TimeTableVC: BaseViewController, View {
     }
     
     func bind(reactor: TimeTableReactor) {
-
-        rx.viewDidAppear.distinctUntilChanged()
-                .map { _ in Reactor.Action.viewDidLoad }.bind(to: reactor.action)
-                .disposed(by: disposeBag)
         
-        reactor.state.map { $0.timeTable }.filter { $0.isEmpty == false }.bind { timeTable in
-            let weekStackViewArray = [self.mondayStackView, self.tuesdayStackView,
-                                      self.wednesdayStackView, self.thursdayStackView, self.fridayStackView]
-
-            for weekNumber in 0..<timeTable.count {
-                for dayNumber in 0..<7 {
-
-                    let weekArr = timeTable[weekNumber]
-                    let labelBacKView = UIView()
-                    
-                    let subject = weekArr.subjects[dayNumber].name
-                    let startIndex = subject.index(subject.startIndex, offsetBy: 0)// 사용자지정 시작인덱스
-                    let endIndex = subject.index(subject.startIndex, offsetBy: 2)// 사용자지정 끝인덱스
-                    
-                    let nameSlice = subject[startIndex ..< endIndex]
-                    
-                    let label = UILabel().then {
-                        $0.textColor = Asset.labelColor.color
-                        $0.text = "\(nameSlice)"
-                        $0.textAlignment = .center
+        rx.viewDidAppear.distinctUntilChanged()
+            .map { _ in Reactor.Action.viewDidLoad }
+            .bind(to: reactor.action).disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.timeTable }
+            .filter { $0.isEmpty == false }
+            .bind { timeTable in
+                
+                let weekStackViewArray = [self.mondayStackView, self.tuesdayStackView,
+                                          self.wednesdayStackView, self.thursdayStackView, self.fridayStackView]
+                
+                self.classNameLabel.text = "\(timeTable[0].grade)-\(timeTable[0].classNum) 시간표"
+                
+                for weekNumber in 0..<timeTable.count {
+                    for dayNumber in 0..<7 {
+                        
+                        let weekArr = timeTable[weekNumber]
+                        
+                        let labelBacKView = UIView()
+                        let subject = weekArr.subjects[dayNumber].name
+                        let startIndex = subject.index(subject.startIndex, offsetBy: 0)// 사용자지정 시작인덱스
+                        let endIndex = subject.index(subject.startIndex, offsetBy: 2)// 사용자지정 끝인덱스
+                        
+                        let nameSlice = subject[startIndex..<endIndex]
+                        
+                        let label = UILabel().then {
+                            $0.textColor = Asset.labelColor.color
+                            $0.text = "\(nameSlice)"
+                            $0.textAlignment = .center
+                        }
+                        
+                        labelBacKView.addSubview(label)
+                        label.snp.makeConstraints { $0.edges.equalToSuperview().offset(5) }
+                        weekStackViewArray[weekNumber].addArrangedSubview(labelBacKView)
+                        
                     }
-
-                    labelBacKView.addSubview(label)
-                    label.snp.makeConstraints { $0.edges.equalToSuperview().offset(5) }
-                    weekStackViewArray[weekNumber].addArrangedSubview(labelBacKView)
-
                 }
-            }
-            weekStackViewArray.forEach {
-                $0.distribution = .fillEqually
-                $0.axis = .vertical
-                self.timeTableStackView.addArrangedSubview($0)
-            }
+                weekStackViewArray.forEach {
+                    $0.distribution = .fillEqually
+                    $0.axis = .vertical
+                    self.timeTableStackView.addArrangedSubview($0)
+                }
         }
-        .disposed(by: disposeBag)
+            .disposed(by: disposeBag)
     }
     
     override func setupConstraints() {
