@@ -112,15 +112,21 @@ class TimeTableVC: BaseViewController, View {
             let weekStackViewArray = [self.mondayStackView, self.tuesdayStackView,
                                       self.wednesdayStackView, self.thursdayStackView, self.fridayStackView]
 
-            print(timeTable)
             for weekNumber in 0..<timeTable.count {
                 for dayNumber in 0..<7 {
 
                     let weekArr = timeTable[weekNumber]
                     let labelBacKView = UIView()
+                    
+                    let name = weekArr.subjects[dayNumber].name
+                    let startIndex = name.index(name.startIndex, offsetBy: 0)// 사용자지정 시작인덱스
+                    let endIndex = name.index(name.startIndex, offsetBy: 2)// 사용자지정 끝인덱스
+                    
+                    let nameSlice = name[startIndex ..< endIndex]
+                    
                     let label = UILabel().then {
                         $0.textColor = Asset.labelColor.color
-                        $0.text = "\(weekArr.subjects[dayNumber].name)"
+                        $0.text = "\(nameSlice)"
                         $0.textAlignment = .center
                     }
 
