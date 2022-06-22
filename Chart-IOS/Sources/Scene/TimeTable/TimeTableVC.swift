@@ -137,8 +137,13 @@ class TimeTableVC: BaseViewController, View {
                         
                         let label = UILabel().then {
                             $0.textColor = Asset.labelColor.color
-                            $0.text = "\(nameSlice)"
                             $0.textAlignment = .center
+                        }
+
+                        if nameSlice == "자습" {
+                            label.text = ""
+                        } else {
+                            label.text = "\(nameSlice)"
                         }
                         
                         labelBacKView.addSubview(label)
