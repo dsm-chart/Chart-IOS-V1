@@ -4,26 +4,48 @@
 //
 
 import UIKit
+import ReactorKit
 
-class ReadCommentVC: BaseViewController, UITableViewDelegate, UITableViewDataSource {
 
+class ReadCommentVC: BaseViewController, View {
+    
     var postId = ""
+    
+    let reactor = ReadCommentReactor()
     
     private let tableView = UITableView().then {
         $0.backgroundColor = Asset.backgroundColor.color
+        $0.register(PostCell.self, forCellReuseIdentifier: "PostCell")
         $0.separatorStyle = .none
     }
-
+    
     private let writeCommentButton = UIButton()
-
+    
     override func configureUI() {
         navigationItem.title = "Comment"
         writeCommentButton.makeMyDesign(color: Asset.mainColor.color, title: "Comment 작성하기", titleColor: .white)
         [tableView, writeCommentButton].forEach {
             view.addSubview($0)
         }
-        tableView.delegate = self
-        tableView.dataSource = self
+        bind(reactor: reactor)
+    }
+    
+    func bind(reactor: ReadCommentReactor) {
+        
+        rx.viewWillAppear
+            .map { _ in Reactor.Action.viewDidLoad }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        reactor.state
+                .map { $0.list }
+                .bind(to: tableView.rx.items(
+                        cellIdentifier: "PostCell",
+                        cellType: PostCell.self)) {(row, element: Comment, cell) in
+                            cell.firstLabel.text = element.writer.githubId
+                            cell.contentLabel.text = element.content
+                }.disposed(by: disposeBag)
+
     }
 
     override func setupConstraints() {
@@ -36,14 +58,6 @@ class ReadCommentVC: BaseViewController, UITableViewDelegate, UITableViewDataSou
             $0.height.equalTo(50)
             $0.bottom.equalTo(view.safeAreaLayoutGuide).offset(-5)
         }
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return PostCell()
     }
 
 }

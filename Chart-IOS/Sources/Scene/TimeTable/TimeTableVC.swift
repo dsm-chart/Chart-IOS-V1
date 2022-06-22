@@ -157,8 +157,8 @@ class TimeTableVC: BaseViewController, View {
                     $0.axis = .vertical
                     self.timeTableStackView.addArrangedSubview($0)
                 }
-        }
-            .disposed(by: disposeBag)
+                
+            }.disposed(by: disposeBag)
     }
     
     override func setupConstraints() {
