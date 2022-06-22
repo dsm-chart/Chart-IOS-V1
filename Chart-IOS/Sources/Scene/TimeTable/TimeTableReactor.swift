@@ -20,7 +20,7 @@ class TimeTableReactor: Reactor {
         case viewDidLoad
     }
     enum Mutation {
-        case getTimaTable([TimeTable])
+        case getTimeTable([TimeTable])
     }
     struct State {
         var timeTable: [TimeTable]
@@ -33,7 +33,7 @@ extension TimeTableReactor {
         switch action {
         case .viewDidLoad:
             return getTimeTable().map { timeTable -> Mutation in
-                return .getTimaTable(timeTable)
+                return .getTimeTable(timeTable)
             }
         }
     }
@@ -44,7 +44,7 @@ extension TimeTableReactor {
     func reduce(state: State, mutation: Mutation) -> State {
         var newState = state
         switch mutation {
-        case let .getTimaTable(timeTable):
+        case let .getTimeTable(timeTable):
             newState.timeTable = timeTable
         }
         return newState
