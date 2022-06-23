@@ -79,7 +79,8 @@ extension MainPostReactor {
                     question.accept(data.data)
                 }
             case .failure(_):
-                SPIndicator.present(title: "Error!!", haptic: .error)
+                SPIndicator.present(title: "로딩에 실페했어요!", haptic: .error)
+                question.accept([])
             }
         }.disposed(by: disposeBag)
         return question
