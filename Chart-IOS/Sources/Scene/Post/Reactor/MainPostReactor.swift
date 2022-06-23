@@ -76,7 +76,7 @@ extension MainPostReactor {
             switch event {
             case .success(let response):
                 if let data = try? JSONDecoder().decode(QuestionResponse.self, from: response.data) {
-                    question.accept(data.data)
+                    question.accept(data.content)
                 }
             case .failure(_):
                 SPIndicator.present(title: "로딩에 실페했어요!", haptic: .error)
