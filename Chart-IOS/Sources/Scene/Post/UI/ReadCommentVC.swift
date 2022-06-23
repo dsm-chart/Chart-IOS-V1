@@ -23,7 +23,11 @@ class ReadCommentVC: BaseViewController, View {
     
     override func configureUI() {
         navigationItem.title = "Comment"
-        writeCommentButton.makeMyDesign(color: Asset.mainColor.color, title: "Comment 작성하기", titleColor: .white)
+        writeCommentButton.makeMyDesign(
+                color: Asset.mainColor.color,
+                title: "Comment 작성하기",
+                titleColor: .white)
+
         [tableView, writeCommentButton].forEach {
             view.addSubview($0)
         }
@@ -38,7 +42,7 @@ class ReadCommentVC: BaseViewController, View {
             .disposed(by: disposeBag)
         
         writeCommentButton.rx.tap
-            .bind { _ in self.presentPanModal(AddCommentVC()) }
+            .bind { _ in self.present(AddCommentVC(), animated: true) }
             .disposed(by: disposeBag)
         
         reactor.state
