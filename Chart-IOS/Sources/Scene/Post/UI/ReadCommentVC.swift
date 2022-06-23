@@ -5,7 +5,7 @@
 
 import UIKit
 import ReactorKit
-
+import PanModal
 
 class ReadCommentVC: BaseViewController, View {
     
@@ -35,6 +35,10 @@ class ReadCommentVC: BaseViewController, View {
         rx.viewWillAppear
             .map { _ in Reactor.Action.viewDidLoad }
             .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        writeCommentButton.rx.tap
+            .bind { _ in self.presentPanModal(AddCommentVC()) }
             .disposed(by: disposeBag)
         
         reactor.state
