@@ -17,8 +17,8 @@ class ReadCommentReactor: Reactor {
     let disposeBag: DisposeBag = .init()
     
     enum Action {
-        case viewDidLoad
-        case refreshList
+        case viewDidLoad(String)
+        case refreshList(String)
     }
     
     enum Mutation {
@@ -28,6 +28,7 @@ class ReadCommentReactor: Reactor {
     
     struct State {
         var list: [Comment]
+        var postId = ""
         var isLoading = false
     }
     
@@ -37,14 +38,14 @@ class ReadCommentReactor: Reactor {
 extension ReadCommentReactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
-        case .viewDidLoad:
-            let getPostList = getCommentList().map { list -> Mutation in
+        case .viewDidLoad(let postId):
+            let getPostList = getCommentList(postId).map { list -> Mutation in
                 return .getCommentList(list)
             }
             return getPostList
-        case .refreshList:
+        case .refreshList(let postId):
             return .concat([
-                getCommentList().map { list -> Mutation in
+                getCommentList(postId).map { list -> Mutation in
                     return .getCommentList(list)
                 },
                 .just(.setLoading(false))
@@ -70,9 +71,9 @@ extension ReadCommentReactor {
 
 // MARK: - Function
 extension ReadCommentReactor {
-    func getCommentList() -> PublishRelay<[Comment]> {
+    func getCommentList(_ postId: String) -> PublishRelay<[Comment]> {
         let question = PublishRelay<[Comment]>()
-        API.getQuestion(0, 100).request().subscribe { event in
+        API.getComment(postId).request().subscribe { event in
             switch event {
             case .success(let response):
                 if let data = try? JSONDecoder().decode(CommentArr.self, from: response.data) {

@@ -8,19 +8,19 @@ import ReactorKit
 import PanModal
 
 class ReadCommentVC: BaseViewController, View {
-    
+
     var postId = ""
-    
+
     let reactor = ReadCommentReactor()
-    
+
     private let tableView = UITableView().then {
         $0.backgroundColor = Asset.backgroundColor.color
         $0.register(PostCell.self, forCellReuseIdentifier: "PostCell")
         $0.separatorStyle = .none
     }
-    
+
     private let writeCommentButton = UIButton()
-    
+
     override func configureUI() {
         navigationItem.title = "Comment"
         writeCommentButton.makeMyDesign(
@@ -33,18 +33,18 @@ class ReadCommentVC: BaseViewController, View {
         }
         bind(reactor: reactor)
     }
-    
+
     func bind(reactor: ReadCommentReactor) {
-        
+
         rx.viewWillAppear
-            .map { _ in Reactor.Action.viewDidLoad }
+            .map { _ in Reactor.Action.viewDidLoad(self.postId) }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
-        
+
         writeCommentButton.rx.tap
             .bind { _ in self.present(AddCommentVC(), animated: true) }
             .disposed(by: disposeBag)
-        
+
         reactor.state
                 .map { $0.list }
                 .bind(to: tableView.rx.items(
