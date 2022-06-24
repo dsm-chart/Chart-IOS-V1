@@ -111,9 +111,9 @@ class SchoolMealVC: BaseViewController, View {
         reactor.state
             .map { $0.schoolList }
             .bind { meal in
-                self.breakfastTextView.text = meal.breakfast.joined(separator: ", ")
-                self.lunchTextView.text = meal.lunch.joined(separator: ", ")
-                self.dinnerTextView.text = meal.dinner.joined(separator: ", ")
+                self.breakfastTextView.text = meal.breakfast?.joined(separator: ", ")
+                self.lunchTextView.text = meal.lunch?.joined(separator: ", ")
+                self.dinnerTextView.text = meal.dinner?.joined(separator: ", " )
             }.disposed(by: disposeBag)
     }
     
