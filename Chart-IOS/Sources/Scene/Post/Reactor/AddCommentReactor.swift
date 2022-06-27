@@ -14,15 +14,15 @@ import SPIndicator
 class AddCommentReactor: Reactor {
     var initialState = State()
     let disposeBag: DisposeBag = .init()
-
+    
     enum Action {
         case postButtonClicked(String, String)
     }
-
+    
     enum Mutation {
         case postComment
     }
-
+    
     struct State {}
 }
 
@@ -32,7 +32,7 @@ extension AddCommentReactor {
         switch action {
         case let .postButtonClicked(postId, content):
             return postComment(postId: postId, content: content)
-                    .map { bool -> Mutation in return .postComment }
+                .map { bool -> Mutation in return .postComment }
         }
     }
 }
@@ -43,16 +43,16 @@ extension AddCommentReactor {
     func postComment(postId: String, content: String) -> PublishRelay<Bool> {
         let bool = PublishRelay<Bool>()
         let parm = CommentRequest(content: content, targetId: postId)
-
+        
         API.postComment(parm).request().subscribe { event in
-                    switch event {
-                    case .success(_):
-                        bool.accept(true)
-                    case .failure(_):
-                        SPIndicator.present(title: "전송 실폐", haptic: .error)
-                        bool.accept(false)
-                    }
-                }.disposed(by: disposeBag)
+            switch event {
+            case .success(_):
+                bool.accept(true)
+            case .failure(_):
+                SPIndicator.present(title: "전송 실폐", haptic: .error)
+                bool.accept(false)
+            }
+        }.disposed(by: disposeBag)
         return bool
     }
 }

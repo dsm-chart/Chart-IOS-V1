@@ -155,15 +155,10 @@ extension API {
                         case MyAPIError.requestTimeout:
                             print("⚠️ RequestTimeout")
                             SPAlert.present(
-                                    title: "서버와 연결 시간이 초과되었어요.",
-                                    message: "잠시 후 다시 시도해 주세요",
-                                    preset: .error)
+                                title: "서버와 연결 시간이 초과되었어요.", message: "잠시 후 다시 시도해 주세요", preset: .error)
                         case MyAPIError.internetConnection:
-                            print("⚠️ 인터넷 연결 없음")
-                            SPAlert.present(
-                                    title: "인터넷 연결되지 않았어요.",
-                                    message: "잠시 후 다시 시도해 주세요",
-                                    preset: .error)
+                            print("⚠️ 인넷 연결 없음")
+                            SPAlert.present(title: "인터넷 연결되지 않았어요.", message: "잠시 후 다시 시도해 주세요", preset: .error)
                         case let MyAPIError.restError(error, _, _):
                             guard let response = (error as? MoyaError)?.response else { break }
                             if let jsonObject = try? response.mapJSON(failsOnEmptyData: false) {
@@ -181,8 +176,7 @@ extension API {
                                 }
                                 print(message)
                             }
-                        default:
-                            break
+                        default: break
                         }
                     },
                     onSubscribe: {
