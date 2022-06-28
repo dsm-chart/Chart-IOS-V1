@@ -18,34 +18,7 @@ class LoginManager {
     private let disposeBag = DisposeBag()
     
     private init() {}
-    
-    //  어떤 친구가 코드를 잘못 짜서 이거 안써도 됨
-    func requestAccessToken(code: String) -> PublishRelay<Bool> {
-        let requestToken = PublishRelay<Bool>()
-        let parm = GithubCodeRequst.init(code)
-        API.postGithubCode(parm).request().subscribe { event in
-            switch event {
-            case .success(let response):
-                if let json = try? JSONSerialization.jsonObject(with: response.data, options: []) as? [String : Any] {
-                    if let dic = json as? [String: String] {
-                        let githubAccessToken = dic["access_token"]
-                        print(githubAccessToken ?? "")
-                        KeyChain.create(key: Token.githubAccessToken, token: githubAccessToken!)
-                        requestToken.accept(true)
-                    } else {
-                        requestToken.accept(false)
-                    }
-                } else {
-                    requestToken.accept(false)
-                }
-            case .failure(let error):
-                print(error)
-                requestToken.accept(false)
-            }
-        }.disposed(by: disposeBag)
-        return requestToken
-    }
-    
+
     func checkGithubUser() -> PublishRelay<String> {
         let checkGithubUser = PublishRelay<String>()
         let parm = LoginRequest.init(KeyChain.read(key: Token.githubAccessToken) ?? "")
@@ -115,6 +88,13 @@ class LoginManager {
             }
         }.disposed(by: disposeBag)
         return postReissue
+    }
+
+    func requestCode() {
+        let urlString = "\(Base.githubURL)/login/oauth/authorize?client_id=\(Base.githubClientId)&scope=\(Base.githubScope)"
+        if let url = URL(string: urlString), UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url)
+        }
     }
     
     func goMainHome() {
