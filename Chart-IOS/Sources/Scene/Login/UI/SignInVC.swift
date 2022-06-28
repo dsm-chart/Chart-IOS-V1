@@ -14,7 +14,7 @@ import BEMCheckBox
 import ReactorKit
 
 protocol SearchViewDelegate: AnyObject {
-    func dismissSearchVC(_ areaCode: String, _ schooolCode: String, _ schoolName: String)
+    func dismissSearchVC(_ areaCode: String, _ schoolCode: String, _ schoolName: String)
 }
 
 class SignInVC: BaseViewController, View {
@@ -169,6 +169,14 @@ class SignInVC: BaseViewController, View {
             .map { Reactor.Action.signUpButtonDidTap }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
+
+        signInDoneButton.rx.tap
+            .bind { _ in
+                let vc = SignInDoneVC()
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            .disposed(by: disposeBag)
+
         
         schoolGradeTextField.rx.text
             .orEmpty
@@ -273,10 +281,10 @@ class SignInVC: BaseViewController, View {
 
 extension SignInVC: UITextFieldDelegate, SearchViewDelegate {
     
-    func dismissSearchVC(_ areaCode: String, _ schooolCode: String, _ schoolName: String) {
-        print(schoolName, areaCode)
+    func dismissSearchVC(_ areaCode: String, _ schoolCode: String, _ schoolName: String) {
+        print(schoolName,schoolCode, areaCode)
         searchedAreaCode.accept(areaCode)
-        searchedSchoolCode.accept(schooolCode)
+        searchedSchoolCode.accept(schoolCode)
         searchedSchoolName.accept(schoolName)
         if self.schoolNameTextField.text == "학교를 검색하세요" {
             self.schoolNameTextField.textColor = .separator
