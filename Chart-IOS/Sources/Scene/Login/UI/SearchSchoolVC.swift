@@ -85,7 +85,6 @@ class SearchSchoolVC: BaseViewController, PanModalPresentable, View {
         
         tableView.rx.modelSelected(SearchSchoolResponse.self)
             .bind { [weak self] in
-                print($0.name)
                 self?.delegate?.dismissSearchVC($0.areaCode, $0.code, $0.name)
                 self?.dismiss(animated: true)
             }.disposed(by: disposeBag)
