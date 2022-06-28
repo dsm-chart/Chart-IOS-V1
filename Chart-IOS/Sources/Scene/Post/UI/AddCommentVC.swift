@@ -9,6 +9,8 @@ import UIKit
 import ReactorKit
 
 class AddCommentVC: BaseViewController {
+
+    var postId = ""
     
     private let commentLabel = UILabel().then {
         $0.text = "Comment를 입력해 주세요"

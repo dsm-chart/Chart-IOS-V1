@@ -37,12 +37,13 @@ class ReadPostVC: BaseViewController {
 
     override func configureUI() {
 
-        // Dummy Data
-
         [titleTextLabel, dateLabel, contentTextView, goCommentButton].forEach {
             view.addSubview($0)
         }
-        goCommentButton.makeMyDesign(color: Asset.mainColor.color, title: "Comment 보기", titleColor: .white)
+        goCommentButton.makeMyDesign(
+                color: Asset.mainColor.color,
+                title: "Comment 보기",
+                titleColor: .white)
         
         goCommentButton.rx.tap.bind {
             let readCommentVC = ReadCommentVC()

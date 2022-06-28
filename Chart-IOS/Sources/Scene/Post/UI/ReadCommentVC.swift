@@ -42,7 +42,11 @@ class ReadCommentVC: BaseViewController, View {
             .disposed(by: disposeBag)
 
         writeCommentButton.rx.tap
-            .bind { _ in self.present(AddCommentVC(), animated: true) }
+            .bind { _ in
+                let vc = AddCommentVC()
+                print(self.postId)
+                vc.postId = self.postId
+                self.present(vc, animated: true) }
             .disposed(by: disposeBag)
 
         reactor.state
