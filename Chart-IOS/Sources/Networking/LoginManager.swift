@@ -19,6 +19,32 @@ class LoginManager {
     
     private init() {}
 
+    func requestAccessToken(code: String) -> PublishRelay<Bool> {
+        let requestToken = PublishRelay<Bool>()
+        let parm = GithubCodeRequst.init(code)
+        API.postGithubCode(parm).request().subscribe { event in
+                    switch event {
+                    case .success(let response):
+                        if let json = try? JSONSerialization.jsonObject(with: response.data, options: []) as? [String : Any] {
+                            if let dic = json as? [String: String] {
+                                let githubAccessToken = dic["access_token"]
+                                print(githubAccessToken ?? "")
+                                KeyChain.create(key: Token.githubAccessToken, token: githubAccessToken!)
+                                requestToken.accept(true)
+                            } else {
+                                requestToken.accept(false)
+                            }
+                        } else {
+                            requestToken.accept(false)
+                        }
+                    case .failure(let error):
+                        print(error)
+                        requestToken.accept(false)
+                    }
+                }.disposed(by: disposeBag)
+        return requestToken
+    }
+
     func checkGithubUser() -> PublishRelay<String> {
         let checkGithubUser = PublishRelay<String>()
         let parm = LoginRequest.init(KeyChain.read(key: Token.githubAccessToken) ?? "")
