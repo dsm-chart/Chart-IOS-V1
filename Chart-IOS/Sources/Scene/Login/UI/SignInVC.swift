@@ -219,7 +219,7 @@ class SignInVC: BaseViewController, View {
             .bind(to: schoolNameTextField.rx.text)
             .disposed(by: disposeBag)
         reactor.state
-            .map { String($0.scholNumber) }
+            .map { String($0.schoolNumber) }
             .distinctUntilChanged()
             .bind(to: schoolClassNumberTextField.rx.text)
             .disposed(by: disposeBag)
@@ -282,7 +282,6 @@ class SignInVC: BaseViewController, View {
 extension SignInVC: UITextFieldDelegate, SearchViewDelegate {
     
     func dismissSearchVC(_ areaCode: String, _ schoolCode: String, _ schoolName: String) {
-        print(schoolName,schoolCode, areaCode)
         searchedAreaCode.accept(areaCode)
         searchedSchoolCode.accept(schoolCode)
         searchedSchoolName.accept(schoolName)

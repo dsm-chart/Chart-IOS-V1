@@ -15,7 +15,7 @@ import SPAlert
 final class SignInReactor: Reactor {
     
     let initialState = State(
-        schoolClass: "", scholNumber: "",
+        schoolClass: "", schoolNumber: "",
         schoolCode: "", schoolName: "학교를 검색하세요",
         areaCode: "", nextVC: UIViewController())
     
@@ -43,7 +43,7 @@ final class SignInReactor: Reactor {
     
     struct State {
         var schoolClass: String
-        var scholNumber: String
+        var schoolNumber: String
         var schoolCode: String
         var schoolName: String
         var areaCode: String
@@ -62,12 +62,11 @@ extension SignInReactor {
         case .searchSchoolDidTap:
             return .empty()
         case .signUpButtonDidTap:
-            
             return .just(.signUp)
         case let .updateAreaCode(code):
             return .just(.setAreaCode(code))
         case let .updateSchoolCode(code):
-            return .just(.setAreaCode(code))
+            return .just(.setSchoolCode(code))
         case let .updateSchoolName(name):
             return .just(.setSchoolName(name))
         }
@@ -82,7 +81,7 @@ extension SignInReactor {
         case let .setSchoolClass(scClass):
             newState.schoolClass = scClass
         case let .setSchoolNumber(scNumber):
-            newState.scholNumber = scNumber
+            newState.schoolNumber = scNumber
         case .goSchoolSearchView:
             newState.nextVC = SearchSchoolVC()
         case .signUp:
@@ -91,12 +90,12 @@ extension SignInReactor {
                 accessToken: KeyChain.read(key: Token.githubAccessToken) ?? "",
                 schoolCode: state.schoolCode,
                 grade: Int(state.schoolClass) ?? 0,
-                classNum: Int(state.scholNumber) ?? 0)
+                classNum: Int(state.schoolNumber) ?? 0)
             print(signupParm)
             API.signUp(signupParm).request().subscribe { event in
                 switch event {
                 case .success(_):
-                    SPAlert.present(title: "회원가입 성공", preset: .done)
+                    print("success")
                 case .failure(let error):
                     print(error)
                     SPAlert.present(title: "회원가입 실패", preset: .error)
