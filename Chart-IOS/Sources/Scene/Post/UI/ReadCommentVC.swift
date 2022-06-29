@@ -5,12 +5,10 @@
 
 import UIKit
 import ReactorKit
-import PanModal
 
 class ReadCommentVC: BaseViewController, View {
 
     var postId = ""
-
     let reactor = ReadCommentReactor()
 
     private let tableView = UITableView().then {
@@ -35,19 +33,18 @@ class ReadCommentVC: BaseViewController, View {
     }
 
     func bind(reactor: ReadCommentReactor) {
-
-        rx.viewWillAppear
+        rx.viewDidLayoutSubviews
             .map { _ in Reactor.Action.viewDidLoad(self.postId) }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
 
         writeCommentButton.rx.tap
             .bind { _ in
-                let vc = AddCommentVC()
+                let addCommentVC = AddCommentVC()
                 print(self.postId)
-                vc.postId = self.postId
-                self.present(vc, animated: true) }
-            .disposed(by: disposeBag)
+                addCommentVC.postId = self.postId
+                self.present(addCommentVC, animated: true)
+            }.disposed(by: disposeBag)
 
         reactor.state
                 .map { $0.list }

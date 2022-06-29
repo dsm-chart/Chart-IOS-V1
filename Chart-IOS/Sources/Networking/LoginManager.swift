@@ -41,7 +41,8 @@ class LoginManager {
                         print(error)
                         requestToken.accept(false)
                     }
-                }.disposed(by: disposeBag)
+        }.disposed(by: disposeBag)
+        
         return requestToken
     }
 

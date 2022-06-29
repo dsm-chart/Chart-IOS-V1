@@ -112,12 +112,14 @@ class SignInVC: BaseViewController, View {
     }
     
     func addSubView() {
+        
         let textFieldArraay = [schoolNameTextField, schoolGradeTextField, schoolClassNumberTextField]
         let backViewArray = [textFieldBackView1, textFieldBackView2, textFieldBackView3]
         
         [signInNameLabbel, agreeLabel, agreeCheckBox, signInDoneButton].forEach {
             view.addSubview($0)
         }
+        
         for count in 0..<3 {
             view.addSubview(backViewArray[count])
             backViewArray[count].addSubview(textFieldArraay[count])
@@ -172,12 +174,10 @@ class SignInVC: BaseViewController, View {
 
         signInDoneButton.rx.tap
             .bind { _ in
-                let vc = SignInDoneVC()
-                self.navigationController?.pushViewController(vc, animated: true)
-            }
-            .disposed(by: disposeBag)
+                let signInDoneVC = SignInDoneVC()
+                self.navigationController?.pushViewController(signInDoneVC, animated: true)
+            }.disposed(by: disposeBag)
 
-        
         schoolGradeTextField.rx.text
             .orEmpty
             .map { Reactor.Action.updateSchoolClass($0 ) }
@@ -208,21 +208,25 @@ class SignInVC: BaseViewController, View {
     }
     
     private func bindState(_ reactor: SignInReactor) {
+        
         reactor.state
             .map { String($0.schoolClass) }
             .distinctUntilChanged()
             .bind(to: schoolGradeTextField.rx.text)
             .disposed(by: disposeBag)
+        
         reactor.state
             .map { $0.schoolName }
             .distinctUntilChanged()
             .bind(to: schoolNameTextField.rx.text)
             .disposed(by: disposeBag)
+        
         reactor.state
             .map { String($0.schoolNumber) }
             .distinctUntilChanged()
             .bind(to: schoolClassNumberTextField.rx.text)
             .disposed(by: disposeBag)
+        
     }
     
     override func setupConstraints() {
