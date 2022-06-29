@@ -6,32 +6,34 @@
 //
 
 import UIKit
+import SPIndicator
 import ReactorKit
 
-class AddCommentVC: BaseViewController {
+class AddCommentVC: BaseViewController, View {
 
     var postId = ""
-    
+    let reactor = AddCommentReactor()
+
     private let commentLabel = UILabel().then {
         $0.text = "Comment를 입력해 주세요"
         $0.textColor = Asset.mainColor.color
         $0.font = .roundedFont(ofSize: 18, weight: .semibold)
         $0.textAlignment = .center
     }
-    
+
     private let commentDetailLabel = UILabel().then {
         $0.text = "Comment 내용은 100자 이내여야 합니다. "
         $0.textColor = Asset.labelColor.color
         $0.font = .roundedFont(ofSize: 17, weight: .regular)
         $0.textAlignment = .center
     }
-    
+
     let commentTextField = UITextField().then {
         $0.borderStyle = .none
         $0.tintColor = Asset.mainColor.color
         $0.placeholder = "Comment를 입력하세요..."
     }
-    
+
     let doneButton = UIButton()
 
     let textFieldBottomLine = UIView().then { $0.backgroundColor = .separator }
@@ -46,6 +48,25 @@ class AddCommentVC: BaseViewController {
                 title: "작성하기",
                 titleColor: .white)
 
+        bind(reactor: reactor)
+    }
+
+    func bind(reactor: AddCommentReactor) {
+        doneButton.rx.tap
+                .filter { self.commentTextField.text!.isEmpty == false }
+                .map { Reactor.Action.postButtonClicked(self.postId, self.commentTextField.text!) }
+                .bind(to: reactor.action)
+                .disposed(by: disposeBag)
+
+        doneButton.rx.tap
+                .bind {
+                    if self.commentTextField.text!.isEmpty {
+                        SPIndicator.present(title: "Comment를 입력하세요!", haptic: .error)
+                    } else {
+                        self.dismiss(animated: true)
+                    }
+                }
+                .disposed(by: disposeBag)
     }
 
     override func setupConstraints() {
