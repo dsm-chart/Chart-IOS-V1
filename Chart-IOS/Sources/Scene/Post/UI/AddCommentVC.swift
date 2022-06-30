@@ -63,7 +63,7 @@ class AddCommentVC: BaseViewController, View {
                     if self.commentTextField.text!.isEmpty {
                         SPIndicator.present(title: "Comment를 입력하세요!", haptic: .error)
                     } else {
-                        self.dismiss(animated: true)
+                        self.navigationController?.popViewController(animated: true)
                     }
                 }
                 .disposed(by: disposeBag)
@@ -73,7 +73,7 @@ class AddCommentVC: BaseViewController, View {
 
         commentLabel.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(10)
-            $0.top.equalTo(40)
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(40)
         }
         commentDetailLabel.snp.makeConstraints {
             $0.top.equalTo(commentLabel.snp.bottom).offset(10)

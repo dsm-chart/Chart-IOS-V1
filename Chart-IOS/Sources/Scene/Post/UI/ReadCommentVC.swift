@@ -33,7 +33,7 @@ class ReadCommentVC: BaseViewController, View {
     }
 
     func bind(reactor: ReadCommentReactor) {
-        rx.viewDidLayoutSubviews
+        rx.viewDidAppear
             .map { _ in Reactor.Action.viewDidLoad(self.postId) }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
@@ -43,7 +43,7 @@ class ReadCommentVC: BaseViewController, View {
                 let addCommentVC = AddCommentVC()
                 print(self.postId)
                 addCommentVC.postId = self.postId
-                self.present(addCommentVC, animated: true)
+                self.navigationController?.pushViewController(addCommentVC, animated: true)
             }.disposed(by: disposeBag)
 
         reactor.state
