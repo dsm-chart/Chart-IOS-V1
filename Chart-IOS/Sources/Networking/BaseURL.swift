@@ -8,7 +8,7 @@
 import Foundation
 
 struct Base {
-    static let baseURL = "http://13.125.236.178:8080"
+    static let baseURL = "http://118.67.130.149:8080"
     static let neisURL = "https://open.neis.go.kr"
     static let neisApiKey = Bundle.main.object(forInfoDictionaryKey: "neisApiKey") as? String
     static let githubURL = "https://github.com"
