@@ -77,6 +77,7 @@ class TimeTableVC: BaseViewController, View {
         
         /// dummy Data
         semesterLabel.text = dateFormatter.string(from: date)
+        classNameLabel.text = "0-0 시간표"
         makeStackView()
         bind(reactor: reactor)
     }
