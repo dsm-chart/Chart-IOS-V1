@@ -12,5 +12,18 @@ import RxCocoa
 import SPIndicator
 
 class SettingReactor: Reactor {
-    
+
+        let initialState = State()
+        private let disposeBag: DisposeBag = .init()
+
+        enum Action {
+            case viewDidLoad
+        }
+        enum Mutation {
+            case getUserInfo(String, [QuestionData])
+        }
+        struct State {
+            var userName: String = ""
+            var myList: [QuestionData] = []
+        }
 }
