@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MyInfomation: Codable {
+struct MyInformation: Codable {
     let name: String
     let id: String
     let bio: String
