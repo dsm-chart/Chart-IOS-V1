@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SignUpRequet: Codable {
+struct SignUpRequest: Codable {
     let areaCode: String
     let accessToken: String
     let schoolCode: String

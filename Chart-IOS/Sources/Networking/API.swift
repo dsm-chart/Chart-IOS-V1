@@ -22,7 +22,7 @@ enum API {
 
     // account-controller
 
-    case signUp(_ signUpRequet: SignUpRequet)
+    case signUp(_ signUpRequet: SignUpRequest)
     case reissue(_ token: TokenResponse)
     case login(_ loginRequest: LoginRequest)
     case myAuth

@@ -85,7 +85,7 @@ extension SignInReactor {
         case .goSchoolSearchView:
             newState.nextVC = SearchSchoolVC()
         case .signUp:
-            let signupParm = SignUpRequet(
+            let signupParm = SignUpRequest(
                 areaCode: state.areaCode,
                 accessToken: KeyChain.read(key: Token.githubAccessToken) ?? "",
                 schoolCode: state.schoolCode,
