@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import ReactorKit
 
-class SettingVC: BaseViewController, UITableViewDelegate, UITableViewDataSource {
+class SettingVC: BaseViewController, View, UITableViewDelegate, UITableViewDataSource {
+
+    let reactor = SettingReactor()
 
     private let labelBackView = UIView().then {
         $0.backgroundColor = .clear
@@ -36,6 +39,7 @@ class SettingVC: BaseViewController, UITableViewDelegate, UITableViewDataSource 
         [labelBackView, tableView].forEach {
             view.addSubview($0)
         }
+
         [subTitleLabel, titleLabel].forEach {
             labelBackView.addSubview($0)
         }
@@ -43,14 +47,17 @@ class SettingVC: BaseViewController, UITableViewDelegate, UITableViewDataSource 
         subTitleLabel.text = "OOO님 반가워요"
         titleLabel.text = "환경설정"
 
+        bind(reactor: reactor)
+
         tableView.delegate = self
         tableView.dataSource = self
+
     }
  
     override func setupConstraints() {
+
         labelBackView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide).offset(
-                    -(self.navigationController?.navigationBar.frame.height ?? 0.0))
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(-(self.navigationController?.navigationBar.frame.height ?? 0.0))
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalTo(view.snp.centerY).offset(-234.5)
         }
@@ -73,6 +80,20 @@ class SettingVC: BaseViewController, UITableViewDelegate, UITableViewDataSource 
             $0.bottom.equalTo(view.safeAreaLayoutGuide)
         }
 
+    }
+
+    func bind(reactor: SettingReactor) {
+
+        rx.viewDidAppear
+            .map { _ in Reactor.Action.viewDidLoad }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.userName }
+            .bind { text in  self.subTitleLabel.text = "\(text)님 안녕하세요" }
+            .disposed(by: disposeBag)
+        
     }
 
     let settingTitleArray = ["최근 작성한 개시물", "개인정보 수정하기", "개발자 소개", "오픈소스", "문의하기", "로그아웃"]
