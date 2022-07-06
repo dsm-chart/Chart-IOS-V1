@@ -8,13 +8,18 @@
 import Foundation
 
 struct MyInformation: Codable {
-    let name: String
-    let id: String
-    let bio: String
-    let githubId: String
     
-    let createdAt: String
-    let updatedAt: String
-    
-    let questionList: [QuestionData]
+    let name, id, bio, githubID: String
+    let createdAt, updatedAt: String
+    let questionList: [QuestionList]
+
+    enum CodingKeys: String, CodingKey {
+        case name, id, bio
+        case githubID = "githubId"
+        case createdAt, updatedAt, questionList
+    }
+}
+
+struct QuestionList: Codable {
+    let title, content: String
 }

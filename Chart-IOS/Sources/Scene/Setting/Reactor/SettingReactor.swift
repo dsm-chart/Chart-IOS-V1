@@ -20,11 +20,11 @@ class SettingReactor: Reactor {
             case viewDidLoad
         }
         enum Mutation {
-            case getUserInfo(String, [QuestionData])
+            case getUserInfo(String, [QuestionList])
         }
         struct State {
             var userName: String = ""
-            var myList: [QuestionData] = []
+            var myList: [QuestionList] = []
         }
 }
 
@@ -58,6 +58,7 @@ extension  SettingReactor {
         API.myAuth.request().subscribe { event in
             switch event {
             case .success(let response):
+                
                 if let data = try? JSONDecoder().decode(MyInformation.self, from: response.data) {
                     userInfo.accept(data)
                 }

@@ -403,10 +403,10 @@
 				5769A5ED283DB35E00D60DB6 /* TimeTableResponse.swift */,
 				5769A5EF283DB3C600D60DB6 /* QuestionResponse.swift */,
 				5769A5F1283DB3D500D60DB6 /* UserResponse.swift */,
-				5769A5F3283DB3E900D60DB6 /* CommentResponse.swift */,
-				5769A5F5283DB57C00D60DB6 /* MealResponse.swift */,
 				5769A5F7283DB92E00D60DB6 /* MyInfoResponse.swift */,
 				57B0B8CE2844AE120074EB7E /* TokenResponse.swift */,
+				5769A5F3283DB3E900D60DB6 /* CommentResponse.swift */,
+				5769A5F5283DB57C00D60DB6 /* MealResponse.swift */,
 				57B0B8D02844CB000074EB7E /* CheckUserResponse.swift */,
 				571C9C222847A41800381500 /* SearchSchoolResponse.swift */,
 			);
