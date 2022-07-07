@@ -10,5 +10,5 @@ import Foundation
 struct User: Codable {
     let githubId: String
     let name: String?
-    let bio: String
+    let bio: String?
 }

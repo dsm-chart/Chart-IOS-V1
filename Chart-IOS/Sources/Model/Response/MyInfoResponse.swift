@@ -9,9 +9,9 @@ import Foundation
 
 struct MyInformation: Codable {
     
-    let name, id, bio, githubID: String
-    let createdAt, updatedAt: String
-    let questionList: [QuestionList]
+    let name, id, bio, githubID: String?
+    let createdAt, updatedAt: String?
+    let questionList: [QuestionList]?
     
     enum CodingKeys: String, CodingKey {
         case name, id, bio

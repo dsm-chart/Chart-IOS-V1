@@ -35,7 +35,7 @@ extension SettingReactor {
         switch action {
         case .viewDidLoad:
             return getUserInfo().map { userInfo -> Mutation in
-                return .getUserInfo(userInfo.name, userInfo.questionList)
+                return .getUserInfo(userInfo.name ?? "", userInfo.questionList ?? [])
             }
         }
     }
@@ -59,9 +59,17 @@ extension  SettingReactor {
         API.myAuth.request().subscribe { event in
             switch event {
             case .success(let response):
-                
+                do {
+                    let data = try JSONDecoder().decode(MyInformation.self, from: response.data)
+                    userInfo.accept(data)
+                } catch(let error) {
+                    print(error)
+                    SPIndicator.present(title: "Pars 애러!", preset: .error)
+                }
+
                 if let data = try? JSONDecoder().decode(MyInformation.self, from: response.data) {
                     userInfo.accept(data)
+                    print(data)
                 }
             case .failure(_): break
             }
