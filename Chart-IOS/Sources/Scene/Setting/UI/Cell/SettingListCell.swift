@@ -8,32 +8,39 @@
 import UIKit
 
 class SettingListCell: BaseTableViewCell {
+
+    private let backView = UIView().then {
+        $0.backgroundColor = Asset.viewColor.color
+        $0.layer.cornerRadius = 20
+    }
+
     let titleLabel = UILabel().then {
         $0.textColor = Asset.labelColor.color
         $0.font = .systemFont(ofSize: 18, weight: .regular)
     }
-    private let customRightImage = UIImageView().then {
-        $0.image = UIImage(systemName: "chevron.right.circle")
-        $0.tintColor = Asset.mainColor.color
-    }
-    
+
     override func configureUI() {
+
         contentView.backgroundColor = Asset.backgroundColor.color
-        [titleLabel, customRightImage].forEach {
-            contentView.addSubview($0)
+        contentView.addSubview(backView)
+
+        [titleLabel].forEach {
+            backView.addSubview($0)
         }
-        
+
     }
+
     override func setupConstraints() {
-        titleLabel.snp.makeConstraints {
-            $0.height.left.equalTo(20)
-            $0.top.bottom.equalTo(contentView).inset(15)
+
+        backView.snp.makeConstraints {
+            $0.leading.trailing.equalTo(contentView).inset(35)
+            $0.height.equalTo(60)
+            $0.top.bottom.equalTo(contentView).inset(7.5)
         }
-        customRightImage.snp.makeConstraints {
-            $0.width.height.equalTo(25)
-            $0.right.equalTo(-37)
-            $0.centerY.equalTo(contentView)
+
+        titleLabel.snp.makeConstraints {
+            $0.left.right.equalTo(backView).inset(15)
+            $0.top.bottom.equalTo(backView).inset(15)
         }
     }
-    
 }
