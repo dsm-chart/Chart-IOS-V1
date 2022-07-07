@@ -12,7 +12,7 @@ struct MyInformation: Codable {
     let name, id, bio, githubID: String
     let createdAt, updatedAt: String
     let questionList: [QuestionList]
-
+    
     enum CodingKeys: String, CodingKey {
         case name, id, bio
         case githubID = "githubId"
@@ -21,5 +21,6 @@ struct MyInformation: Codable {
 }
 
 struct QuestionList: Codable {
-    let title, content: String
+    let title: String
+    let content: String
 }

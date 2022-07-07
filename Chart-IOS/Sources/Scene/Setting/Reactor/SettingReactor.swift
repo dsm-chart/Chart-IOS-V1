@@ -25,6 +25,7 @@ class SettingReactor: Reactor {
         struct State {
             var userName: String = ""
             var myList: [QuestionList] = []
+            let settingTitleArray = ["최근 작성한 개시물", "개인정보 수정하기", "개발자 소개", "오픈소스", "문의하기", "로그아웃"]
         }
 }
 
