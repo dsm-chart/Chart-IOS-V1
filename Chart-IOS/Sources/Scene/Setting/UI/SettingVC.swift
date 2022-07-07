@@ -8,7 +8,7 @@
 import UIKit
 import ReactorKit
 
-class SettingVC: BaseViewController, View, UITableViewDelegate, UITableViewDataSource {
+class SettingVC: BaseViewController, View {
 
     let reactor = SettingReactor()
 
@@ -49,15 +49,13 @@ class SettingVC: BaseViewController, View, UITableViewDelegate, UITableViewDataS
 
         bind(reactor: reactor)
 
-        tableView.delegate = self
-        tableView.dataSource = self
-
     }
  
     override func setupConstraints() {
 
         labelBackView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide).offset(-(self.navigationController?.navigationBar.frame.height ?? 0.0))
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(
+                -(self.navigationController?.navigationBar.frame.height ?? 0.0))
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalTo(view.snp.centerY).offset(-234.5)
         }
@@ -94,19 +92,14 @@ class SettingVC: BaseViewController, View, UITableViewDelegate, UITableViewDataS
             .bind { text in  self.subTitleLabel.text = "\(text)님 안녕하세요" }
             .disposed(by: disposeBag)
         
-    }
-
-    let settingTitleArray = ["최근 작성한 개시물", "개인정보 수정하기", "개발자 소개", "오픈소스", "문의하기", "로그아웃"]
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return settingTitleArray.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "settingListCell") as? SettingListCell
-        cell!.titleLabel.text = settingTitleArray[indexPath.row]
-        return cell!
-
+        reactor.state
+            .map { $0.settingTitleArray }
+                .bind(to: tableView.rx.items(
+                        cellIdentifier: "settingListCell",
+                        cellType: SettingListCell.self)) {(row, element: String, cell) in
+                            cell.titleLabel.text = element
+                }.disposed(by: disposeBag)
+        
     }
 
 }
