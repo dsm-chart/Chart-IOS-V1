@@ -92,7 +92,22 @@ class SettingVC: BaseViewController, View {
             .map { _ in Reactor.Action.viewDidLoad }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
-        
+
+        tableView.rx.modelSelected(String.self)
+                .bind { text in
+                    if text == "최근 작성한 게시물" {
+                        let myPostVC = MyPostVC()
+                        myPostVC.myList = self.myList
+                        self.navigationController?.pushViewController(myPostVC, animated: true)
+                    } else if text == "로그아웃" {
+                        KeyChain.delete(key: Token.accessToken)
+                        KeyChain.delete(key: Token.refreshToken)
+                        let loginVC = BaseNavigationController(rootViewController: LoginVC())
+                        loginVC.modalPresentationStyle = .fullScreen
+                        self.present(loginVC, animated: true)
+                    }
+                }.disposed(by: disposeBag)
+
         reactor.state
             .map { $0.userName }
             .bind { text in  self.subTitleLabel.text = "\(text)님 안녕하세요" }
