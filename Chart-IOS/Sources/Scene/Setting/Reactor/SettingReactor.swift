@@ -25,7 +25,7 @@ class SettingReactor: Reactor {
         struct State {
             var userName: String = ""
             var myList: [QuestionList] = []
-            let settingTitleArray = ["최근 작성한 개시물", "개인정보 수정하기", "개발자 소개", "오픈소스", "문의하기", "로그아웃"]
+            let settingTitleArray = ["최근 작성한 게시물", "개인정보 수정하기", "개발자 소개", "오픈소스", "문의하기", "로그아웃"]
         }
 }
 
@@ -62,11 +62,9 @@ extension  SettingReactor {
                 do {
                     let data = try JSONDecoder().decode(MyInformation.self, from: response.data)
                     userInfo.accept(data)
-                } catch(let error) {
-                    print(error)
+                } catch {
                     SPIndicator.present(title: "Pars 애러!", preset: .error)
                 }
-
                 if let data = try? JSONDecoder().decode(MyInformation.self, from: response.data) {
                     userInfo.accept(data)
                     print(data)
