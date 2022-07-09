@@ -93,6 +93,11 @@ class SettingVC: BaseViewController, View {
             .disposed(by: disposeBag)
         
         reactor.state
+            .map { $0.myList }
+            .bind { list in self.myList = list }
+            .disposed(by: disposeBag)
+        
+        reactor.state
             .map { $0.settingTitleArray }
                 .bind(to: tableView.rx.items(
                         cellIdentifier: "settingListCell",
