@@ -7,10 +7,12 @@
 
 import UIKit
 import ReactorKit
+import RxRelay
 
 class SettingVC: BaseViewController, View {
 
     let reactor = SettingReactor()
+    var myList: [QuestionList] = []
 
     private let labelBackView = UIView().then {
         $0.backgroundColor = .clear
