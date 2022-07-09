@@ -52,6 +52,10 @@ class SettingVC: BaseViewController, View {
         bind(reactor: reactor)
 
     }
+    
+    override func setLayout() {
+        self.tabBarController?.tabBar.isHidden = false
+    }
  
     override func setupConstraints() {
 
