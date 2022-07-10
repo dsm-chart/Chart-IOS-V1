@@ -40,4 +40,12 @@ class MyPostVC: BaseViewController {
         self.tabBarController?.tabBar.isHidden = true
         self.tabBarController?.tabBar.isTranslucent = true // <- 이코드가 꼭 있어야함
     }
-    
+
+    override func setupConstraints() {
+        tableView.snp.makeConstraints {
+            $0.top.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(view.safeAreaLayoutGuide).offset(-40)
+        }
+    }
+
+}
